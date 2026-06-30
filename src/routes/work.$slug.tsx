@@ -153,7 +153,7 @@ function CaseStudy() {
       <Section className="pt-4">
         <Reveal>
           <ul className="grid gap-6 sm:grid-cols-3">
-            {c.results.map((r) => (
+            {c.results.map((r: { metric: string; label: string }) => (
               <li key={r.label} className="glass rounded-2xl p-7">
                 <div className="text-4xl md:text-5xl font-display font-semibold text-gradient">{r.metric}</div>
                 <div className="mt-3 text-sm text-muted-foreground">{r.label}</div>
@@ -165,7 +165,7 @@ function CaseStudy() {
 
       <Section className="pt-4">
         <div className="grid gap-12 lg:grid-cols-3">
-          {c.sections.map((s, i) => (
+          {c.sections.map((s: { heading: string; body: string }, i: number) => (
             <Reveal key={s.heading} delay={i * 0.1}>
               <div className="flex items-center gap-2 text-[color:var(--bronze)]">
                 <CheckCircle2 className="h-4 w-4" />
