@@ -1,0 +1,93 @@
+import { Link } from "@tanstack/react-router";
+import { Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Logo } from "./Logo";
+
+const columns = [
+  {
+    title: "Company",
+    links: [
+      { to: "/about", label: "About" },
+      { to: "/work", label: "Case studies" },
+      { to: "/careers", label: "Careers" },
+      { to: "/contact", label: "Contact" },
+    ],
+  },
+  {
+    title: "Platform",
+    links: [
+      { to: "/products", label: "Products" },
+      { to: "/technology", label: "Technology" },
+      { to: "/insights", label: "Insights" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { to: "/insights", label: "Blog" },
+      { to: "/work", label: "Customers" },
+      { to: "/contact", label: "Support" },
+    ],
+  },
+] as const;
+
+export function Footer() {
+  return (
+    <footer className="relative mt-24 border-t border-border">
+      <div className="container-x py-16 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <div className="max-w-sm">
+            <Logo className="h-10 w-auto" />
+            <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
+              Corefusion Technologies builds the resilient, intelligent
+              infrastructure powering the next generation of enterprise systems.
+            </p>
+            <div className="mt-6 flex items-center gap-3">
+              {[
+                { Icon: Twitter, label: "Twitter" },
+                { Icon: Linkedin, label: "LinkedIn" },
+                { Icon: Github, label: "GitHub" },
+              ].map(({ Icon, label }) => (
+                <a
+                  key={label}
+                  href="#"
+                  aria-label={label}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary focus-ring"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+          {columns.map((c) => (
+            <div key={c.title}>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                {c.title}
+              </h4>
+              <ul className="mt-5 space-y-3">
+                {c.links.map((l) => (
+                  <li key={l.label}>
+                    <Link
+                      to={l.to}
+                      className="group inline-flex items-center gap-1 text-sm text-foreground/85 hover:text-primary transition-colors"
+                    >
+                      {l.label}
+                      <ArrowUpRight className="h-3.5 w-3.5 opacity-0 -translate-y-0.5 translate-x-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 hairline" />
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-xs text-muted-foreground">
+          <p>© {new Date().getFullYear()} Corefusion Technologies. All rights reserved.</p>
+          <p className="font-mono tracking-wider">
+            <span className="text-[color:var(--bronze)]">●</span> Systems operational
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
