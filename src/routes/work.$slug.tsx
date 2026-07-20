@@ -123,7 +123,7 @@ export const Route = createFileRoute("/work/$slug")({
 });
 
 function CaseStudy() {
-  const c = Route.useLoaderData();
+  const c = Route.useLoaderData() as (typeof cases)[string];
   return (
     <>
       <Section className="pt-36 md:pt-44 pb-10">
