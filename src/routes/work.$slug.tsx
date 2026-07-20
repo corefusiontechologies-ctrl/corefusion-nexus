@@ -246,16 +246,6 @@ function CaseStudy() {
         </div>
       </Section>
 
-      <Section>
-        <Reveal>
-          <div className="glass rounded-3xl p-10 md:p-14 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold">Want something like this for your business?</h2>
-            <p className="mt-3 text-muted-foreground">Tell us about your goals — we'll come back with a plan.</p>
-            <div className="mt-7"><Link to="/contact"><Button>Start a project</Button></Link></div>
-          </div>
-        </Reveal>
-      </Section>
-
       {c.gallery.length > 0 && (
         <Section className="pt-4">
           <Eyebrow>Screens</Eyebrow>
@@ -271,6 +261,16 @@ function CaseStudy() {
           </ul>
         </Section>
       )}
+
+      <Section>
+        <Reveal>
+          <div className="glass rounded-3xl p-10 md:p-14 text-center">
+            <h2 className="text-3xl md:text-4xl font-semibold">Want something like this for your business?</h2>
+            <p className="mt-3 text-muted-foreground">Tell us about your goals — we'll come back with a plan.</p>
+            <div className="mt-7"><Link to="/contact"><Button>Start a project</Button></Link></div>
+          </div>
+        </Reveal>
+      </Section>
     </>
   );
 }
