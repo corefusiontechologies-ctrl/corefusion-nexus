@@ -4,13 +4,25 @@ import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
 
-const cases: Record<string, {
+import fimaCover from "@/assets/work/fima-cover.jpg.asset.json";
+import fimaAbout from "@/assets/work/fima-about.jpg.asset.json";
+import fimaExam from "@/assets/work/fima-exam.jpg.asset.json";
+import fimaImpact from "@/assets/work/fima-impact.jpg.asset.json";
+import aqaiHome from "@/assets/work/aqai-home.jpg.asset.json";
+import aqaiServices from "@/assets/work/aqai-services.jpg.asset.json";
+import sathaHero from "@/assets/work/satha-hero.jpg.asset.json";
+
+type CaseData = {
   client: string; category: string; title: string; summary: string;
   url: string; tech: string; services: string[];
+  cover: string; gallery: { src: string; caption: string }[];
   results: { metric: string; label: string }[];
   sections: { heading: string; body: string }[];
   features: string[];
-}> = {
+};
+
+const cases: Record<string, CaseData> = {
+
   "fima-save-vision": {
     client: "FIMA Save Vision", category: "Website Redesign · Non-Profit",
     title: "A modern digital home for a global eye-care mission",
@@ -18,6 +30,12 @@ const cases: Record<string, {
     url: "https://www.fimasavevision.org/",
     tech: "WordPress · HTML · CSS · JavaScript",
     services: ["UI/UX Design", "Website Redesign", "Responsive Development", "Performance Optimization", "Content Structure"],
+    cover: fimaCover.url,
+    gallery: [
+      { src: fimaAbout.url, caption: "About FIMA & the mission behind Save Vision" },
+      { src: fimaExam.url, caption: "Clear storytelling of the eye-care programme" },
+      { src: fimaImpact.url, caption: "Impact stats: camps, surgeries, screenings, schools" },
+    ],
     features: [
       "Modern, accessible interface",
       "Fully responsive across all devices",
@@ -43,6 +61,11 @@ const cases: Record<string, {
     url: "https://aqaiassociates.com/",
     tech: "WordPress · HTML · CSS · JavaScript",
     services: ["Website Design", "WordPress Development", "Corporate Branding", "Responsive Development"],
+    cover: aqaiHome.url,
+    gallery: [
+      { src: aqaiHome.url, caption: "Homepage hero — 'Welcome to AQAI Associates'" },
+      { src: aqaiServices.url, caption: "Service breakdown: Internal Audit, Tax Advisory, Accounting" },
+    ],
     features: [
       "Professional corporate layout",
       "Service-focused navigation",
@@ -68,6 +91,10 @@ const cases: Record<string, {
     url: "https://sathatowservice.com/",
     tech: "HTML · CSS · JavaScript",
     services: ["Landing Page Design", "Arabic RTL Development", "Conversion Optimisation", "Mobile Optimisation"],
+    cover: sathaHero.url,
+    gallery: [
+      { src: sathaHero.url, caption: "Arabic RTL hero with direct call and WhatsApp CTAs" },
+    ],
     features: [
       "Native Arabic RTL interface",
       "One-page conversion-focused layout",
@@ -144,6 +171,20 @@ function CaseStudy() {
         </Reveal>
       </Section>
 
+      <Section className="pt-0">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-border">
+            <div className="absolute -inset-6 rounded-3xl bg-signature-gradient opacity-15 blur-3xl" aria-hidden />
+            <img
+              src={c.cover}
+              alt={`${c.client} website — cover screenshot`}
+              className="relative w-full h-auto object-cover"
+              loading="eager"
+            />
+          </div>
+        </Reveal>
+      </Section>
+
       <Section className="pt-4">
         <Reveal>
           <ul className="grid gap-6 sm:grid-cols-3">
@@ -204,6 +245,22 @@ function CaseStudy() {
           </Reveal>
         </div>
       </Section>
+
+      {c.gallery.length > 0 && (
+        <Section className="pt-4">
+          <Eyebrow>Screens</Eyebrow>
+          <ul className="mt-8 grid gap-6 md:grid-cols-2">
+            {c.gallery.map((g, i) => (
+              <Reveal key={g.src} delay={i * 0.08}>
+                <figure className="glass rounded-2xl overflow-hidden">
+                  <img src={g.src} alt={g.caption} className="w-full h-auto object-cover" loading="lazy" />
+                  <figcaption className="p-4 text-xs text-muted-foreground border-t border-border">{g.caption}</figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </ul>
+        </Section>
+      )}
 
       <Section>
         <Reveal>

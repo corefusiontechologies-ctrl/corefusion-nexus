@@ -8,6 +8,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
+import fimaCover from "@/assets/work/fima-cover.jpg.asset.json";
+import aqaiHome from "@/assets/work/aqai-home.jpg.asset.json";
+import sathaHero from "@/assets/work/satha-hero.jpg.asset.json";
+
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
@@ -30,19 +34,19 @@ const cases = [
     id: "fima-save-vision", client: "FIMA Save Vision", category: "Non-Profit",
     title: "A modern digital home for a global eye-care mission",
     metric: "100%", metricLabel: "responsive & accessible",
-    color: "from-[#F97316] to-[#C2410C]",
+    cover: fimaCover.url,
   },
   {
     id: "aqai-associates", client: "AQAI Associates", category: "Financial Services",
     title: "A trustworthy corporate presence for a financial advisory firm",
     metric: "↑", metricLabel: "credibility & inquiries",
-    color: "from-[#D4A574] to-[#F97316]",
+    cover: aqaiHome.url,
   },
   {
     id: "satha-tow-service", client: "Satha Tow Service", category: "Automotive",
     title: "A high-converting Arabic RTL landing page for paid campaigns",
     metric: "RTL", metricLabel: "native Arabic experience",
-    color: "from-[#C2410C] to-[#D4A574]",
+    cover: sathaHero.url,
   },
 ];
 
@@ -100,8 +104,8 @@ function WorkPage() {
                 transition={{ duration: 0.5, ease, delay: i * 0.05 }}
               >
                 <Link to="/work/$slug" params={{ slug: c.id }} className="group relative block overflow-hidden rounded-2xl border border-border bg-surface aspect-[5/4]">
-                  <div className={cn("absolute inset-0 bg-gradient-to-br opacity-80 transition-transform duration-700 group-hover:scale-105", c.color)} />
-                  <div className="absolute inset-0 bg-background/40" />
+                  <img src={c.cover} alt={`${c.client} — case study cover`} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
                   <div
                     className="absolute inset-0 opacity-[0.18]"
                     style={{
