@@ -10,8 +10,8 @@ import { ease } from "@/lib/motion";
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/products", label: "Products" },
-  { to: "/technology", label: "Technology" },
+  { to: "/services", label: "Services" },
+  { to: "/technology", label: "Process" },
   { to: "/work", label: "Work" },
   { to: "/insights", label: "Insights" },
   { to: "/careers", label: "Careers" },
@@ -70,7 +70,7 @@ export function Navbar() {
         <div className="hidden lg:block">
           <Link to="/contact">
             <Button size="sm" variant="primary">
-              Contact <ArrowUpRight className="h-4 w-4" />
+              Start a project <ArrowUpRight className="h-4 w-4" />
             </Button>
           </Link>
         </div>
@@ -124,7 +124,7 @@ export function Navbar() {
               >
                 <Link to="/contact">
                   <Button size="md" className="w-full">
-                    Contact us <ArrowUpRight className="h-4 w-4" />
+                    Start a project <ArrowUpRight className="h-4 w-4" />
                   </Button>
                 </Link>
               </motion.div>

@@ -1,20 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
+import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import { fadeUp, stagger, viewportOnce, ease } from "@/lib/motion";
+import { ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Work — Corefusion case studies" },
-      { name: "description", content: "How leading engineering teams are running Corefusion in production." },
-      { property: "og:title", content: "Work — Corefusion" },
-      { property: "og:description", content: "Selected case studies from production." },
+      { title: "Selected Work — CoreFusion Technologies" },
+      { name: "description", content: "Case studies across non-profits, financial services and regional businesses — built for performance, usability and long-term business value." },
+      { property: "og:title", content: "Work — CoreFusion Technologies" },
+      { property: "og:description", content: "A selection of projects we've delivered." },
       { property: "og:url", content: "/work" },
     ],
     links: [{ rel: "canonical", href: "/work" }],
@@ -22,16 +22,28 @@ export const Route = createFileRoute("/work")({
   component: WorkPage,
 });
 
-const categories = ["All", "Finance", "Energy", "Bio", "Logistics", "Public sector"] as const;
+const categories = ["All", "Non-Profit", "Financial Services", "Automotive"] as const;
 type Category = typeof categories[number];
 
 const cases = [
-  { id: "atlas", client: "Atlas Capital", category: "Finance", title: "Rebuilding a trading platform on Corefusion Fabric", metric: "↓ 78%", metricLabel: "infra spend", color: "from-[#F97316] to-[#C2410C]" },
-  { id: "northwind", client: "Northwind Energy", category: "Energy", title: "Real-time grid telemetry across 3,200 sites", metric: "12ms", metricLabel: "median p99", color: "from-[#D4A574] to-[#F97316]" },
-  { id: "helix", client: "Helix Bio", category: "Bio", title: "Genomic pipeline orchestration at petabyte scale", metric: "9×", metricLabel: "faster runs", color: "from-[#C2410C] to-[#D4A574]" },
-  { id: "orion", client: "Orion Logistics", category: "Logistics", title: "A unified runtime for last-mile routing", metric: "99.999%", metricLabel: "delivery uptime", color: "from-[#F97316] to-[#D4A574]" },
-  { id: "axiom", client: "Axiom Health", category: "Public sector", title: "Patient-record fabric across 14 hospital systems", metric: "0", metricLabel: "data breaches", color: "from-[#D4A574] to-[#C2410C]" },
-  { id: "vertex", client: "Vertex Securities", category: "Finance", title: "Sub-millisecond risk engine for global desks", metric: "0.7ms", metricLabel: "trade-to-risk", color: "from-[#F97316] to-[#C2410C]" },
+  {
+    id: "fima-save-vision", client: "FIMA Save Vision", category: "Non-Profit",
+    title: "A modern digital home for a global eye-care mission",
+    metric: "100%", metricLabel: "responsive & accessible",
+    color: "from-[#F97316] to-[#C2410C]",
+  },
+  {
+    id: "aqai-associates", client: "AQAI Associates", category: "Financial Services",
+    title: "A trustworthy corporate presence for a financial advisory firm",
+    metric: "↑", metricLabel: "credibility & inquiries",
+    color: "from-[#D4A574] to-[#F97316]",
+  },
+  {
+    id: "satha-tow-service", client: "Satha Tow Service", category: "Automotive",
+    title: "A high-converting Arabic RTL landing page for paid campaigns",
+    metric: "RTL", metricLabel: "native Arabic experience",
+    color: "from-[#C2410C] to-[#D4A574]",
+  },
 ];
 
 function WorkPage() {
@@ -44,8 +56,12 @@ function WorkPage() {
         <Reveal>
           <Eyebrow>Selected work</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
-            Production stories from <span className="text-gradient">the teams</span> running Corefusion.
+            Projects delivered across <span className="text-gradient">non-profits, finance</span> and regional business.
           </h1>
+          <p className="mt-7 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+            Every project is built with a focus on performance, usability, and
+            long-term business value. Here's a selection of recent work.
+          </p>
         </Reveal>
       </Section>
 
@@ -117,9 +133,9 @@ function WorkPage() {
       <Section>
         <Reveal>
           <div className="glass rounded-3xl p-10 md:p-14 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold">Have a story you'd like to share?</h2>
-            <p className="mt-3 text-muted-foreground">We feature engineering teams doing exceptional work on Corefusion.</p>
-            <div className="mt-7"><Link to="/contact"><Button>Get in touch</Button></Link></div>
+            <h2 className="text-3xl md:text-4xl font-semibold">Have a project in mind?</h2>
+            <p className="mt-3 text-muted-foreground">Tell us about your goals — we respond within one business day.</p>
+            <div className="mt-7"><Link to="/contact"><Button>Start a project</Button></Link></div>
           </div>
         </Reveal>
       </Section>

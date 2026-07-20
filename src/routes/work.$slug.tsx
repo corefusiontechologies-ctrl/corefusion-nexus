@@ -1,101 +1,90 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ExternalLink } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
 
 const cases: Record<string, {
   client: string; category: string; title: string; summary: string;
-  results: { metric: string; label: string }[]; sections: { heading: string; body: string }[];
+  url: string; tech: string; services: string[];
+  results: { metric: string; label: string }[];
+  sections: { heading: string; body: string }[];
+  features: string[];
 }> = {
-  atlas: {
-    client: "Atlas Capital", category: "Finance",
-    title: "Rebuilding a trading platform on Corefusion Fabric",
-    summary: "Atlas migrated their order-matching and risk infrastructure from a hand-rolled Kubernetes stack onto Corefusion in eleven weeks.",
+  "fima-save-vision": {
+    client: "FIMA Save Vision", category: "Website Redesign · Non-Profit",
+    title: "A modern digital home for a global eye-care mission",
+    summary: "A complete redesign of the FIMA Save Vision website — a global humanitarian initiative dedicated to preventing blindness and restoring sight through eye-care camps, surgeries, and community outreach.",
+    url: "https://www.fimasavevision.org/",
+    tech: "WordPress · HTML · CSS · JavaScript",
+    services: ["UI/UX Design", "Website Redesign", "Responsive Development", "Performance Optimization", "Content Structure"],
+    features: [
+      "Modern, accessible interface",
+      "Fully responsive across all devices",
+      "Optimised page performance",
+      "Improved navigation and user journey",
+      "Clear presentation of the organisation's mission and global impact",
+    ],
     results: [
-      { metric: "↓ 78%", label: "Infrastructure spend" },
-      { metric: "↑ 4.6×", label: "Throughput per node" },
-      { metric: "11 wks", label: "Migration timeline" },
+      { metric: "100%", label: "Responsive & accessible" },
+      { metric: "↑", label: "User engagement" },
+      { metric: "SEO", label: "Ready & indexed" },
     ],
     sections: [
-      { heading: "The challenge", body: "Three years of accumulated complexity meant Atlas's platform team spent 70% of their time on toil. Each new market integration took a quarter." },
-      { heading: "The work", body: "We collapsed twelve services into a single Corefusion deployment, replacing four queue systems and two custom schedulers. Cutover happened market-by-market over a single weekend." },
-      { heading: "The result", body: "Atlas now ships new markets in under a week. Their on-call rotation went from weekly to monthly. Total cost of ownership dropped by 78%." },
+      { heading: "The challenge", body: "FIMA Save Vision needed a digital presence that matched the scale and seriousness of their global work — but their existing site was slow, hard to navigate, and didn't tell the impact story clearly." },
+      { heading: "The work", body: "We led a full redesign focused on clarity and accessibility: a modern visual system, a restructured information architecture, and a performance-first WordPress build tuned for the organisation's global audience." },
+      { heading: "The result", body: "A modern digital presence that communicates the mission clearly, works beautifully on every device, and gives supporters an easy way to engage with the organisation's work." },
     ],
   },
-  northwind: {
-    client: "Northwind Energy", category: "Energy",
-    title: "Real-time grid telemetry across 3,200 sites",
-    summary: "Northwind needed a real-time view of every turbine and inverter in their fleet, with sub-second response to anomalies.",
+  "aqai-associates": {
+    client: "AQAI Associates", category: "Corporate Website · Financial Services",
+    title: "A trustworthy corporate presence for a financial advisory firm",
+    summary: "Designed and developed a professional WordPress website for AQAI Associates, a Lahore-based financial, tax, legal, and advisory firm. The objective: establish a trustworthy online presence and present the firm's expertise through a clean, structured corporate design.",
+    url: "https://aqaiassociates.com/",
+    tech: "WordPress · HTML · CSS · JavaScript",
+    services: ["Website Design", "WordPress Development", "Corporate Branding", "Responsive Development"],
+    features: [
+      "Professional corporate layout",
+      "Service-focused navigation",
+      "Mobile-responsive design",
+      "Optimised performance",
+      "Clear presentation of financial and advisory services",
+    ],
     results: [
-      { metric: "12ms", label: "Median p99" },
-      { metric: "3.2k", label: "Sites onlined" },
-      { metric: "100%", label: "Anomaly capture" },
+      { metric: "↑", label: "Credibility & inquiries" },
+      { metric: "100%", label: "Mobile responsive" },
+      { metric: "SEO", label: "Structured & indexed" },
     ],
     sections: [
-      { heading: "The challenge", body: "Legacy SCADA infrastructure couldn't keep up with the data volume from modern asset fleets. Operators were flying partly blind." },
-      { heading: "The work", body: "Corefusion Stream replaced the existing Kafka cluster. Edge nodes run Fabric for local control loops and stream telemetry to a regional Atlas." },
-      { heading: "The result", body: "Northwind responds to grid events in milliseconds, not minutes. Anomaly detection runs at the edge and escalates centrally." },
+      { heading: "The challenge", body: "AQAI Associates needed to translate a well-established offline reputation into an online presence that would inspire confidence with prospective clients — without feeling generic or template-driven." },
+      { heading: "The work", body: "We built a structured corporate site on WordPress, with a service-first architecture, careful typography, and a visual identity that reflects the firm's professionalism. Every page was optimised for speed and mobile." },
+      { heading: "The result", body: "A polished corporate website that strengthens credibility and makes it easier for potential clients to explore the firm's services and reach out." },
     ],
   },
-  helix: {
-    client: "Helix Bio", category: "Bio",
-    title: "Genomic pipeline orchestration at petabyte scale",
-    summary: "Helix's research teams needed to run thousands of genomic pipelines a day without queueing or operational overhead.",
+  "satha-tow-service": {
+    client: "Satha Tow Service", category: "Landing Page · Automotive Services",
+    title: "A high-converting Arabic RTL landing page for paid campaigns",
+    summary: "Created a high-converting Arabic landing page for Satha Tow Service, a 24/7 vehicle towing and transportation company serving the Riyadh–Jeddah region. The page was designed specifically for paid advertising campaigns and fast customer conversions.",
+    url: "https://sathatowservice.com/",
+    tech: "HTML · CSS · JavaScript",
+    services: ["Landing Page Design", "Arabic RTL Development", "Conversion Optimisation", "Mobile Optimisation"],
+    features: [
+      "Native Arabic RTL interface",
+      "One-page conversion-focused layout",
+      "Direct WhatsApp integration",
+      "One-click phone call functionality",
+      "Service coverage and pricing sections",
+      "Mobile-first experience",
+    ],
     results: [
-      { metric: "9×", label: "Faster runs" },
-      { metric: "PB", label: "Daily throughput" },
-      { metric: "0", label: "Manual handoffs" },
+      { metric: "RTL", label: "Native Arabic experience" },
+      { metric: "1-tap", label: "Call & WhatsApp" },
+      { metric: "Fast", label: "Load times for ads" },
     ],
     sections: [
-      { heading: "The challenge", body: "Existing pipeline runners couldn't bin-pack stateful workloads efficiently, leaving expensive GPU capacity idle." },
-      { heading: "The work", body: "We built a Helix-specific scheduler as a Fabric extension, with co-located storage in Atlas." },
-      { heading: "The result", body: "Helix's research velocity 9×'d in six months. Researchers stopped scheduling pipelines around capacity windows." },
-    ],
-  },
-  orion: {
-    client: "Orion Logistics", category: "Logistics",
-    title: "A unified runtime for last-mile routing",
-    summary: "Orion replaced six microservices and three brokers with a single Corefusion deployment per region.",
-    results: [
-      { metric: "99.999%", label: "Delivery uptime" },
-      { metric: "−65%", label: "Latency" },
-      { metric: "3", label: "Engineers on-call" },
-    ],
-    sections: [
-      { heading: "The challenge", body: "Routing decisions had to happen in under 50ms, end-to-end, across a fleet of 14,000 drivers." },
-      { heading: "The work", body: "Corefusion Fabric runs the routing logic. Pulse provides the observability surface their dispatch team uses live." },
-      { heading: "The result", body: "Orion's on-call team shrank from twelve to three, while delivery reliability set a company record." },
-    ],
-  },
-  axiom: {
-    client: "Axiom Health", category: "Public sector",
-    title: "Patient-record fabric across 14 hospital systems",
-    summary: "Axiom unified patient records across regional hospital networks with strict consent and audit guarantees.",
-    results: [
-      { metric: "0", label: "Data breaches" },
-      { metric: "14", label: "Hospital systems" },
-      { metric: "100%", label: "Audit coverage" },
-    ],
-    sections: [
-      { heading: "The challenge", body: "Legacy record systems couldn't share data across institutional boundaries without creating compliance risk." },
-      { heading: "The work", body: "Vault provides per-request authorization tied to clinician identity. Atlas stores records with strong consistency, replicated by jurisdiction." },
-      { heading: "The result", body: "Cross-institution care coordination now works in minutes, not days, with full audit trail for every access." },
-    ],
-  },
-  vertex: {
-    client: "Vertex Securities", category: "Finance",
-    title: "Sub-millisecond risk engine for global desks",
-    summary: "Vertex needed every trade evaluated for risk before it left the book — at the speed of the market.",
-    results: [
-      { metric: "0.7ms", label: "Trade-to-risk" },
-      { metric: "8", label: "Global regions" },
-      { metric: "1.4B", label: "Daily evaluations" },
-    ],
-    sections: [
-      { heading: "The challenge", body: "Risk evaluations were happening in batches, occasionally allowing positions to drift past limits." },
-      { heading: "The work", body: "Corefusion Insight runs risk models in-line, co-located with the order flow on Stream." },
-      { heading: "The result", body: "Vertex now evaluates every trade against firm-wide risk in under a millisecond, with full observability." },
+      { heading: "The challenge", body: "Satha needed a page purpose-built for paid ad traffic — instantly readable in Arabic, fast on mobile networks, and designed to turn a visitor into a phone call or WhatsApp message in seconds." },
+      { heading: "The work", body: "We designed a one-page RTL layout focused on trust signals and direct contact. Every element — hero, service list, coverage map, contact block — was built to remove friction between arrival and enquiry." },
+      { heading: "The result", body: "A streamlined landing page designed to maximise enquiries from advertising campaigns through fast loading times, clear calls to action, and native Arabic UX." },
     ],
   },
 };
@@ -108,9 +97,9 @@ export const Route = createFileRoute("/work/$slug")({
   },
   head: ({ loaderData, params }) => ({
     meta: loaderData ? [
-      { title: `${loaderData.client} — Corefusion case study` },
+      { title: `${loaderData.client} — CoreFusion case study` },
       { name: "description", content: loaderData.summary },
-      { property: "og:title", content: `${loaderData.client} — Corefusion` },
+      { property: "og:title", content: `${loaderData.client} — CoreFusion` },
       { property: "og:description", content: loaderData.summary },
       { property: "og:url", content: `/work/${params.slug}` },
     ] : [],
@@ -134,7 +123,7 @@ export const Route = createFileRoute("/work/$slug")({
 });
 
 function CaseStudy() {
-  const c = Route.useLoaderData();
+  const c = Route.useLoaderData() as (typeof cases)[string];
   return (
     <>
       <Section className="pt-36 md:pt-44 pb-10">
@@ -143,9 +132,14 @@ function CaseStudy() {
             <ArrowLeft className="h-4 w-4" /> All case studies
           </Link>
           <div className="mt-8">
-            <Eyebrow>{c.category} · {c.client}</Eyebrow>
+            <Eyebrow>{c.category}</Eyebrow>
             <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-[-0.03em] max-w-4xl">{c.title}</h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">{c.summary}</p>
+            <div className="mt-8">
+              <a href={c.url} target="_blank" rel="noopener noreferrer">
+                <Button>Visit website <ExternalLink className="h-4 w-4" /></Button>
+              </a>
+            </div>
           </div>
         </Reveal>
       </Section>
@@ -153,7 +147,7 @@ function CaseStudy() {
       <Section className="pt-4">
         <Reveal>
           <ul className="grid gap-6 sm:grid-cols-3">
-            {c.results.map((r: { metric: string; label: string }) => (
+            {c.results.map((r) => (
               <li key={r.label} className="glass rounded-2xl p-7">
                 <div className="text-4xl md:text-5xl font-display font-semibold text-gradient">{r.metric}</div>
                 <div className="mt-3 text-sm text-muted-foreground">{r.label}</div>
@@ -165,7 +159,7 @@ function CaseStudy() {
 
       <Section className="pt-4">
         <div className="grid gap-12 lg:grid-cols-3">
-          {c.sections.map((s: { heading: string; body: string }, i: number) => (
+          {c.sections.map((s, i) => (
             <Reveal key={s.heading} delay={i * 0.1}>
               <div className="flex items-center gap-2 text-[color:var(--bronze)]">
                 <CheckCircle2 className="h-4 w-4" />
@@ -178,12 +172,45 @@ function CaseStudy() {
         </div>
       </Section>
 
+      <Section className="pt-4">
+        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+          <Reveal>
+            <Eyebrow>Services</Eyebrow>
+            <ul className="mt-6 space-y-3">
+              {c.services.map((s) => (
+                <li key={s} className="flex items-start gap-3 text-sm">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary" />
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <div className="text-xs font-mono uppercase tracking-[0.18em] text-[color:var(--bronze)]">Technology</div>
+              <p className="mt-2 text-sm text-foreground/85">{c.tech}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <Eyebrow>Key features</Eyebrow>
+            <ul className="mt-6 space-y-3">
+              {c.features.map((f) => (
+                <li key={f} className="flex items-start gap-3 text-sm">
+                  <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary shrink-0">
+                    <CheckCircle2 className="h-3 w-3" />
+                  </span>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </Section>
+
       <Section>
         <Reveal>
           <div className="glass rounded-3xl p-10 md:p-14 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold">Curious what this looks like for you?</h2>
-            <p className="mt-3 text-muted-foreground">A 30-minute conversation with our engineering team.</p>
-            <div className="mt-7"><Link to="/contact"><Button>Book a session</Button></Link></div>
+            <h2 className="text-3xl md:text-4xl font-semibold">Want something like this for your business?</h2>
+            <p className="mt-3 text-muted-foreground">Tell us about your goals — we'll come back with a plan.</p>
+            <div className="mt-7"><Link to="/contact"><Button>Start a project</Button></Link></div>
           </div>
         </Reveal>
       </Section>

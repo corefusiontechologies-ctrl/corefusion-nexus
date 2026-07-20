@@ -28,7 +28,7 @@ function NotFoundComponent() {
           <h1 className="mt-6 text-7xl md:text-8xl font-semibold text-gradient">404</h1>
           <h2 className="mt-4 text-2xl md:text-3xl font-semibold">Signal lost</h2>
           <p className="mt-3 text-muted-foreground">
-            The page you're looking for isn't part of our infrastructure — yet.
+            The page you're looking for isn't part of our project — yet.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link to="/"><Button>Return home</Button></Link>
@@ -73,12 +73,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0A0A0B" },
-      { title: "Corefusion Technologies — Infrastructure for what comes next" },
-      { name: "description", content: "Corefusion Technologies builds resilient, intelligent infrastructure for the next generation of enterprise systems." },
-      { name: "author", content: "Corefusion Technologies" },
-      { property: "og:site_name", content: "Corefusion Technologies" },
-      { property: "og:title", content: "Corefusion Technologies" },
-      { property: "og:description", content: "Infrastructure for what comes next." },
+      { title: "CoreFusion Technologies — Engineered digital solutions for modern business" },
+      { name: "description", content: "CoreFusion Technologies designs, develops, and delivers scalable web, software, and AI solutions that help businesses grow." },
+      { name: "author", content: "CoreFusion Technologies" },
+      { property: "og:site_name", content: "CoreFusion Technologies" },
+      { property: "og:title", content: "CoreFusion Technologies" },
+      { property: "og:description", content: "We engineer digital solutions that help businesses grow." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

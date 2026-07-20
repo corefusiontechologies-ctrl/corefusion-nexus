@@ -1,66 +1,66 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Cpu, Layers, Network, Database, Shield, Activity } from "lucide-react";
-import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
+import { MessageSquare, Palette, Wrench, Rocket, ShieldCheck, Layers } from "lucide-react";
+import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
 import { motion } from "framer-motion";
-import { fadeUp, stagger, viewportOnce, slideInLeft, slideInRight, ease } from "@/lib/motion";
+import { slideInLeft, slideInRight, ease } from "@/lib/motion";
 
 export const Route = createFileRoute("/technology")({
   head: () => ({
     meta: [
-      { title: "Technology — Corefusion" },
-      { name: "description", content: "Under the hood of the Corefusion platform: architecture, data plane, security, and the runtime that makes it work." },
-      { property: "og:title", content: "Technology — Corefusion" },
-      { property: "og:description", content: "How Corefusion is built." },
+      { title: "Our Process & Stack — CoreFusion Technologies" },
+      { name: "description", content: "How CoreFusion delivers projects: our four-step process, the modern technology stack we build with, and how we support you after launch." },
+      { property: "og:title", content: "Our Process — CoreFusion" },
+      { property: "og:description", content: "How we build software that lasts." },
       { property: "og:url", content: "/technology" },
     ],
     links: [{ rel: "canonical", href: "/technology" }],
   }),
-  component: TechPage,
+  component: ProcessPage,
 });
 
 const sections = [
   {
-    Icon: Cpu, eyebrow: "Runtime", title: "A Rust-native data plane",
-    text: "Corefusion's core is written in Rust with a custom scheduler that pins workloads to NUMA nodes and bypasses the kernel for hot-path I/O. The result: deterministic latency under load, even at the 99.99th percentile.",
-    bullets: ["Kernel-bypass networking (io_uring + DPDK)", "Lock-free task scheduler", "WASM-based extensions"],
+    Icon: MessageSquare, eyebrow: "Step 01 · Discover", title: "Understand the business first",
+    text: "Every project starts with a working session. We map your goals, users, and constraints, then agree on a clear scope and success criteria before a single pixel is designed.",
+    bullets: ["Stakeholder workshops", "Competitor & user research", "Written scope & timeline", "Fixed or milestone-based pricing"],
   },
   {
-    Icon: Network, eyebrow: "Topology", title: "Self-organising fabric",
-    text: "Every node participates in a gossip-based consensus protocol that converges on a global view of intent in under a second. Topology changes propagate without re-sharding or coordinator outages.",
-    bullets: ["Sub-second convergence", "Multi-region by default", "Coordinator-free design"],
+    Icon: Palette, eyebrow: "Step 02 · Design", title: "Design for people, not portfolios",
+    text: "Wireframes, prototypes, and a visual system that fits your brand and your users. You review every screen — nothing gets built without your sign-off.",
+    bullets: ["Wireframes & user flows", "Interactive Figma prototypes", "Brand & component system", "Accessibility from day one"],
   },
   {
-    Icon: Database, eyebrow: "State", title: "Storage engineered with the runtime",
-    text: "Atlas, our planet-scale store, ships in the same binary as the compute plane. Locality decisions happen at scheduling time — your data lives where your code runs, and moves when it shouldn't.",
-    bullets: ["Strong consistency on hot paths", "Eventual where appropriate", "Vector and relational unified"],
+    Icon: Wrench, eyebrow: "Step 03 · Build", title: "Modern stack, clean code",
+    text: "We use production-grade tools chosen for reliability, speed and long-term maintainability. Everything we ship is documented and handed over cleanly.",
+    bullets: ["React, Next.js, TypeScript", "WordPress for content-heavy sites", "Node.js, Python & serverless", "Postgres, Supabase, Cloudflare"],
   },
   {
-    Icon: Shield, eyebrow: "Security", title: "Zero-trust at the protocol layer",
-    text: "Identity is bound to workloads at the runtime. Every request between services is authenticated, authorized and audited — without sidecar overhead. Secrets are hardware-bound, never written to disk.",
-    bullets: ["mTLS everywhere, no exceptions", "Per-request authorization", "Hardware-rooted attestation"],
+    Icon: Rocket, eyebrow: "Step 04 · Launch & Support", title: "Ship, measure, keep improving",
+    text: "Launch is a checkpoint, not the finish line. We monitor performance, respond to issues, and keep improving the product as your business evolves.",
+    bullets: ["Analytics & monitoring setup", "SEO audit & submission", "Ongoing maintenance retainers", "Same-day response SLAs"],
   },
   {
-    Icon: Activity, eyebrow: "Observability", title: "Time travel, not just dashboards",
-    text: "Pulse captures the full causal graph of every request — across services, regions and retries. Replay any production minute with bit-for-bit fidelity, and ask new questions of old data.",
-    bullets: ["Causal traces, not just spans", "Bit-exact replay", "Sub-second analytics"],
+    Icon: ShieldCheck, eyebrow: "Guarantees", title: "Built to last, built to trust",
+    text: "Every project ships with performance, security and accessibility baselines. If something breaks in the first 90 days, we fix it — no invoice.",
+    bullets: ["90-day post-launch warranty", "Security patching included", "Core Web Vitals guaranteed", "Documented handover"],
   },
 ];
 
-function TechPage() {
+function ProcessPage() {
   return (
     <>
       <Section className="pt-36 md:pt-44 pb-10">
         <Reveal>
-          <Eyebrow>Technology</Eyebrow>
+          <Eyebrow>Process & stack</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
-            Built from the metal up.
+            How we build things that <span className="text-gradient">last.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Corefusion isn't an integration of open-source parts. It's a coherent
-            runtime, designed top-to-bottom for the workloads enterprises actually
-            run in production.
+            A transparent, four-step process powered by a modern technology
+            stack. No black-box agencies, no month-long silences — just clear
+            communication and shipped work.
           </p>
         </Reveal>
       </Section>
@@ -68,9 +68,9 @@ function TechPage() {
       <Section className="pt-4">
         <Reveal>
           <div className="glass rounded-2xl p-8 md:p-12">
-            <Eyebrow>Reference architecture</Eyebrow>
-            <h2 className="mt-4 text-2xl md:text-3xl font-semibold">A single substrate, five planes.</h2>
-            <ArchitectureDiagram />
+            <Eyebrow>The stack</Eyebrow>
+            <h2 className="mt-4 text-2xl md:text-3xl font-semibold">Battle-tested tools, chosen for the job.</h2>
+            <StackDiagram />
           </div>
         </Reveal>
       </Section>
@@ -109,14 +109,14 @@ function TechPage() {
       <Section>
         <Reveal>
           <div className="glass rounded-3xl p-10 md:p-14 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold">Want the deep dive?</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold">Want a proposal for your project?</h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Our engineering team publishes technical write-ups every month. Or
-              schedule a session to walk through the architecture live.
+              Share a few details and we'll put together a plan, timeline, and
+              fair price within one business day.
             </p>
             <div className="mt-7 flex flex-wrap gap-3 justify-center">
-              <Link to="/insights"><Button>Read engineering posts</Button></Link>
-              <Link to="/contact"><Button variant="secondary">Book a walkthrough</Button></Link>
+              <Link to="/contact"><Button>Request a proposal</Button></Link>
+              <Link to="/services"><Button variant="secondary">Explore services</Button></Link>
             </div>
           </div>
         </Reveal>
@@ -125,13 +125,13 @@ function TechPage() {
   );
 }
 
-function ArchitectureDiagram() {
+function StackDiagram() {
   const planes = [
-    { label: "Intelligence · Insight", w: "70%" },
-    { label: "Observability · Pulse", w: "82%" },
-    { label: "Data plane · Stream + Atlas", w: "92%" },
-    { label: "Runtime · Fabric", w: "100%" },
-    { label: "Security · Vault", w: "100%" },
+    { label: "Growth · SEO · Analytics · Support", w: "70%" },
+    { label: "AI · OpenAI · RAG · Automation", w: "82%" },
+    { label: "Applications · React · Next.js · WordPress", w: "92%" },
+    { label: "APIs & Data · Node · Python · Postgres · Supabase", w: "100%" },
+    { label: "Infrastructure · Cloudflare · AWS · Vercel", w: "100%" },
   ];
   return (
     <div className="mt-8 space-y-3">

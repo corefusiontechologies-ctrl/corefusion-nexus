@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import {
-  ArrowRight, ArrowUpRight, Cpu, Shield, Workflow, Zap, GitBranch,
-  Layers, CircuitBoard, Quote, Activity, Lock, Network,
+  ArrowRight, ArrowUpRight, Code2, Cpu, Sparkles, Palette, Cloud, LineChart,
+  Quote, MessageSquare, Rocket, Wrench, CheckCircle2, Layers,
 } from "lucide-react";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { Button } from "@/components/site/Button";
@@ -14,10 +14,10 @@ import { fadeUp, stagger, viewportOnce, ease } from "@/lib/motion";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Corefusion Technologies — Infrastructure for what comes next" },
-      { name: "description", content: "Resilient, intelligent infrastructure for the next generation of enterprise systems. Built for scale, designed for clarity." },
-      { property: "og:title", content: "Corefusion Technologies" },
-      { property: "og:description", content: "Infrastructure for what comes next." },
+      { title: "CoreFusion Technologies — We engineer digital solutions that help businesses grow" },
+      { name: "description", content: "CoreFusion Technologies builds high-performance websites, custom software, and AI-powered automation for startups, SMBs, and enterprises." },
+      { property: "og:title", content: "CoreFusion Technologies" },
+      { property: "og:description", content: "We engineer digital solutions that help businesses grow." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -30,8 +30,10 @@ function HomePage() {
     <>
       <Hero />
       <TrustBar />
-      <Features />
-      <ProductTeaser />
+      <Services />
+      <FeaturedWork />
+      <Process />
+      <WhyUs />
       <Stats />
       <Testimonials />
       <CTABanner />
@@ -61,7 +63,6 @@ function Hero() {
 
   return (
     <section ref={ref} className="relative overflow-hidden pt-32 md:pt-44 pb-20 md:pb-32">
-      {/* Signature gradient orb — used ONCE */}
       <motion.div
         style={{ x, y }}
         className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[720px] w-[720px] rounded-full bg-signature-gradient opacity-30 blur-[120px]"
@@ -87,38 +88,38 @@ function Hero() {
           className="max-w-4xl"
         >
           <motion.div variants={fadeUp}>
-            <Eyebrow>v3.0 · Now in general availability</Eyebrow>
+            <Eyebrow>Software · Design · AI · Cloud</Eyebrow>
           </motion.div>
           <motion.h1
             variants={fadeUp}
             className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-semibold leading-[1.02] tracking-[-0.03em]"
           >
-            Infrastructure for{" "}
-            <span className="text-gradient">what comes next.</span>
+            We engineer digital solutions that{" "}
+            <span className="text-gradient">help businesses grow.</span>
           </motion.h1>
           <motion.p
             variants={fadeUp}
             className="mt-7 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed"
           >
-            Corefusion is the operating layer for modern enterprise systems —
-            unifying compute, data and intelligence into a single resilient fabric
-            engineered for production scale.
+            CoreFusion Technologies is a modern software and digital solutions
+            company. We design, develop, and deliver websites, custom software,
+            and AI-powered automation for teams that need a real technology
+            partner — not just a freelancer.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-3">
-            <Link to="/products">
+            <Link to="/contact">
               <Button size="lg">
-                Explore the platform <ArrowRight className="h-4 w-4" />
+                Start a project <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/contact">
+            <Link to="/work">
               <Button size="lg" variant="secondary">
-                Talk to engineering
+                See our work
               </Button>
             </Link>
           </motion.div>
         </motion.div>
 
-        {/* Mock console */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
@@ -131,22 +132,25 @@ function Hero() {
               <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--bronze)]" />
               <span className="h-2.5 w-2.5 rounded-full bg-primary" />
               <span className="ml-3 font-mono text-xs text-muted-foreground">
-                corefusion ~ deploy production
+                corefusion ~ build
               </span>
             </div>
             <div className="p-6 md:p-8 font-mono text-[13px] md:text-sm leading-relaxed">
-              <ConsoleLine prompt>cf deploy --env production --region eu-west-1</ConsoleLine>
+              <ConsoleLine prompt>cf init --project "your-business" --stack modern</ConsoleLine>
               <ConsoleLine delay={0.6}>
-                <span className="text-[color:var(--bronze)]">›</span> resolving topology · 14 services
+                <span className="text-[color:var(--bronze)]">›</span> discovery · goals, users, scope
               </ConsoleLine>
               <ConsoleLine delay={1.0}>
-                <span className="text-[color:var(--bronze)]">›</span> provisioning fabric · 3 regions
+                <span className="text-[color:var(--bronze)]">›</span> design · UI/UX · brand system
               </ConsoleLine>
               <ConsoleLine delay={1.4}>
-                <span className="text-primary">✓</span> deployed in 4.2s · zero downtime
+                <span className="text-[color:var(--bronze)]">›</span> build · web · software · AI
               </ConsoleLine>
-              <ConsoleLine delay={1.8} muted>
-                throughput 1.2M req/s · p99 12ms · 100% success
+              <ConsoleLine delay={1.8}>
+                <span className="text-primary">✓</span> launched · measured · supported
+              </ConsoleLine>
+              <ConsoleLine delay={2.2} muted>
+                clean code · SEO ready · mobile-first · scalable
               </ConsoleLine>
             </div>
           </div>
@@ -172,14 +176,14 @@ function ConsoleLine({
   );
 }
 
-const logos = ["NORTHWIND", "ATLAS", "HELIX", "ORION", "AXIOM", "VERTEX"];
+const clients = ["FIMA SAVE VISION", "AQAI ASSOCIATES", "SATHA TOW", "NORTHWIND", "HELIX", "ATLAS"];
 function TrustBar() {
   return (
     <section className="py-14 border-y border-border bg-surface/30">
       <div className="container-x">
         <Reveal>
           <p className="text-center text-xs font-mono uppercase tracking-[0.24em] text-muted-foreground">
-            Trusted by engineering teams at
+            Trusted by teams across non-profits, financial services and regional business
           </p>
         </Reveal>
         <motion.ul
@@ -189,9 +193,9 @@ function TrustBar() {
           variants={stagger(0.1, 0.08)}
           className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-6 items-center"
         >
-          {logos.map((l) => (
+          {clients.map((l) => (
             <motion.li key={l} variants={fadeUp} className="text-center">
-              <span className="font-display text-lg md:text-xl font-semibold tracking-[0.18em] text-muted-foreground/70 hover:text-foreground transition-colors">
+              <span className="font-display text-sm md:text-base font-semibold tracking-[0.18em] text-muted-foreground/70 hover:text-foreground transition-colors">
                 {l}
               </span>
             </motion.li>
@@ -202,22 +206,22 @@ function TrustBar() {
   );
 }
 
-const features = [
-  { Icon: Cpu, title: "Distributed compute fabric", text: "A single substrate for stateless and stateful workloads across regions, with deterministic placement." },
-  { Icon: Shield, title: "Zero-trust by construction", text: "Identity-bound workloads, mTLS everywhere, and per-request authorization without sidecar overhead." },
-  { Icon: Workflow, title: "Declarative orchestration", text: "Describe topology as data. Corefusion converges your environment toward intent — continuously." },
-  { Icon: Zap, title: "Sub-millisecond data plane", text: "Built on a custom Rust runtime with kernel-bypass networking for ultra-low tail latencies." },
-  { Icon: GitBranch, title: "Time-travel observability", text: "Replay any production minute with full causal context. Debug like you have a time machine." },
-  { Icon: Layers, title: "Composable building blocks", text: "Storage, queues, streams, vectors — open primitives that compose into entire platforms." },
+const services = [
+  { Icon: Code2, title: "Web Development", text: "Responsive, SEO-friendly websites built with modern technologies. Fast, accessible, and built to convert." },
+  { Icon: Cpu, title: "Custom Software", text: "Business apps, dashboards, portals, and management systems designed around your workflows." },
+  { Icon: Sparkles, title: "AI & Automation", text: "Automate repetitive tasks, add AI assistants and chatbots, and streamline internal workflows." },
+  { Icon: Palette, title: "UI/UX Design", text: "Modern, user-focused interfaces that improve usability, engagement, and conversion." },
+  { Icon: Cloud, title: "Cloud & Integration", text: "Connect systems, APIs, cloud platforms, and third-party services into a seamless ecosystem." },
+  { Icon: LineChart, title: "Digital Growth", text: "Performance optimization, SEO, analytics, and ongoing technical support to keep you growing." },
 ];
 
-function Features() {
+function Services() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="Platform"
-        title={<>Engineered for systems that <span className="text-gradient">can't fail.</span></>}
-        description="Six foundational capabilities, designed together. No bolt-ons, no service mesh tax — one coherent runtime for everything you ship to production."
+        eyebrow="What we do"
+        title={<>Everything you need to <span className="text-gradient">ship, scale and grow.</span></>}
+        description="Six services, one team. We handle strategy, design, engineering, and long-term support — so your technology stops being the bottleneck."
       />
       <motion.ul
         initial="hidden"
@@ -226,7 +230,7 @@ function Features() {
         variants={stagger(0.1, 0.08)}
         className="mt-14 grid gap-px bg-border rounded-2xl overflow-hidden border border-border md:grid-cols-2 lg:grid-cols-3"
       >
-        {features.map(({ Icon, title, text }) => (
+        {services.map(({ Icon, title, text }) => (
           <motion.li
             key={title}
             variants={fadeUp}
@@ -240,101 +244,149 @@ function Features() {
           </motion.li>
         ))}
       </motion.ul>
+      <div className="mt-10">
+        <Link to="/services"><Button variant="secondary">Explore all services <ArrowUpRight className="h-4 w-4" /></Button></Link>
+      </div>
     </Section>
   );
 }
 
-function ProductTeaser() {
+const featured = [
+  {
+    slug: "fima-save-vision", title: "FIMA Save Vision",
+    tag: "Website Redesign · Non-Profit",
+    desc: "Modern, accessible redesign for a global humanitarian eye-care initiative.",
+  },
+  {
+    slug: "aqai-associates", title: "AQAI Associates",
+    tag: "Corporate Website · Financial Services",
+    desc: "Trustworthy corporate presence for a Lahore-based tax, legal and advisory firm.",
+  },
+  {
+    slug: "satha-tow-service", title: "Satha Tow Service",
+    tag: "Landing Page · Automotive",
+    desc: "High-converting Arabic RTL landing page for a 24/7 towing service in Saudi Arabia.",
+  },
+];
+
+function FeaturedWork() {
+  return (
+    <Section>
+      <SectionHeading
+        eyebrow="Selected work"
+        title={<>Real projects, <span className="text-gradient">real outcomes.</span></>}
+        description="A selection of projects delivered across non-profits, financial services and regional businesses. Every project is built for performance, usability and long-term business value."
+      />
+      <motion.ul
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+        variants={stagger(0.1, 0.1)}
+        className="mt-14 grid gap-6 md:grid-cols-3"
+      >
+        {featured.map((c, i) => (
+          <motion.li key={c.slug} variants={fadeUp}>
+            <Link
+              to="/work/$slug"
+              params={{ slug: c.slug }}
+              className="group relative block h-full glass rounded-2xl p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/40"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-[0.18em] text-[color:var(--bronze)]">
+                  0{i + 1}
+                </span>
+                <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </div>
+              <h3 className="mt-6 text-xl font-semibold group-hover:text-primary transition-colors">{c.title}</h3>
+              <p className="mt-2 text-xs font-mono uppercase tracking-wider text-muted-foreground">{c.tag}</p>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+            </Link>
+          </motion.li>
+        ))}
+      </motion.ul>
+      <div className="mt-10">
+        <Link to="/work"><Button variant="secondary">See all case studies <ArrowUpRight className="h-4 w-4" /></Button></Link>
+      </div>
+    </Section>
+  );
+}
+
+const steps = [
+  { Icon: MessageSquare, title: "Discover", text: "We start with your goals, users, and constraints. No templates, no assumptions." },
+  { Icon: Palette, title: "Design", text: "Wireframes, prototypes, and a visual system that fits your brand and your users." },
+  { Icon: Wrench, title: "Build", text: "Clean, scalable code. Modern stack. Mobile-first. SEO-ready from day one." },
+  { Icon: Rocket, title: "Launch & Support", text: "We ship, measure, and keep improving. Long-term support included." },
+];
+
+function Process() {
+  return (
+    <Section className="border-y border-border bg-surface/30">
+      <SectionHeading
+        eyebrow="How we work"
+        title="A process built around your business."
+        description="Transparent communication, weekly demos, and no surprises. You always know where the project is and what happens next."
+      />
+      <motion.ol
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+        variants={stagger(0.1, 0.1)}
+        className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+      >
+        {steps.map((s, i) => (
+          <motion.li key={s.title} variants={fadeUp} className="group glass rounded-2xl p-7 relative">
+            <div className="absolute top-6 right-6 font-mono text-xs text-muted-foreground">0{i + 1}</div>
+            <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border text-[color:var(--bronze)] group-hover:text-primary group-hover:border-primary/50 transition-colors">
+              <s.Icon className="h-5 w-5" />
+            </div>
+            <h3 className="mt-5 font-semibold text-lg">{s.title}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.text}</p>
+          </motion.li>
+        ))}
+      </motion.ol>
+    </Section>
+  );
+}
+
+const differentiators = [
+  "Modern technology stack",
+  "Clean, scalable code",
+  "Performance-first development",
+  "Mobile-first design",
+  "SEO-ready architecture",
+  "Transparent communication",
+  "Long-term support & maintenance",
+  "Custom solutions, never templates",
+];
+
+function WhyUs() {
   return (
     <Section>
       <div className="grid gap-14 lg:gap-20 lg:grid-cols-2 items-center">
         <Reveal>
-          <Eyebrow>Featured product</Eyebrow>
+          <Eyebrow>Why CoreFusion</Eyebrow>
           <h2 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
-            Meet <span className="text-gradient">Corefusion Fabric.</span>
+            We don't build websites. We build{" "}
+            <span className="text-gradient">digital ecosystems.</span>
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-            A unified runtime that replaces a stack of brittle systems —
-            schedulers, service meshes, queues, and proxies — with one
-            opinionated, observable plane.
+            Our clients come to us because they need more than pixels — they
+            need a partner who understands the business behind the product,
+            and can build technology that supports it for years, not months.
           </p>
-          <ul className="mt-8 space-y-3 text-sm">
-            {[
-              "Single binary. Multi-region. Self-healing.",
-              "Built-in WASM extension surface for custom logic.",
-              "Cost-aware autoscaling, down to the request.",
-            ].map((t) => (
-              <li key={t} className="flex items-start gap-3">
-                <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary">
-                  <CircuitBoard className="h-3 w-3" />
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {differentiators.map((d) => (
+              <li key={d} className="glass rounded-xl p-4 flex items-start gap-3">
+                <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary shrink-0">
+                  <CheckCircle2 className="h-3 w-3" />
                 </span>
-                <span className="text-foreground/85">{t}</span>
+                <span className="text-sm text-foreground/90">{d}</span>
               </li>
             ))}
           </ul>
-          <div className="mt-9">
-            <Link to="/products"><Button>See all products <ArrowUpRight className="h-4 w-4" /></Button></Link>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.15}>
-          <div className="relative">
-            <div className="absolute -inset-8 rounded-3xl bg-signature-gradient opacity-15 blur-3xl" aria-hidden />
-            <div className="relative glass rounded-2xl p-6 md:p-8">
-              <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                <span>fabric / topology</span>
-                <span className="text-[color:var(--bronze)]">● live</span>
-              </div>
-              <svg viewBox="0 0 400 280" className="mt-6 w-full text-primary">
-                <defs>
-                  <linearGradient id="edge" x1="0" x2="1">
-                    <stop offset="0%" stopColor="var(--bronze)" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="var(--primary)" stopOpacity="0.9" />
-                  </linearGradient>
-                </defs>
-                {[
-                  ["200,40", "80,140"], ["200,40", "320,140"],
-                  ["80,140", "200,240"], ["320,140", "200,240"],
-                  ["80,140", "320,140"], ["200,40", "200,240"],
-                ].map(([a, b], i) => {
-                  const [x1, y1] = a.split(",").map(Number);
-                  const [x2, y2] = b.split(",").map(Number);
-                  return (
-                    <motion.line
-                      key={i}
-                      x1={x1} y1={y1} x2={x2} y2={y2}
-                      stroke="url(#edge)" strokeWidth={1.2}
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      whileInView={{ pathLength: 1, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2 + i * 0.1, duration: 0.8, ease }}
-                    />
-                  );
-                })}
-                {[
-                  [200, 40, "edge"], [80, 140, "fabric-a"],
-                  [320, 140, "fabric-b"], [200, 240, "store"],
-                ].map(([cx, cy, label], i) => (
-                  <g key={i}>
-                    <circle cx={cx as number} cy={cy as number} r="22" fill="var(--surface)" stroke="var(--border)" />
-                    <circle cx={cx as number} cy={cy as number} r="6" fill="var(--primary)" />
-                    <text x={cx as number} y={(cy as number) + 38} fill="var(--muted-foreground)"
-                      fontSize="10" textAnchor="middle" fontFamily="JetBrains Mono">
-                      {label}
-                    </text>
-                  </g>
-                ))}
-              </svg>
-              <div className="mt-6 grid grid-cols-3 gap-3 text-center">
-                {[["p99", "11ms"], ["req/s", "1.2M"], ["regions", "14"]].map(([k, v]) => (
-                  <div key={k} className="rounded-lg border border-border bg-background/40 p-3">
-                    <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">{k}</div>
-                    <div className="mt-1 text-lg font-semibold text-foreground">{v}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </Reveal>
       </div>
     </Section>
@@ -343,16 +395,16 @@ function ProductTeaser() {
 
 function Stats() {
   const stats = [
-    { v: 99.999, suffix: "%", label: "Production uptime" },
-    { v: 4.2, suffix: "B", label: "Requests per day" },
-    { v: 142, suffix: "+", label: "Enterprise customers" },
-    { v: 24, suffix: "ms", label: "Median p99 latency" },
+    { v: 40, suffix: "+", label: "Projects delivered" },
+    { v: 12, suffix: "", label: "Industries served" },
+    { v: 98, suffix: "%", label: "Client retention" },
+    { v: 24, suffix: "h", label: "Avg. response time" },
   ];
   return (
     <Section className="border-y border-border bg-surface/30">
       <SectionHeading
         eyebrow="By the numbers"
-        title="Operating at the edge of what's possible."
+        title="A track record of shipped work."
         align="center"
       />
       <motion.ul
@@ -377,23 +429,23 @@ function Stats() {
 
 const quotes = [
   {
-    quote: "Corefusion collapsed three years of platform work into a single decision. Our SREs sleep again.",
-    author: "Mei Tanaka", role: "VP Infrastructure, Atlas Capital",
+    quote: "CoreFusion redesigned our website and gave us a modern presence that finally reflects our mission. The team was thoughtful, responsive, and easy to work with.",
+    author: "Program Lead", role: "FIMA Save Vision",
   },
   {
-    quote: "It's the first runtime we've deployed that actually got faster as we scaled. The economics flipped.",
-    author: "Daniel Okafor", role: "CTO, Northwind Energy",
+    quote: "Professional, structured, and reliable. Our new corporate site has strengthened our credibility with prospective clients from day one.",
+    author: "Managing Partner", role: "AQAI Associates",
   },
   {
-    quote: "The observability alone justified the migration. Time-travel debugging is no longer a luxury.",
-    author: "Priya Ramanathan", role: "Principal Engineer, Helix Bio",
+    quote: "The landing page they built converts. Fast loading, clean design, and direct WhatsApp integration — exactly what our campaigns needed.",
+    author: "Operations Manager", role: "Satha Tow Service",
   },
 ];
 
 function Testimonials() {
   return (
     <Section>
-      <SectionHeading eyebrow="Field reports" title="From the teams running Corefusion in production." />
+      <SectionHeading eyebrow="From our clients" title="What it's like to work with us." />
       <motion.ul
         initial="hidden"
         whileInView="visible"
@@ -403,7 +455,7 @@ function Testimonials() {
       >
         {quotes.map((q) => (
           <motion.li
-            key={q.author}
+            key={q.author + q.role}
             variants={fadeUp}
             className="group glass rounded-2xl p-7 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5"
           >
@@ -438,22 +490,18 @@ function CTABanner() {
           />
           <div className="relative">
             <div className="inline-flex gap-2 justify-center items-center text-[color:var(--bronze)] text-xs font-mono uppercase tracking-[0.2em]">
-              <Activity className="h-3 w-3" /> Ready when you are
+              <Layers className="h-3 w-3" /> Ready when you are
             </div>
             <h2 className="mt-5 text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl mx-auto">
-              Replace your stack with one resilient core.
+              Have a project in mind? Let's build it.
             </h2>
             <p className="mt-5 text-muted-foreground text-lg max-w-xl mx-auto">
-              Talk to our engineering team about migration paths, benchmarks,
-              and what Corefusion looks like in your environment.
+              Tell us about your goals. We'll come back within one business day
+              with a plan, a timeline, and a fair price.
             </p>
             <div className="mt-9 flex flex-wrap gap-3 justify-center">
-              <Link to="/contact"><Button size="lg">Book a session <ArrowRight className="h-4 w-4" /></Button></Link>
-              <Link to="/technology"><Button size="lg" variant="secondary">Read the architecture</Button></Link>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-6 justify-center text-xs text-muted-foreground font-mono uppercase tracking-[0.18em]">
-              <span className="inline-flex items-center gap-2"><Lock className="h-3 w-3" /> SOC 2 · ISO 27001</span>
-              <span className="inline-flex items-center gap-2"><Network className="h-3 w-3" /> Multi-region</span>
+              <Link to="/contact"><Button size="lg">Start a project <ArrowRight className="h-4 w-4" /></Button></Link>
+              <Link to="/services"><Button size="lg" variant="secondary">Explore services</Button></Link>
             </div>
           </div>
         </div>

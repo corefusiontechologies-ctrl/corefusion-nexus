@@ -10,10 +10,10 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Corefusion" },
-      { name: "description", content: "Talk to our engineering team about Corefusion. Offices in Zurich, Berlin and London." },
-      { property: "og:title", content: "Contact — Corefusion" },
-      { property: "og:description", content: "Talk to our team." },
+      { title: "Contact — CoreFusion Technologies" },
+      { name: "description", content: "Tell us about your project. We respond within one business day with a plan, timeline, and fair price." },
+      { property: "og:title", content: "Contact — CoreFusion Technologies" },
+      { property: "og:description", content: "Start a project with us." },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -61,11 +61,12 @@ function ContactPage() {
         <Reveal>
           <Eyebrow>Contact</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
-            Let's talk <span className="text-gradient">infrastructure.</span>
+            Let's build something <span className="text-gradient">worth shipping.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Whether you're evaluating Corefusion, planning a migration or just
-            want to compare notes — we'd love to hear from you.
+            Tell us about your project — goals, timeline, budget, anything you
+            already know. We respond within one business day with a plan and a
+            fair price.
           </p>
         </Reveal>
       </Section>
@@ -103,9 +104,9 @@ function ContactPage() {
 
           <Reveal delay={0.1}>
             <ul className="space-y-6">
-              <Info Icon={Mail} title="Email" body="hello@corefusion.tech" />
-              <Info Icon={Phone} title="Phone" body="+41 44 555 0190" />
-              <Info Icon={MapPin} title="Headquarters" body={"Bahnhofstrasse 24\n8001 Zurich, Switzerland"} />
+              <Info Icon={Mail} title="Email" body="hello@corefusiontech.com" />
+              <Info Icon={Phone} title="Phone / WhatsApp" body="+92 300 000 0000" />
+              <Info Icon={MapPin} title="Headquarters" body={"Lahore, Pakistan\nRemote-friendly worldwide"} />
             </ul>
 
             <div className="mt-8 glass rounded-2xl overflow-hidden">
@@ -126,12 +127,12 @@ function ContactPage() {
                   </div>
                 </div>
                 <div className="absolute bottom-4 left-4 text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                  47.3769° N · 8.5417° E
+                  31.5204° N · 74.3587° E
                 </div>
               </div>
               <div className="p-4 border-t border-border">
-                <div className="text-xs font-mono uppercase tracking-[0.18em] text-[color:var(--bronze)]">Offices</div>
-                <p className="mt-2 text-sm">Zurich · Berlin · London</p>
+                <div className="text-xs font-mono uppercase tracking-[0.18em] text-[color:var(--bronze)]">Serving clients in</div>
+                <p className="mt-2 text-sm">Pakistan · GCC · Europe · North America</p>
               </div>
             </div>
           </Reveal>

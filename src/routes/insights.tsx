@@ -1,6 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, Clock } from "lucide-react";
-import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
+import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { motion } from "framer-motion";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
@@ -8,10 +8,10 @@ import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 export const Route = createFileRoute("/insights")({
   head: () => ({
     meta: [
-      { title: "Insights — Corefusion engineering blog" },
-      { name: "description", content: "Engineering write-ups, research notes and field reports from the Corefusion team." },
-      { property: "og:title", content: "Insights — Corefusion" },
-      { property: "og:description", content: "Engineering write-ups and field reports." },
+      { title: "Insights — CoreFusion Technologies" },
+      { name: "description", content: "Practical write-ups on web development, custom software, AI automation, UI/UX, and how to grow a business with technology." },
+      { property: "og:title", content: "Insights — CoreFusion Technologies" },
+      { property: "og:description", content: "Practical write-ups from our team." },
       { property: "og:url", content: "/insights" },
     ],
     links: [{ rel: "canonical", href: "/insights" }],
@@ -20,23 +20,23 @@ export const Route = createFileRoute("/insights")({
 });
 
 const featured = {
-  category: "Engineering",
-  date: "Jun 12, 2026",
-  read: "14 min",
-  title: "Inside the Corefusion scheduler: deterministic placement at scale",
-  excerpt: "How we replaced our gossip-based scheduler with a deterministic model and shaved 40% off p99 placement latency.",
+  category: "Guide",
+  date: "Jul 08, 2026",
+  read: "9 min",
+  title: "Why your business website is quietly costing you customers",
+  excerpt: "A slow, unclear, or unresponsive website loses more revenue than most owners realise. Here's how we diagnose the leaks — and how to fix them without a full rebuild.",
 };
 
 const posts = [
-  { category: "Engineering", date: "Jun 02, 2026", read: "9 min", title: "Replaying production: time-travel debugging in Pulse" },
-  { category: "Research", date: "May 24, 2026", read: "11 min", title: "Lock-free coordination without consensus tax" },
-  { category: "Field report", date: "May 12, 2026", read: "6 min", title: "What we learned migrating 14 hospitals to Corefusion" },
-  { category: "Design", date: "Apr 28, 2026", read: "5 min", title: "Designing for operators: principles behind our console" },
-  { category: "Engineering", date: "Apr 17, 2026", read: "8 min", title: "Why Corefusion ships as a single binary" },
-  { category: "Research", date: "Apr 03, 2026", read: "13 min", title: "Vector search co-located with relational state" },
+  { category: "Web", date: "Jun 24, 2026", read: "7 min", title: "The realistic guide to Core Web Vitals for small business sites" },
+  { category: "AI", date: "Jun 12, 2026", read: "10 min", title: "Where AI actually helps a small business — and where it wastes money" },
+  { category: "Case study", date: "May 30, 2026", read: "6 min", title: "How we rebuilt FIMA Save Vision for accessibility and speed" },
+  { category: "Design", date: "May 18, 2026", read: "5 min", title: "Designing landing pages that convert paid traffic" },
+  { category: "Software", date: "May 04, 2026", read: "8 min", title: "Custom software vs SaaS: when it's actually worth building your own" },
+  { category: "Growth", date: "Apr 21, 2026", read: "6 min", title: "The SEO baseline every new website should ship with" },
 ];
 
-const tags = ["All", "Engineering", "Research", "Field report", "Design"];
+const tags = ["All", "Web", "Software", "AI", "Design", "Growth", "Case study"];
 
 function InsightsPage() {
   return (
@@ -45,11 +45,12 @@ function InsightsPage() {
         <Reveal>
           <Eyebrow>Insights</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
-            Field notes from <span className="text-gradient">production.</span>
+            Practical notes on <span className="text-gradient">building better software.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Long-form write-ups from our engineers, researchers and customer teams.
-            No filler, no fluff — what we've learned and what we're still figuring out.
+            Short, useful write-ups from our team — on web development, custom
+            software, AI, design, and the business side of shipping things
+            online. No fluff.
           </p>
         </Reveal>
       </Section>
@@ -86,11 +87,15 @@ function InsightsPage() {
               <div className="hidden lg:block relative">
                 <div className="absolute inset-0 rounded-2xl border border-border glass" />
                 <div className="absolute inset-6 flex items-center justify-center">
-                  <div className="font-mono text-xs text-muted-foreground/70 text-center leading-relaxed">
-                    {`fn schedule(workload) -> Placement {
-  let candidates = topology.nearby(workload.affinity);
-  candidates.argmin(|n| n.load * n.cost_factor)
-}`}
+                  <div className="font-mono text-xs text-muted-foreground/70 text-center leading-relaxed whitespace-pre">
+{`// diagnose(site)
+const leaks = audit({
+  speed:   true,
+  clarity: true,
+  mobile:  true,
+  seo:     true,
+})
+leaks.forEach(fix)`}
                   </div>
                 </div>
               </div>
