@@ -13,18 +13,19 @@ const columns = [
     ],
   },
   {
-    title: "Platform",
+    title: "Services",
     links: [
-      { to: "/products", label: "Products" },
-      { to: "/technology", label: "Technology" },
-      { to: "/insights", label: "Insights" },
+      { to: "/services", label: "Web development" },
+      { to: "/services", label: "Custom software" },
+      { to: "/services", label: "AI & automation" },
+      { to: "/services", label: "UI/UX design" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { to: "/insights", label: "Blog" },
-      { to: "/work", label: "Customers" },
+      { to: "/technology", label: "Our process" },
+      { to: "/insights", label: "Insights" },
       { to: "/contact", label: "Support" },
     ],
   },
@@ -38,8 +39,9 @@ export function Footer() {
           <div className="max-w-sm">
             <Logo className="h-10 w-auto" />
             <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
-              Corefusion Technologies builds the resilient, intelligent
-              infrastructure powering the next generation of enterprise systems.
+              CoreFusion Technologies designs, develops, and delivers scalable
+              digital solutions that help businesses innovate, streamline
+              operations, and accelerate growth.
             </p>
             <div className="mt-6 flex items-center gap-3">
               {[
@@ -82,9 +84,9 @@ export function Footer() {
 
         <div className="mt-16 hairline" />
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Corefusion Technologies. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CoreFusion Technologies. All rights reserved.</p>
           <p className="font-mono tracking-wider">
-            <span className="text-[color:var(--bronze)]">●</span> Systems operational
+            <span className="text-[color:var(--bronze)]">●</span> Available for new projects
           </p>
         </div>
       </div>

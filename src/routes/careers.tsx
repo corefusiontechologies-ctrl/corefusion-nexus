@@ -3,7 +3,6 @@ import { useMemo, useState } from "react";
 import { ArrowUpRight, Sparkles, Heart, Mountain, Globe, BookOpen, Wallet } from "lucide-react";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
-import { Button } from "@/components/site/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, stagger, viewportOnce, ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -11,10 +10,10 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers — Corefusion" },
-      { name: "description", content: "Build infrastructure with us. Open roles across engineering, research and design." },
-      { property: "og:title", content: "Careers — Corefusion" },
-      { property: "og:description", content: "Open roles at Corefusion." },
+      { title: "Careers — CoreFusion Technologies" },
+      { name: "description", content: "Join CoreFusion Technologies. Open roles in web development, custom software, AI, design, and client success." },
+      { property: "og:title", content: "Careers — CoreFusion Technologies" },
+      { property: "og:description", content: "Open roles at CoreFusion." },
       { property: "og:url", content: "/careers" },
     ],
     links: [{ rel: "canonical", href: "/careers" }],
@@ -23,27 +22,27 @@ export const Route = createFileRoute("/careers")({
 });
 
 const perks = [
-  { Icon: Sparkles, title: "Equity for everyone", text: "Every employee owns a meaningful piece of the company." },
-  { Icon: Heart, title: "Health, fully covered", text: "Premium medical, dental and mental health, for you and family." },
-  { Icon: Mountain, title: "Real time off", text: "Five weeks minimum, plus a quarterly company-wide week off." },
-  { Icon: Globe, title: "Distributed by design", text: "Work from anywhere in a compatible timezone. Quarterly offsites." },
-  { Icon: BookOpen, title: "Learning budget", text: "$3,000/year for books, courses, conferences — no approval needed." },
-  { Icon: Wallet, title: "Top-of-market comp", text: "Cash and equity benchmarked to top 10% of the industry, transparently." },
+  { Icon: Sparkles, title: "Real ownership", text: "Small team, big impact. Your work ships to real clients every month." },
+  { Icon: Heart, title: "Health & wellbeing", text: "Health coverage, mental-health support, and a culture that respects boundaries." },
+  { Icon: Mountain, title: "Generous time off", text: "Four weeks of paid leave plus public holidays — actually taken, not just offered." },
+  { Icon: Globe, title: "Remote-friendly", text: "Work from anywhere in a compatible timezone. Occasional in-person team weeks." },
+  { Icon: BookOpen, title: "Learning budget", text: "Annual budget for books, courses and conferences. Growth is part of the job." },
+  { Icon: Wallet, title: "Fair, transparent pay", text: "Competitive salaries, benchmarked and reviewed openly. No surprises." },
 ];
 
 const roles = [
-  { title: "Staff Rust Engineer, Fabric runtime", department: "Engineering", location: "Remote · EU" },
-  { title: "Distributed Systems Researcher", department: "Research", location: "Zurich · Hybrid" },
-  { title: "Senior Engineer, Pulse observability", department: "Engineering", location: "Remote · Global" },
-  { title: "Product Designer, Console", department: "Design", location: "Berlin · Hybrid" },
-  { title: "Customer Engineer, EMEA", department: "Customer", location: "London · Hybrid" },
-  { title: "Security Engineer, Vault", department: "Security", location: "Remote · EU" },
-  { title: "Technical Writer, Platform", department: "Design", location: "Remote · Global" },
-  { title: "Engineering Manager, Stream", department: "Engineering", location: "Remote · EU" },
+  { title: "Senior Full-Stack Engineer (React / Node)", department: "Engineering", location: "Remote" },
+  { title: "WordPress Developer", department: "Engineering", location: "Lahore · Hybrid" },
+  { title: "UI/UX Designer", department: "Design", location: "Remote" },
+  { title: "AI & Automation Engineer", department: "Engineering", location: "Remote" },
+  { title: "Project Manager", department: "Delivery", location: "Lahore · Hybrid" },
+  { title: "Client Success Manager", department: "Client", location: "Remote" },
+  { title: "SEO & Growth Specialist", department: "Growth", location: "Remote" },
+  { title: "Technical Writer", department: "Design", location: "Remote" },
 ];
 
-const departments = ["All", "Engineering", "Research", "Design", "Customer", "Security"];
-const locations = ["All", "Remote · EU", "Remote · Global", "Zurich · Hybrid", "Berlin · Hybrid", "London · Hybrid"];
+const departments = ["All", "Engineering", "Design", "Delivery", "Client", "Growth"];
+const locations = ["All", "Remote", "Lahore · Hybrid"];
 
 function CareersPage() {
   const [dept, setDept] = useState("All");
@@ -60,18 +59,18 @@ function CareersPage() {
         <Reveal>
           <Eyebrow>Careers</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
-            Build the platform <span className="text-gradient">everyone else builds on.</span>
+            Build meaningful software with a <span className="text-gradient">small, senior team.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            We're a small, deliberate team working on the deepest, most rewarding
-            problems in modern infrastructure. If that sounds like the kind of
-            work you've been waiting for, we'd love to talk.
+            We're a deliberate team of engineers, designers, and problem-solvers
+            shipping work for clients across industries. If you care about craft,
+            clarity, and clients — we'd love to talk.
           </p>
         </Reveal>
       </Section>
 
       <Section>
-        <SectionHeading eyebrow="How we work" title="A culture engineered for serious work." />
+        <SectionHeading eyebrow="How we work" title="A culture designed for good work." />
         <motion.ul
           initial="hidden" whileInView="visible" viewport={viewportOnce}
           variants={stagger(0.05, 0.08)}

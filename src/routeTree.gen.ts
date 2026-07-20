@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ProductsRouteImport } from './routes/products'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
@@ -35,9 +35,9 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProductsRoute = ProductsRouteImport.update({
-  id: '/products',
-  path: '/products',
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsRoute = InsightsRouteImport.update({
@@ -77,7 +77,7 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
-  '/products': typeof ProductsRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/work': typeof WorkRouteWithChildren
@@ -89,7 +89,7 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
-  '/products': typeof ProductsRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/work': typeof WorkRouteWithChildren
@@ -102,7 +102,7 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
-  '/products': typeof ProductsRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/work': typeof WorkRouteWithChildren
@@ -116,7 +116,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/insights'
-    | '/products'
+    | '/services'
     | '/sitemap.xml'
     | '/technology'
     | '/work'
@@ -128,7 +128,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/insights'
-    | '/products'
+    | '/services'
     | '/sitemap.xml'
     | '/technology'
     | '/work'
@@ -140,7 +140,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/insights'
-    | '/products'
+    | '/services'
     | '/sitemap.xml'
     | '/technology'
     | '/work'
@@ -153,7 +153,7 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   InsightsRoute: typeof InsightsRoute
-  ProductsRoute: typeof ProductsRoute
+  ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechnologyRoute: typeof TechnologyRoute
   WorkRoute: typeof WorkRouteWithChildren
@@ -182,11 +182,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/products': {
-      id: '/products'
-      path: '/products'
-      fullPath: '/products'
-      preLoaderRoute: typeof ProductsRouteImport
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/insights': {
@@ -250,7 +250,7 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   InsightsRoute: InsightsRoute,
-  ProductsRoute: ProductsRoute,
+  ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechnologyRoute: TechnologyRoute,
   WorkRoute: WorkRouteWithChildren,
@@ -258,13 +258,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

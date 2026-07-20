@@ -9,10 +9,10 @@ import { fadeUp, stagger, viewportOnce, slideInLeft, slideInRight } from "@/lib/
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Corefusion Technologies" },
-      { name: "description", content: "Our mission, story, and the team building Corefusion's resilient infrastructure platform." },
-      { property: "og:title", content: "About — Corefusion Technologies" },
-      { property: "og:description", content: "How we got here, and where we're going." },
+      { title: "About — CoreFusion Technologies" },
+      { name: "description", content: "CoreFusion Technologies is a modern software and digital solutions company. Learn about our mission, values, and the team." },
+      { property: "og:title", content: "About — CoreFusion Technologies" },
+      { property: "og:description", content: "Who we are and why we build what we build." },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -21,21 +21,21 @@ export const Route = createFileRoute("/about")({
 });
 
 const team = [
-  { name: "Alex Carmichael", role: "Co-founder, CEO", initials: "AC" },
-  { name: "Yara Hassan", role: "Co-founder, CTO", initials: "YH" },
-  { name: "Marcus Lin", role: "Chief Architect", initials: "ML" },
-  { name: "Elena Volkov", role: "VP Engineering", initials: "EV" },
-  { name: "Tomás Ribeiro", role: "Head of Security", initials: "TR" },
-  { name: "Naledi Mokoena", role: "Head of Research", initials: "NM" },
-  { name: "Jin Park", role: "Head of Design", initials: "JP" },
-  { name: "Rafael Costa", role: "Head of Customer Eng.", initials: "RC" },
+  { name: "Ali Raza", role: "Founder & Lead Engineer", initials: "AR" },
+  { name: "Sara Khan", role: "Head of Design", initials: "SK" },
+  { name: "Bilal Ahmed", role: "Full-Stack Developer", initials: "BA" },
+  { name: "Hira Malik", role: "UI/UX Designer", initials: "HM" },
+  { name: "Usman Tariq", role: "AI & Automation", initials: "UT" },
+  { name: "Ayesha Noor", role: "Project Manager", initials: "AN" },
+  { name: "Fahad Iqbal", role: "Cloud Engineer", initials: "FI" },
+  { name: "Zara Sheikh", role: "Client Success", initials: "ZS" },
 ];
 
 const values = [
-  { Icon: Compass, title: "Direction over speed", text: "We optimize for the right decisions compounded over decades, not the loudest week." },
-  { Icon: Shield, title: "Earn trust, then keep it", text: "Security, reliability and honesty are non-negotiable, on every commit and every call." },
-  { Icon: Sparkles, title: "Engineering as craft", text: "We treat infrastructure as a creative medium — opinionated, considered, beautifully made." },
-  { Icon: Users, title: "Customer truth wins", text: "Production reality outranks any internal opinion. We listen, then ship, then listen again." },
+  { Icon: Compass, title: "Business first, tech second", text: "We build technology that serves your business goals — not the other way around." },
+  { Icon: Shield, title: "Transparent by default", text: "Clear scopes, honest timelines, and weekly demos. You always know where we are." },
+  { Icon: Sparkles, title: "Craft over shortcuts", text: "Clean code, considered design, and no throwaway work. Everything is built to last." },
+  { Icon: Users, title: "Partners, not vendors", text: "We stay involved after launch. Long-term support is part of how we work." },
 ];
 
 function AboutPage() {
@@ -45,13 +45,13 @@ function AboutPage() {
         <Reveal>
           <Eyebrow>About us</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
-            We build the <span className="text-gradient">connective tissue</span> of modern systems.
+            A modern software team for teams that need a <span className="text-gradient">real partner.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Corefusion was founded by infrastructure engineers who'd lived through
-            a decade of brittle distributed systems. We started over with a
-            single thesis: the next generation of platforms should be one system,
-            not fifty integrated parts.
+            CoreFusion Technologies is a software development and digital
+            solutions company. We help startups, SMBs, and enterprises turn
+            ideas into modern digital products — with the polish, performance,
+            and reliability their businesses depend on.
           </p>
         </Reveal>
       </Section>
@@ -61,39 +61,39 @@ function AboutPage() {
           <Reveal variants={slideInLeft}>
             <Eyebrow>Mission</Eyebrow>
             <h2 className="mt-5 text-3xl md:text-4xl font-semibold">
-              Make production systems boring — in the best possible way.
+              Help businesses operate smarter, grow faster, and stay competitive.
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              The world runs on infrastructure that engineers fight with daily.
-              Our mission is to give every team a runtime they can trust without
-              thinking about — so they can focus on the things only they can build.
+              We don't just create websites — we build digital ecosystems.
+              Every project is an opportunity to help a business remove
+              friction, reach more customers, and scale with confidence.
             </p>
           </Reveal>
           <Reveal variants={slideInRight} delay={0.1}>
             <Eyebrow>Vision</Eyebrow>
             <h2 className="mt-5 text-3xl md:text-4xl font-semibold">
-              A single, observable substrate for every workload, everywhere.
+              Technology that quietly powers ambitious organisations.
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              We see a future where the line between "cloud" and "code" disappears —
-              where intent maps directly to behavior, and where the platform is
-              accountable to its operators, not the other way around.
+              The best software gets out of the way. We aim to build products
+              so intuitive and dependable that teams stop thinking about the
+              tools and focus on the work.
             </p>
           </Reveal>
         </div>
       </Section>
 
       <Section className="border-y border-border bg-surface/30">
-        <SectionHeading eyebrow="Our story" title="A short history." />
-        <div className="mt-14 grid gap-10 md:grid-cols-4">
+        <SectionHeading eyebrow="Who we work with" title="Teams across industries." description="From non-profits to fintech, we adapt our process to your stage, budget and goals." />
+        <div className="mt-14 grid gap-8 md:grid-cols-4">
           {[
-            { year: "2019", text: "Founded in a basement in Zurich after our third on-call week from hell." },
-            { year: "2021", text: "Released the first Corefusion runtime; ten design partners in production." },
-            { year: "2023", text: "Series B led by infrastructure-native investors. Team passes 80." },
-            { year: "2026", text: "Fabric v3 ships globally. Fourteen regions, 4.2B requests a day." },
+            { label: "Startups", text: "Launching new products with confidence." },
+            { label: "SMBs", text: "Modernising an existing online presence." },
+            { label: "Enterprises", text: "Custom software for complex workflows." },
+            { label: "Non-profits", text: "Digital tools that amplify your mission." },
           ].map((s, i) => (
-            <Reveal key={s.year} delay={i * 0.1}>
-              <div className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--bronze)]">{s.year}</div>
+            <Reveal key={s.label} delay={i * 0.1}>
+              <div className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--bronze)]">{s.label}</div>
               <p className="mt-3 text-foreground leading-relaxed">{s.text}</p>
             </Reveal>
           ))}
@@ -121,7 +121,7 @@ function AboutPage() {
       </Section>
 
       <Section>
-        <SectionHeading eyebrow="Team" title="The people behind the platform." description="A small, deliberate team of infrastructure engineers, researchers and designers." />
+        <SectionHeading eyebrow="Team" title="The people behind the work." description="A small, deliberate team of engineers, designers, and problem-solvers." />
         <motion.ul
           initial="hidden" whileInView="visible" viewport={viewportOnce}
           variants={stagger(0.05, 0.06)}
@@ -154,11 +154,11 @@ function AboutPage() {
       <Section>
         <Reveal>
           <div className="glass rounded-3xl p-10 md:p-14 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold">Want to build infrastructure with us?</h2>
-            <p className="mt-3 text-muted-foreground">We're hiring engineers, researchers and designers across the team.</p>
+            <h2 className="text-3xl md:text-4xl font-semibold">Ready to work together?</h2>
+            <p className="mt-3 text-muted-foreground">Tell us about your project — we respond within one business day.</p>
             <div className="mt-7 flex flex-wrap gap-3 justify-center">
-              <Link to="/careers"><Button>See open roles</Button></Link>
-              <Link to="/contact"><Button variant="secondary">Get in touch</Button></Link>
+              <Link to="/contact"><Button>Start a project</Button></Link>
+              <Link to="/careers"><Button variant="secondary">Join the team</Button></Link>
             </div>
           </div>
         </Reveal>
