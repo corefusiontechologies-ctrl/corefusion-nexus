@@ -4,13 +4,25 @@ import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
 
-const cases: Record<string, {
+import fimaCover from "@/assets/work/fima-cover.jpg.asset.json";
+import fimaAbout from "@/assets/work/fima-about.jpg.asset.json";
+import fimaExam from "@/assets/work/fima-exam.jpg.asset.json";
+import fimaImpact from "@/assets/work/fima-impact.jpg.asset.json";
+import aqaiHome from "@/assets/work/aqai-home.jpg.asset.json";
+import aqaiServices from "@/assets/work/aqai-services.jpg.asset.json";
+import sathaHero from "@/assets/work/satha-hero.jpg.asset.json";
+
+type CaseData = {
   client: string; category: string; title: string; summary: string;
   url: string; tech: string; services: string[];
+  cover: string; gallery: { src: string; caption: string }[];
   results: { metric: string; label: string }[];
   sections: { heading: string; body: string }[];
   features: string[];
-}> = {
+};
+
+const cases: Record<string, CaseData> = {
+
   "fima-save-vision": {
     client: "FIMA Save Vision", category: "Website Redesign · Non-Profit",
     title: "A modern digital home for a global eye-care mission",
