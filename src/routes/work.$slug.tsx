@@ -171,6 +171,20 @@ function CaseStudy() {
         </Reveal>
       </Section>
 
+      <Section className="pt-0">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-border">
+            <div className="absolute -inset-6 rounded-3xl bg-signature-gradient opacity-15 blur-3xl" aria-hidden />
+            <img
+              src={c.cover}
+              alt={`${c.client} website — cover screenshot`}
+              className="relative w-full h-auto object-cover"
+              loading="eager"
+            />
+          </div>
+        </Reveal>
+      </Section>
+
       <Section className="pt-4">
         <Reveal>
           <ul className="grid gap-6 sm:grid-cols-3">
@@ -241,6 +255,22 @@ function CaseStudy() {
           </div>
         </Reveal>
       </Section>
+
+      {c.gallery.length > 0 && (
+        <Section className="pt-4">
+          <Eyebrow>Screens</Eyebrow>
+          <ul className="mt-8 grid gap-6 md:grid-cols-2">
+            {c.gallery.map((g, i) => (
+              <Reveal key={g.src} delay={i * 0.08}>
+                <figure className="glass rounded-2xl overflow-hidden">
+                  <img src={g.src} alt={g.caption} className="w-full h-auto object-cover" loading="lazy" />
+                  <figcaption className="p-4 text-xs text-muted-foreground border-t border-border">{g.caption}</figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </ul>
+        </Section>
+      )}
     </>
   );
 }
