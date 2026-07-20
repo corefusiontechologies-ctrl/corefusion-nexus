@@ -34,19 +34,19 @@ const cases = [
     id: "fima-save-vision", client: "FIMA Save Vision", category: "Non-Profit",
     title: "A modern digital home for a global eye-care mission",
     metric: "100%", metricLabel: "responsive & accessible",
-    color: "from-[#F97316] to-[#C2410C]",
+    cover: fimaCover.url,
   },
   {
     id: "aqai-associates", client: "AQAI Associates", category: "Financial Services",
     title: "A trustworthy corporate presence for a financial advisory firm",
     metric: "↑", metricLabel: "credibility & inquiries",
-    color: "from-[#D4A574] to-[#F97316]",
+    cover: aqaiHome.url,
   },
   {
     id: "satha-tow-service", client: "Satha Tow Service", category: "Automotive",
     title: "A high-converting Arabic RTL landing page for paid campaigns",
     metric: "RTL", metricLabel: "native Arabic experience",
-    color: "from-[#C2410C] to-[#D4A574]",
+    cover: sathaHero.url,
   },
 ];
 
