@@ -8,6 +8,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
+import fimaCover from "@/assets/work/fima-cover.jpg.asset.json";
+import aqaiHome from "@/assets/work/aqai-home.jpg.asset.json";
+import sathaHero from "@/assets/work/satha-hero.jpg.asset.json";
+
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
