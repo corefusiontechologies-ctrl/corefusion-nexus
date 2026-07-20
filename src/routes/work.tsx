@@ -104,8 +104,8 @@ function WorkPage() {
                 transition={{ duration: 0.5, ease, delay: i * 0.05 }}
               >
                 <Link to="/work/$slug" params={{ slug: c.id }} className="group relative block overflow-hidden rounded-2xl border border-border bg-surface aspect-[5/4]">
-                  <div className={cn("absolute inset-0 bg-gradient-to-br opacity-80 transition-transform duration-700 group-hover:scale-105", c.color)} />
-                  <div className="absolute inset-0 bg-background/40" />
+                  <img src={c.cover} alt={`${c.client} — case study cover`} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
                   <div
                     className="absolute inset-0 opacity-[0.18]"
                     style={{
