@@ -30,6 +30,12 @@ const cases: Record<string, CaseData> = {
     url: "https://www.fimasavevision.org/",
     tech: "WordPress · HTML · CSS · JavaScript",
     services: ["UI/UX Design", "Website Redesign", "Responsive Development", "Performance Optimization", "Content Structure"],
+    cover: fimaCover.url,
+    gallery: [
+      { src: fimaAbout.url, caption: "About FIMA & the mission behind Save Vision" },
+      { src: fimaExam.url, caption: "Clear storytelling of the eye-care programme" },
+      { src: fimaImpact.url, caption: "Impact stats: camps, surgeries, screenings, schools" },
+    ],
     features: [
       "Modern, accessible interface",
       "Fully responsive across all devices",
@@ -55,6 +61,11 @@ const cases: Record<string, CaseData> = {
     url: "https://aqaiassociates.com/",
     tech: "WordPress · HTML · CSS · JavaScript",
     services: ["Website Design", "WordPress Development", "Corporate Branding", "Responsive Development"],
+    cover: aqaiHome.url,
+    gallery: [
+      { src: aqaiHome.url, caption: "Homepage hero — 'Welcome to AQAI Associates'" },
+      { src: aqaiServices.url, caption: "Service breakdown: Internal Audit, Tax Advisory, Accounting" },
+    ],
     features: [
       "Professional corporate layout",
       "Service-focused navigation",
@@ -80,6 +91,10 @@ const cases: Record<string, CaseData> = {
     url: "https://sathatowservice.com/",
     tech: "HTML · CSS · JavaScript",
     services: ["Landing Page Design", "Arabic RTL Development", "Conversion Optimisation", "Mobile Optimisation"],
+    cover: sathaHero.url,
+    gallery: [
+      { src: sathaHero.url, caption: "Arabic RTL hero with direct call and WhatsApp CTAs" },
+    ],
     features: [
       "Native Arabic RTL interface",
       "One-page conversion-focused layout",
