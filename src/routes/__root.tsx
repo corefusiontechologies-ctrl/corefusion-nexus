@@ -116,6 +116,10 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+  }, [pathname]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <div className="relative min-h-dvh bg-background text-foreground">

@@ -7,6 +7,7 @@ import { Button } from "@/components/site/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { assetUrl } from "@/lib/assets";
 
 import fimaCover from "@/assets/work/fima-cover.jpg.asset.json";
 import aqaiHome from "@/assets/work/aqai-home.jpg.asset.json";
@@ -34,19 +35,19 @@ const cases = [
     id: "fima-save-vision", client: "FIMA Save Vision", category: "Non-Profit",
     title: "A modern digital home for a global eye-care mission",
     metric: "100%", metricLabel: "responsive & accessible",
-    cover: fimaCover.url,
+    cover: assetUrl(fimaCover.url),
   },
   {
     id: "aqai-associates", client: "AQAI Associates", category: "Financial Services",
     title: "A trustworthy corporate presence for a financial advisory firm",
     metric: "↑", metricLabel: "credibility & inquiries",
-    cover: aqaiHome.url,
+    cover: assetUrl(aqaiHome.url),
   },
   {
     id: "satha-tow-service", client: "Satha Tow Service", category: "Automotive",
     title: "A high-converting Arabic RTL landing page for paid campaigns",
     metric: "RTL", metricLabel: "native Arabic experience",
-    cover: sathaHero.url,
+    cover: assetUrl(sathaHero.url),
   },
 ];
 
