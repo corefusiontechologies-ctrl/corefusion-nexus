@@ -253,7 +253,7 @@ function CaseStudy() {
             {c.gallery.map((g, i) => (
               <Reveal key={g.src} delay={i * 0.08}>
                 <figure className="glass rounded-2xl overflow-hidden">
-                  <img src={g.src} alt={g.caption} className="w-full h-auto object-cover" loading="lazy" />
+                  <img src={g.src} alt={g.caption} className="w-full h-auto object-cover" loading="eager" decoding="async" />
                   <figcaption className="p-4 text-xs text-muted-foreground border-t border-border">{g.caption}</figcaption>
                 </figure>
               </Reveal>
