@@ -3,6 +3,7 @@ import { ArrowLeft, CheckCircle2, ExternalLink } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
+import { assetUrl } from "@/lib/assets";
 
 import fimaCover from "@/assets/work/fima-cover.jpg.asset.json";
 import fimaAbout from "@/assets/work/fima-about.jpg.asset.json";
@@ -30,11 +31,11 @@ const cases: Record<string, CaseData> = {
     url: "https://www.fimasavevision.org/",
     tech: "WordPress · HTML · CSS · JavaScript",
     services: ["UI/UX Design", "Website Redesign", "Responsive Development", "Performance Optimization", "Content Structure"],
-    cover: fimaCover.url,
+    cover: assetUrl(fimaCover.url),
     gallery: [
-      { src: fimaAbout.url, caption: "About FIMA & the mission behind Save Vision" },
-      { src: fimaExam.url, caption: "Clear storytelling of the eye-care programme" },
-      { src: fimaImpact.url, caption: "Impact stats: camps, surgeries, screenings, schools" },
+      { src: assetUrl(fimaAbout.url), caption: "About FIMA & the mission behind Save Vision" },
+      { src: assetUrl(fimaExam.url), caption: "Clear storytelling of the eye-care programme" },
+      { src: assetUrl(fimaImpact.url), caption: "Impact stats: camps, surgeries, screenings, schools" },
     ],
     features: [
       "Modern, accessible interface",
@@ -61,10 +62,10 @@ const cases: Record<string, CaseData> = {
     url: "https://aqaiassociates.com/",
     tech: "WordPress · HTML · CSS · JavaScript",
     services: ["Website Design", "WordPress Development", "Corporate Branding", "Responsive Development"],
-    cover: aqaiHome.url,
+    cover: assetUrl(aqaiHome.url),
     gallery: [
-      { src: aqaiHome.url, caption: "Homepage hero — 'Welcome to AQAI Associates'" },
-      { src: aqaiServices.url, caption: "Service breakdown: Internal Audit, Tax Advisory, Accounting" },
+      { src: assetUrl(aqaiHome.url), caption: "Homepage hero — 'Welcome to AQAI Associates'" },
+      { src: assetUrl(aqaiServices.url), caption: "Service breakdown: Internal Audit, Tax Advisory, Accounting" },
     ],
     features: [
       "Professional corporate layout",
@@ -91,9 +92,9 @@ const cases: Record<string, CaseData> = {
     url: "https://sathatowservice.com/",
     tech: "HTML · CSS · JavaScript",
     services: ["Landing Page Design", "Arabic RTL Development", "Conversion Optimisation", "Mobile Optimisation"],
-    cover: sathaHero.url,
+    cover: assetUrl(sathaHero.url),
     gallery: [
-      { src: sathaHero.url, caption: "Arabic RTL hero with direct call and WhatsApp CTAs" },
+      { src: assetUrl(sathaHero.url), caption: "Arabic RTL hero with direct call and WhatsApp CTAs" },
     ],
     features: [
       "Native Arabic RTL interface",
@@ -180,6 +181,7 @@ function CaseStudy() {
               alt={`${c.client} website — cover screenshot`}
               className="relative w-full h-auto object-cover"
               loading="eager"
+              decoding="async"
             />
           </div>
         </Reveal>
