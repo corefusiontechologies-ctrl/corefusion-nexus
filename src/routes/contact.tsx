@@ -67,6 +67,7 @@ function ContactPage() {
             Tell us about your project — goals, timeline, budget, anything you
             already know. We respond within one business day with a plan and a
             fair price.
+            (Please use Whatsapp or write an email through your email app as the from is not integrated currently)
           </p>
         </Reveal>
       </Section>
