@@ -21,14 +21,9 @@ export const Route = createFileRoute("/about")({
 });
 
 const team = [
-  { name: "Ali Raza", role: "Founder & Lead Engineer", initials: "AR" },
-  { name: "Sara Khan", role: "Head of Design", initials: "SK" },
-  { name: "Bilal Ahmed", role: "Full-Stack Developer", initials: "BA" },
-  { name: "Hira Malik", role: "UI/UX Designer", initials: "HM" },
-  { name: "Usman Tariq", role: "AI & Automation", initials: "UT" },
-  { name: "Ayesha Noor", role: "Project Manager", initials: "AN" },
-  { name: "Fahad Iqbal", role: "Cloud Engineer", initials: "FI" },
-  { name: "Zara Sheikh", role: "Client Success", initials: "ZS" },
+  { name: "Abdullah Zahid", role: "WordPress Developer, Full-Stack Developer", initials: "AZ", social: "https://www.instagram.com/corefusion_technologies/" },
+  { name: "Arrib Zahid", role: "Graphic Designer, Video Editor", initials: "AZ", social: "https://www.instagram.com/corefusion_technologies/" },
+  { name: "Hussain Ahmed Zahid", role: "Content Writer", initials: "HAZ", social: "https://www.instagram.com/corefusion_technologies/" },
 ];
 
 const values = [
