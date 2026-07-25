@@ -73,9 +73,9 @@ function ServicesPage() {
             End-to-end <span className="text-gradient">technology services.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Six services, delivered by one team you can trust. Whether you need
-            a marketing site, a custom platform, or intelligent automation —
-            we've done it before and we'll do it well.
+            Eight services, delivered by one team you can trust. Whether you need
+            a marketing site, a custom platform, creative content, or intelligent
+            automation — we've done it before and we'll do it well.
           </p>
         </Reveal>
       </Section>
