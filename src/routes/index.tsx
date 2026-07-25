@@ -227,7 +227,7 @@ function Services() {
       <SectionHeading
         eyebrow="What we do"
         title={<>Everything you need to <span className="text-gradient">ship, scale and grow.</span></>}
-        description="Six services, one team. We handle strategy, design, engineering, and long-term support — so your technology stops being the bottleneck."
+        description="Eight services, one team. We handle strategy, design, engineering, content, and long-term support — so your technology stops being the bottleneck."
       />
       <motion.ul
         initial="hidden"
