@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Instagram, Facebook, Linkedin, ArrowUpRight } from "lucide-react";
 import { Logo } from "./Logo";
 
 const columns = [
