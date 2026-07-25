@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import {
-  ArrowRight, ArrowUpRight, Code2, Cpu, Sparkles, Palette, Cloud, LineChart,
+  ArrowRight, ArrowUpRight, Code2, Cpu, Zap, Palette, Plug, LineChart, Film, PenTool,
   Quote, MessageSquare, Rocket, Wrench, CheckCircle2, Layers,
 } from "lucide-react";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
