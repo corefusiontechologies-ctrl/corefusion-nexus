@@ -15,10 +15,14 @@ const columns = [
   {
     title: "Services",
     links: [
-      { to: "/services", label: "Web development" },
+      { to: "/services", label: "Website development" },
       { to: "/services", label: "Custom software" },
-      { to: "/services", label: "AI & automation" },
+      { to: "/services", label: "Automation" },
       { to: "/services", label: "UI/UX design" },
+      { to: "/services", label: "API integration" },
+      { to: "/services", label: "Digital growth" },
+      { to: "/services", label: "Video editing" },
+      { to: "/services", label: "Graphic design" },
     ],
   },
   {
