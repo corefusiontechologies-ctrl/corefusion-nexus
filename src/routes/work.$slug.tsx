@@ -30,7 +30,7 @@ const cases: Record<string, CaseData> = {
     summary: "A complete redesign of the FIMA Save Vision website — a global humanitarian initiative dedicated to preventing blindness and restoring sight through eye-care camps, surgeries, and community outreach.",
     url: "https://www.fimasavevision.org/",
     tech: "WordPress · HTML · CSS · JavaScript",
-    services: ["UI/UX Design", "Website Redesign", "Responsive Development", "Performance Optimization", "Content Structure"],
+    services: ["Website Development", "UI/UX Design", "Graphic Design", "Digital Growth"],
     cover: assetUrl(fimaCover.url),
     gallery: [
       { src: assetUrl(fimaAbout.url), caption: "About FIMA & the mission behind Save Vision" },
