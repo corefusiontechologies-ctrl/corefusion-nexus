@@ -61,7 +61,7 @@ const cases: Record<string, CaseData> = {
     summary: "Designed and developed a professional WordPress website for AQAI Associates, a Lahore-based financial, tax, legal, and advisory firm. The objective: establish a trustworthy online presence and present the firm's expertise through a clean, structured corporate design.",
     url: "https://aqaiassociates.com/",
     tech: "WordPress · HTML · CSS · JavaScript",
-    services: ["Website Design", "WordPress Development", "Corporate Branding", "Responsive Development"],
+    services: ["Website Development", "UI/UX Design", "Graphic Design", "Digital Growth"],
     cover: assetUrl(aqaiHome.url),
     gallery: [
       { src: assetUrl(aqaiHome.url), caption: "Homepage hero — 'Welcome to AQAI Associates'" },
