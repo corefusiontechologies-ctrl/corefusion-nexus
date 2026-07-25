@@ -256,16 +256,19 @@ const featured = [
     slug: "fima-save-vision", title: "FIMA Save Vision",
     tag: "Website Redesign · Non-Profit",
     desc: "Modern, accessible redesign for a global humanitarian eye-care initiative.",
+    cover: assetUrl(fimaCover.url),
   },
   {
     slug: "aqai-associates", title: "AQAI Associates",
     tag: "Corporate Website · Financial Services",
     desc: "Trustworthy corporate presence for a Lahore-based tax, legal and advisory firm.",
+    cover: assetUrl(aqaiHome.url),
   },
   {
     slug: "satha-tow-service", title: "Satha Tow Service",
     tag: "Landing Page · Automotive",
     desc: "High-converting Arabic RTL landing page for a 24/7 towing service in Saudi Arabia.",
+    cover: assetUrl(sathaHero.url),
   },
 ];
 
@@ -289,21 +292,34 @@ function FeaturedWork() {
             <Link
               to="/work/$slug"
               params={{ slug: c.slug }}
-              className="group relative block h-full glass rounded-2xl p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/40"
+              className="group relative block h-full glass rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/40"
             >
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-[color:var(--bronze)]">
-                  0{i + 1}
-                </span>
-                <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <div className="relative aspect-[16/10] overflow-hidden border-b border-border">
+                <img
+                  src={c.cover}
+                  alt={`${c.title} — project screenshot`}
+                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  loading="eager"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
               </div>
-              <h3 className="mt-6 text-xl font-semibold group-hover:text-primary transition-colors">{c.title}</h3>
-              <p className="mt-2 text-xs font-mono uppercase tracking-wider text-muted-foreground">{c.tag}</p>
-              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+              <div className="p-7">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase tracking-[0.18em] text-[color:var(--bronze)]">
+                    0{i + 1}
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+                <h3 className="mt-6 text-xl font-semibold group-hover:text-primary transition-colors">{c.title}</h3>
+                <p className="mt-2 text-xs font-mono uppercase tracking-wider text-muted-foreground">{c.tag}</p>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+              </div>
             </Link>
           </motion.li>
         ))}
       </motion.ul>
+
       <div className="mt-10">
         <Link to="/work"><Button variant="secondary">See all case studies <ArrowUpRight className="h-4 w-4" /></Button></Link>
       </div>
