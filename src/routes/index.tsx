@@ -180,7 +180,7 @@ function ConsoleLine({
   );
 }
 
-const clients = ["FIMA SAVE VISION", "AQAI ASSOCIATES", "SATHA TOW", "NORTHWIND", "HELIX", "ATLAS"];
+const clients = ["FIMA SAVE VISION", "AQAI ASSOCIATES", "SATHA TOW SERVICE", "MORE PROJECTS COMING SOON"];
 function TrustBar() {
   return (
     <section className="py-14 border-y border-border bg-surface/30">
