@@ -134,8 +134,12 @@ function AboutPage() {
                 <div className="text-sm font-semibold">{p.name}</div>
                 <div className="text-xs text-muted-foreground mt-0.5">{p.role}</div>
                 <div className="mt-3 flex gap-2 opacity-0 translate-y-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-                  {[Linkedin, Twitter, Github].map((Icon, i) => (
-                    <a key={i} href="#" className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors">
+                  {[
+                    { Icon: Instagram, href: "https://www.instagram.com/corefusion_technologies/", label: "Instagram" },
+                    { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61590494587873", label: "Facebook" },
+                    { Icon: Linkedin, href: p.social, label: "LinkedIn" },
+                  ].map(({ Icon, href, label }) => (
+                    <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors">
                       <Icon className="h-3 w-3" />
                     </a>
                   ))}
