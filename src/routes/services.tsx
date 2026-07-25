@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Code2, Cpu, Sparkles, Palette, Cloud, LineChart } from "lucide-react";
+import { ArrowUpRight, Code2, Cpu, Zap, Palette, Plug, LineChart, Film, PenTool } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
@@ -22,8 +22,8 @@ export const Route = createFileRoute("/services")({
 
 const services = [
   {
-    id: "web", name: "Web Development", Icon: Code2, tag: "Websites",
-    short: "Responsive, SEO-friendly websites built with modern technologies.",
+    id: "web", name: "Website Development", Icon: Code2, tag: "Websites",
+    short: "Responsive, SEO-friendly websites built with modern technologies and tuned for performance.",
     features: ["Modern React & Next.js stack", "SEO-ready architecture", "Mobile-first design", "Performance-optimised (Core Web Vitals)", "Accessible by default (WCAG)", "CMS integrations (WordPress, Sanity, Contentful)"],
   },
   {
@@ -32,9 +32,9 @@ const services = [
     features: ["Internal tools & admin panels", "Client & customer portals", "Booking & scheduling systems", "Inventory & operations dashboards", "Role-based access & auth", "API-first architecture"],
   },
   {
-    id: "ai", name: "AI & Automation", Icon: Sparkles, tag: "Intelligence",
-    short: "Automate repetitive tasks, add AI assistants, and optimise workflows end-to-end.",
-    features: ["Chatbots & AI assistants", "Document & data processing", "Workflow automation (Zapier, n8n, Make)", "OpenAI / Anthropic integrations", "Custom RAG & knowledge bases", "Business process optimisation"],
+    id: "automation", name: "Automation", Icon: Zap, tag: "Efficiency",
+    short: "Automate repetitive tasks, connect tools, and streamline workflows end-to-end.",
+    features: ["Workflow automation (Zapier, n8n, Make)", "Chatbots & AI assistants", "Document & data processing", "CRM & email automation", "Business process optimisation", "Reporting dashboards"],
   },
   {
     id: "design", name: "UI/UX Design", Icon: Palette, tag: "Design",
@@ -42,14 +42,24 @@ const services = [
     features: ["Discovery & user research", "Wireframes & interactive prototypes", "Design systems & component libraries", "Brand identity & visual language", "Accessibility audits", "Handoff-ready Figma files"],
   },
   {
-    id: "cloud", name: "Cloud & Integration", Icon: Cloud, tag: "Infrastructure",
+    id: "api", name: "API Integration", Icon: Plug, tag: "Integration",
     short: "Connect systems, APIs, cloud platforms, and third-party services into a seamless ecosystem.",
-    features: ["AWS, GCP & Cloudflare deployments", "REST & GraphQL API design", "Third-party integrations (Stripe, HubSpot, Salesforce)", "Database design & migrations", "CI/CD pipelines", "Serverless & edge functions"],
+    features: ["REST & GraphQL API design", "Third-party integrations (Stripe, HubSpot, Salesforce)", "Cloud platform connections", "Database design & migrations", "CI/CD pipelines", "Serverless & edge functions"],
   },
   {
     id: "growth", name: "Digital Growth", Icon: LineChart, tag: "Optimisation",
     short: "Performance optimisation, SEO, analytics, and ongoing technical support that keeps you growing.",
     features: ["Technical SEO audits", "Analytics & event tracking setup", "Conversion rate optimisation", "Ongoing maintenance retainers", "Security patching & monitoring", "Content & landing-page campaigns"],
+  },
+  {
+    id: "video", name: "Video Editing", Icon: Film, tag: "Content",
+    short: "Polished video content for ads, social media, explainers, and brand storytelling.",
+    features: ["Social media video editing", "Motion graphics & captions", "Ad & promo videos", "Explainer & product videos", "Colour correction & grading", "Reels, Shorts & long-form content"],
+  },
+  {
+    id: "graphics", name: "Graphic Design", Icon: PenTool, tag: "Creative",
+    short: "Visual design that brings your brand to life across digital and print.",
+    features: ["Brand identity & logos", "Social media graphics", "Marketing collateral", "Presentation decks", "Packaging & print design", "Web graphics & illustrations"],
   },
 ];
 
@@ -63,9 +73,9 @@ function ServicesPage() {
             End-to-end <span className="text-gradient">technology services.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Six services, delivered by one team you can trust. Whether you need
-            a marketing site, a custom platform, or intelligent automation —
-            we've done it before and we'll do it well.
+            Eight services, delivered by one team you can trust. Whether you need
+            a marketing site, a custom platform, creative content, or intelligent
+            automation — we've done it before and we'll do it well.
           </p>
         </Reveal>
       </Section>

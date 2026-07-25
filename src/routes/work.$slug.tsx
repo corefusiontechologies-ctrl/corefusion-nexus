@@ -30,7 +30,7 @@ const cases: Record<string, CaseData> = {
     summary: "A complete redesign of the FIMA Save Vision website — a global humanitarian initiative dedicated to preventing blindness and restoring sight through eye-care camps, surgeries, and community outreach.",
     url: "https://www.fimasavevision.org/",
     tech: "WordPress · HTML · CSS · JavaScript",
-    services: ["UI/UX Design", "Website Redesign", "Responsive Development", "Performance Optimization", "Content Structure"],
+    services: ["Website Development", "UI/UX Design", "Graphic Design", "Digital Growth"],
     cover: assetUrl(fimaCover.url),
     gallery: [
       { src: assetUrl(fimaAbout.url), caption: "About FIMA & the mission behind Save Vision" },
@@ -61,7 +61,7 @@ const cases: Record<string, CaseData> = {
     summary: "Designed and developed a professional WordPress website for AQAI Associates, a Lahore-based financial, tax, legal, and advisory firm. The objective: establish a trustworthy online presence and present the firm's expertise through a clean, structured corporate design.",
     url: "https://aqaiassociates.com/",
     tech: "WordPress · HTML · CSS · JavaScript",
-    services: ["Website Design", "WordPress Development", "Corporate Branding", "Responsive Development"],
+    services: ["Website Development", "UI/UX Design", "Graphic Design", "Digital Growth"],
     cover: assetUrl(aqaiHome.url),
     gallery: [
       { src: assetUrl(aqaiHome.url), caption: "Homepage hero — 'Welcome to AQAI Associates'" },
@@ -91,7 +91,7 @@ const cases: Record<string, CaseData> = {
     summary: "Created a high-converting Arabic landing page for Satha Tow Service, a 24/7 vehicle towing and transportation company serving the Riyadh–Jeddah region. The page was designed specifically for paid advertising campaigns and fast customer conversions.",
     url: "https://sathatowservice.com/",
     tech: "HTML · CSS · JavaScript",
-    services: ["Landing Page Design", "Arabic RTL Development", "Conversion Optimisation", "Mobile Optimisation"],
+    services: ["Website Development", "UI/UX Design", "Digital Growth", "Automation"],
     cover: assetUrl(sathaHero.url),
     gallery: [
       { src: assetUrl(sathaHero.url), caption: "Arabic RTL hero with direct call and WhatsApp CTAs" },

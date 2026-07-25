@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Instagram, Facebook, Linkedin, ArrowUpRight } from "lucide-react";
 import { Logo } from "./Logo";
 
 const columns = [
@@ -15,10 +15,14 @@ const columns = [
   {
     title: "Services",
     links: [
-      { to: "/services", label: "Web development" },
+      { to: "/services", label: "Website development" },
       { to: "/services", label: "Custom software" },
-      { to: "/services", label: "AI & automation" },
+      { to: "/services", label: "Automation" },
       { to: "/services", label: "UI/UX design" },
+      { to: "/services", label: "API integration" },
+      { to: "/services", label: "Digital growth" },
+      { to: "/services", label: "Video editing" },
+      { to: "/services", label: "Graphic design" },
     ],
   },
   {
@@ -45,14 +49,16 @@ export function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-3">
               {[
-                { Icon: Twitter, label: "Twitter" },
-                { Icon: Linkedin, label: "LinkedIn" },
-                { Icon: Github, label: "GitHub" },
-              ].map(({ Icon, label }) => (
+                { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/corefusion_technologies/" },
+                { Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61590494587873" },
+                { Icon: Linkedin, label: "LinkedIn", href: "#" },
+              ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
                   aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary focus-ring"
                 >
                   <Icon className="h-4 w-4" />

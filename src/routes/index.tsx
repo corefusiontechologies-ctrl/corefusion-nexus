@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import {
-  ArrowRight, ArrowUpRight, Code2, Cpu, Sparkles, Palette, Cloud, LineChart,
+  ArrowRight, ArrowUpRight, Code2, Cpu, Zap, Palette, Plug, LineChart, Film, PenTool,
   Quote, MessageSquare, Rocket, Wrench, CheckCircle2, Layers,
 } from "lucide-react";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
@@ -180,7 +180,7 @@ function ConsoleLine({
   );
 }
 
-const clients = ["FIMA SAVE VISION", "AQAI ASSOCIATES", "SATHA TOW", "NORTHWIND", "HELIX", "ATLAS"];
+const clients = ["FIMA SAVE VISION", "AQAI ASSOCIATES", "SATHA TOW SERVICE", "MORE PROJECTS COMING SOON"];
 function TrustBar() {
   return (
     <section className="py-14 border-y border-border bg-surface/30">
@@ -211,12 +211,14 @@ function TrustBar() {
 }
 
 const services = [
-  { Icon: Code2, title: "Web Development", text: "Responsive, SEO-friendly websites built with modern technologies. Fast, accessible, and built to convert." },
+  { Icon: Code2, title: "Website Development", text: "Responsive, SEO-friendly websites built with modern technologies. Fast, accessible, and built to convert." },
   { Icon: Cpu, title: "Custom Software", text: "Business apps, dashboards, portals, and management systems designed around your workflows." },
-  { Icon: Sparkles, title: "AI & Automation", text: "Automate repetitive tasks, add AI assistants and chatbots, and streamline internal workflows." },
+  { Icon: Zap, title: "Automation", text: "Automate repetitive tasks, connect tools, and streamline workflows so your team can focus on real work." },
   { Icon: Palette, title: "UI/UX Design", text: "Modern, user-focused interfaces that improve usability, engagement, and conversion." },
-  { Icon: Cloud, title: "Cloud & Integration", text: "Connect systems, APIs, cloud platforms, and third-party services into a seamless ecosystem." },
+  { Icon: Plug, title: "API Integration", text: "Connect systems, APIs, cloud platforms, and third-party services into a seamless ecosystem." },
   { Icon: LineChart, title: "Digital Growth", text: "Performance optimization, SEO, analytics, and ongoing technical support to keep you growing." },
+  { Icon: Film, title: "Video Editing", text: "Polished video content for ads, social media, explainers, and brand storytelling." },
+  { Icon: PenTool, title: "Graphic Design", text: "Visual design that brings your brand to life across digital, social, and print." },
 ];
 
 function Services() {
@@ -225,7 +227,7 @@ function Services() {
       <SectionHeading
         eyebrow="What we do"
         title={<>Everything you need to <span className="text-gradient">ship, scale and grow.</span></>}
-        description="Six services, one team. We handle strategy, design, engineering, and long-term support — so your technology stops being the bottleneck."
+        description="Eight services, one team. We handle strategy, design, engineering, content, and long-term support — so your technology stops being the bottleneck."
       />
       <motion.ul
         initial="hidden"
@@ -415,9 +417,9 @@ function WhyUs() {
 
 function Stats() {
   const stats = [
-    { v: 40, suffix: "+", label: "Projects delivered" },
-    { v: 12, suffix: "", label: "Industries served" },
-    { v: 98, suffix: "%", label: "Client retention" },
+    { v: 4, suffix: "+", label: "Projects delivered" },
+    { v: 5, suffix: "+", label: "Industries served" },
+    { v: 100, suffix: "%", label: "Client retention" },
     { v: 24, suffix: "h", label: "Avg. response time" },
   ];
   return (

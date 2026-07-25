@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Compass, Shield, Sparkles, Users, Linkedin, Twitter, Github } from "lucide-react";
+import { Compass, Shield, Sparkles, Users, Instagram, Facebook, Linkedin } from "lucide-react";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
@@ -21,14 +21,9 @@ export const Route = createFileRoute("/about")({
 });
 
 const team = [
-  { name: "Ali Raza", role: "Founder & Lead Engineer", initials: "AR" },
-  { name: "Sara Khan", role: "Head of Design", initials: "SK" },
-  { name: "Bilal Ahmed", role: "Full-Stack Developer", initials: "BA" },
-  { name: "Hira Malik", role: "UI/UX Designer", initials: "HM" },
-  { name: "Usman Tariq", role: "AI & Automation", initials: "UT" },
-  { name: "Ayesha Noor", role: "Project Manager", initials: "AN" },
-  { name: "Fahad Iqbal", role: "Cloud Engineer", initials: "FI" },
-  { name: "Zara Sheikh", role: "Client Success", initials: "ZS" },
+  { name: "Abdullah Zahid", role: "WordPress Developer, Full-Stack Developer", initials: "AZ", social: "https://www.instagram.com/corefusion_technologies/" },
+  { name: "Arrib Zahid", role: "Graphic Designer, Video Editor", initials: "AZ", social: "https://www.instagram.com/corefusion_technologies/" },
+  { name: "Hussain Ahmed Zahid", role: "Content Writer", initials: "HAZ", social: "https://www.instagram.com/corefusion_technologies/" },
 ];
 
 const values = [
@@ -139,8 +134,12 @@ function AboutPage() {
                 <div className="text-sm font-semibold">{p.name}</div>
                 <div className="text-xs text-muted-foreground mt-0.5">{p.role}</div>
                 <div className="mt-3 flex gap-2 opacity-0 translate-y-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-                  {[Linkedin, Twitter, Github].map((Icon, i) => (
-                    <a key={i} href="#" className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors">
+                  {[
+                    { Icon: Instagram, href: "https://www.instagram.com/corefusion_technologies/", label: "Instagram" },
+                    { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61590494587873", label: "Facebook" },
+                    { Icon: Linkedin, href: p.social, label: "LinkedIn" },
+                  ].map(({ Icon, href, label }) => (
+                    <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors">
                       <Icon className="h-3 w-3" />
                     </a>
                   ))}

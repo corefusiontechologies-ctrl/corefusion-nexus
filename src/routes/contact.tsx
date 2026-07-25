@@ -104,9 +104,9 @@ function ContactPage() {
 
           <Reveal delay={0.1}>
             <ul className="space-y-6">
-              <Info Icon={Mail} title="Email" body="hello@corefusiontech.com" />
-              <Info Icon={Phone} title="Phone / WhatsApp" body="+92 300 000 0000" />
-              <Info Icon={MapPin} title="Headquarters" body={"Lahore, Pakistan\nRemote-friendly worldwide"} />
+              <Info Icon={Mail} title="Email" body="corefusiontechologies@gmail.com" />
+              <Info Icon={Phone} title="Phone / WhatsApp" body="+92-3034866406" />
+              <Info Icon={MapPin} title="Address" body={"Lahore, Pakistan\nRemote-friendly worldwide"} />
             </ul>
 
             <div className="mt-8 glass rounded-2xl overflow-hidden">
