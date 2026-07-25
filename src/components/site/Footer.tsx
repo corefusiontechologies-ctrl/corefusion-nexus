@@ -49,14 +49,16 @@ export function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-3">
               {[
-                { Icon: Twitter, label: "Twitter" },
-                { Icon: Linkedin, label: "LinkedIn" },
-                { Icon: Github, label: "GitHub" },
-              ].map(({ Icon, label }) => (
+                { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/corefusion_technologies/" },
+                { Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61590494587873" },
+                { Icon: Linkedin, label: "LinkedIn", href: "#" },
+              ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
                   aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary focus-ring"
                 >
                   <Icon className="h-4 w-4" />
