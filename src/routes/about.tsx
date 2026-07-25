@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Compass, Shield, Sparkles, Users, Linkedin, Twitter, Github } from "lucide-react";
+import { Compass, Shield, Sparkles, Users, Instagram, Facebook, Linkedin } from "lucide-react";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
