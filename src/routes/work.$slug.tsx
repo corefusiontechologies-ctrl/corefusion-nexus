@@ -91,7 +91,7 @@ const cases: Record<string, CaseData> = {
     summary: "Created a high-converting Arabic landing page for Satha Tow Service, a 24/7 vehicle towing and transportation company serving the Riyadh–Jeddah region. The page was designed specifically for paid advertising campaigns and fast customer conversions.",
     url: "https://sathatowservice.com/",
     tech: "HTML · CSS · JavaScript",
-    services: ["Landing Page Design", "Arabic RTL Development", "Conversion Optimisation", "Mobile Optimisation"],
+    services: ["Website Development", "UI/UX Design", "Digital Growth", "Automation"],
     cover: assetUrl(sathaHero.url),
     gallery: [
       { src: assetUrl(sathaHero.url), caption: "Arabic RTL hero with direct call and WhatsApp CTAs" },
