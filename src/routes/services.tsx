@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Code2, Cpu, Sparkles, Palette, Cloud, LineChart } from "lucide-react";
+import { ArrowUpRight, Code2, Cpu, Zap, Palette, Plug, LineChart, Film, PenTool } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
