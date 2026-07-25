@@ -211,12 +211,14 @@ function TrustBar() {
 }
 
 const services = [
-  { Icon: Code2, title: "Web Development", text: "Responsive, SEO-friendly websites built with modern technologies. Fast, accessible, and built to convert." },
+  { Icon: Code2, title: "Website Development", text: "Responsive, SEO-friendly websites built with modern technologies. Fast, accessible, and built to convert." },
   { Icon: Cpu, title: "Custom Software", text: "Business apps, dashboards, portals, and management systems designed around your workflows." },
-  { Icon: Sparkles, title: "AI & Automation", text: "Automate repetitive tasks, add AI assistants and chatbots, and streamline internal workflows." },
+  { Icon: Zap, title: "Automation", text: "Automate repetitive tasks, connect tools, and streamline workflows so your team can focus on real work." },
   { Icon: Palette, title: "UI/UX Design", text: "Modern, user-focused interfaces that improve usability, engagement, and conversion." },
-  { Icon: Cloud, title: "Cloud & Integration", text: "Connect systems, APIs, cloud platforms, and third-party services into a seamless ecosystem." },
+  { Icon: Plug, title: "API Integration", text: "Connect systems, APIs, cloud platforms, and third-party services into a seamless ecosystem." },
   { Icon: LineChart, title: "Digital Growth", text: "Performance optimization, SEO, analytics, and ongoing technical support to keep you growing." },
+  { Icon: Film, title: "Video Editing", text: "Polished video content for ads, social media, explainers, and brand storytelling." },
+  { Icon: PenTool, title: "Graphic Design", text: "Visual design that brings your brand to life across digital, social, and print." },
 ];
 
 function Services() {
