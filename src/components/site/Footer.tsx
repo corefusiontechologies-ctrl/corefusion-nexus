@@ -41,7 +41,7 @@ export function Footer() {
       <div className="container-x py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
-            <Logo className="h-10 w-auto" />
+            <Logo className="h-14 w-auto" />
             <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
               CoreFusion Technologies designs, develops, and delivers scalable
               digital solutions that help businesses innovate, streamline
