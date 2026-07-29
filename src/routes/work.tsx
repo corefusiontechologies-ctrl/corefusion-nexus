@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { assetUrl } from "@/lib/assets";
@@ -90,49 +90,43 @@ function WorkPage() {
           </div>
         </Reveal>
 
-        <motion.ul
-          layout
-          className="mt-12 grid gap-6 md:grid-cols-2"
-        >
-          <AnimatePresence mode="popLayout">
-            {filtered.map((c, i) => (
-              <motion.li
-                key={c.id}
-                layout
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.5, ease, delay: i * 0.05 }}
-              >
-                <Link to="/work/$slug" params={{ slug: c.id }} className="group relative block overflow-hidden rounded-2xl border border-border bg-surface aspect-[5/4]">
-                  <img src={c.cover} alt={`${c.client} — case study cover`} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" decoding="async" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
-                  <div
-                    className="absolute inset-0 opacity-[0.18]"
-                    style={{
-                      backgroundImage: "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
-                      backgroundSize: "40px 40px",
-                    }}
-                  />
-                  <div className="absolute inset-0 p-7 md:p-9 flex flex-col justify-between">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono uppercase tracking-[0.18em] text-white/90">{c.category}</span>
-                      <ArrowUpRight className="h-5 w-5 text-white/90 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-mono uppercase tracking-[0.18em] text-white/80">{c.client}</div>
-                      <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-white max-w-md leading-tight">{c.title}</h3>
-                      <div className="mt-6 flex items-end gap-3">
-                        <span className="text-4xl md:text-5xl font-display font-semibold text-white">{c.metric}</span>
-                        <span className="text-xs text-white/80 mb-2 uppercase tracking-wider">{c.metricLabel}</span>
-                      </div>
+        <ul className="mt-12 grid gap-6 md:grid-cols-2">
+          {filtered.map((c, i) => (
+            <motion.li
+              key={c.id}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease, delay: i * 0.05 }}
+            >
+              <Link to="/work/$slug" params={{ slug: c.id }} className="group relative block overflow-hidden rounded-2xl border border-border bg-surface aspect-[5/4]">
+                <img src={c.cover} alt={`${c.client} — case study cover`} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" decoding="async" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+                <div
+                  className="absolute inset-0 opacity-[0.18]"
+                  style={{
+                    backgroundImage: "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+                    backgroundSize: "40px 40px",
+                  }}
+                />
+                <div className="absolute inset-0 p-7 md:p-9 flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono uppercase tracking-[0.18em] text-white/90">{c.category}</span>
+                    <ArrowUpRight className="h-5 w-5 text-white/90 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-mono uppercase tracking-[0.18em] text-white/80">{c.client}</div>
+                    <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-white max-w-md leading-tight">{c.title}</h3>
+                    <div className="mt-6 flex items-end gap-3">
+                      <span className="text-4xl md:text-5xl font-display font-semibold text-white">{c.metric}</span>
+                      <span className="text-xs text-white/80 mb-2 uppercase tracking-wider">{c.metricLabel}</span>
                     </div>
                   </div>
-                </Link>
-              </motion.li>
-            ))}
-          </AnimatePresence>
-        </motion.ul>
+                </div>
+              </Link>
+            </motion.li>
+          ))}
+        </ul>
+
       </Section>
 
       <Section>
