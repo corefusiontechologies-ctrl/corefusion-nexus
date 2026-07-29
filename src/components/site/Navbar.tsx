@@ -41,7 +41,7 @@ export function Navbar() {
       )}
     >
       <div className="container-x flex h-16 items-center justify-between md:h-20">
-        <Logo className="h-8 md:h-9 w-auto" />
+        <Logo className="h-11 md:h-14 w-auto" />
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-1">
           {links.map((l) => {
