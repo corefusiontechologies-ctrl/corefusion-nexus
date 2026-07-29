@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { assetUrl } from "@/lib/assets";
