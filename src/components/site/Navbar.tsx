@@ -106,6 +106,7 @@ export function Navbar() {
                   >
                     <Link
                       to={l.to}
+                      onClick={() => setOpen(false)}
                       className={cn(
                         "block py-3 text-xl font-display tracking-tight border-b border-border/60",
                         active ? "text-primary" : "text-foreground",
@@ -122,7 +123,7 @@ export function Navbar() {
                 transition={{ delay: 0.05 + links.length * 0.06, duration: 0.4, ease }}
                 className="pt-6"
               >
-                <Link to="/contact">
+                <Link to="/contact" onClick={() => setOpen(false)}>
                   <Button size="md" className="w-full">
                     Start a project <ArrowUpRight className="h-4 w-4" />
                   </Button>
