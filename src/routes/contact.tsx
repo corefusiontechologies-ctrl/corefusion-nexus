@@ -67,7 +67,7 @@ function ContactPage() {
             Tell us about your project — goals, timeline, budget, anything you
             already know. We respond within one business day with a plan and a
             fair price.
-            (Please use Whatsapp or write an email through your email app as the from is not integrated currently)
+            (Please use WhatsApp or write an email through your email app as the form is not integrated currently.)
           </p>
         </Reveal>
       </Section>
@@ -105,7 +105,7 @@ function ContactPage() {
 
           <Reveal delay={0.1}>
             <ul className="space-y-6">
-              <Info Icon={Mail} title="Email" body="corefusiontechologies@gmail.com" />
+              <Info Icon={Mail} title="Email" body="corefusiontechnologies@gmail.com" />
               <Info Icon={Phone} title="Phone / WhatsApp" body="+92-3034866406" />
               <Info Icon={MapPin} title="Address" body={"Lahore, Pakistan\nRemote-friendly worldwide"} />
             </ul>

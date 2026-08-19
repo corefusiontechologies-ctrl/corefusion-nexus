@@ -4,9 +4,9 @@ import { assetUrl } from "@/lib/assets";
 
 export function Logo({ className = "h-8 w-auto" }: { className?: string }) {
   return (
-    <Link to="/" aria-label="Corefusion Technologies — Home" className="inline-flex items-center gap-2 focus-ring rounded">
-      <img src={assetUrl(logo.url)} alt="" className={className} />
-      <span className="sr-only">Corefusion Technologies</span>
+    <Link to="/" aria-label="CoreFusion Technologies — Home" className="inline-flex items-center gap-2 focus-ring rounded">
+      <img src={assetUrl(logo.url)} alt="CoreFusion Technologies logo" className={className} />
+      <span className="sr-only">CoreFusion Technologies</span>
     </Link>
   );
 }
