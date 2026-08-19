@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, Clock } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
+import { HeroBg } from "@/components/site/HeroBg";
 import { motion } from "framer-motion";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 
@@ -41,7 +42,8 @@ const tags = ["All", "Web", "Software", "AI", "Design", "Growth", "Case study"];
 function InsightsPage() {
   return (
     <>
-      <Section className="pt-36 md:pt-44 pb-10">
+      <Section className="relative pt-36 md:pt-44 pb-10 overflow-hidden">
+        <HeroBg />
         <Reveal>
           <Eyebrow>Insights</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
@@ -58,9 +60,9 @@ function InsightsPage() {
       <Section className="pt-0">
         <Reveal>
           <a href="#" className="group block relative overflow-hidden rounded-3xl border border-border bg-surface">
-            <div className="absolute inset-0 bg-signature-gradient opacity-20 transition-opacity duration-500 group-hover:opacity-30" aria-hidden />
+            <div className="absolute inset-0 bg-signature-gradient opacity-15 transition-opacity duration-500 group-hover:opacity-25" aria-hidden />
             <div
-              className="absolute inset-0 opacity-[0.08]"
+              className="absolute inset-0 opacity-[0.05]"
               style={{
                 backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
                 backgroundSize: "40px 40px",
@@ -85,9 +87,9 @@ function InsightsPage() {
                 </div>
               </div>
               <div className="hidden lg:block relative">
-                <div className="absolute inset-0 rounded-2xl border border-border glass" />
+                <div className="absolute inset-0 rounded-2xl border border-border bg-surface" />
                 <div className="absolute inset-6 flex items-center justify-center">
-                  <div className="font-mono text-xs text-muted-foreground/70 text-center leading-relaxed whitespace-pre">
+                  <div className="font-mono text-xs text-muted-foreground text-center leading-relaxed whitespace-pre">
 {`// diagnose(site)
 const leaks = audit({
   speed:   true,

@@ -72,7 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#0A0A0B" },
+      { name: "theme-color", content: "#FAFAFA" },
       { title: "CoreFusion Technologies — Engineered digital solutions for modern business" },
       { name: "description", content: "CoreFusion Technologies designs, develops, and delivers scalable web, software, and AI solutions that help businesses grow." },
       { name: "author", content: "CoreFusion Technologies" },
@@ -100,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>

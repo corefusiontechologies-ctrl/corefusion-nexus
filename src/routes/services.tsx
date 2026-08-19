@@ -3,6 +3,7 @@ import { ArrowUpRight, Code2, Cpu, Zap, Palette, Plug, LineChart, Film, PenTool 
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
+import { HeroBg } from "@/components/site/HeroBg";
 import { motion } from "framer-motion";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 
@@ -66,7 +67,8 @@ const services = [
 function ServicesPage() {
   return (
     <>
-      <Section className="pt-36 md:pt-44 pb-10">
+      <Section className="relative pt-36 md:pt-44 pb-10 overflow-hidden">
+        <HeroBg />
         <Reveal>
           <Eyebrow>Services</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
@@ -131,7 +133,7 @@ function ServicesPage() {
               <div className="relative">
                 <div className="absolute -inset-6 rounded-3xl bg-signature-gradient opacity-10 blur-2xl" aria-hidden />
                 <div className="relative glass rounded-2xl p-8 aspect-[5/4] flex items-center justify-center">
-                  <p.Icon className="h-32 w-32 text-primary/40" strokeWidth={1.1} />
+                  <p.Icon className="h-32 w-32 text-primary/25" strokeWidth={1.1} />
                 </div>
               </div>
             </Reveal>

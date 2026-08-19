@@ -69,18 +69,39 @@ function Hero() {
     <section ref={ref} className="relative overflow-hidden pt-32 md:pt-44 pb-20 md:pb-32">
       <motion.div
         style={{ x, y }}
-        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[720px] w-[720px] rounded-full bg-signature-gradient opacity-30 blur-[120px]"
+        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[720px] w-[720px] rounded-full bg-signature-gradient opacity-20 blur-[140px]"
         aria-hidden
       />
-      <div className="pointer-events-none absolute inset-0 mesh-radial opacity-60" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 mesh-radial opacity-50" aria-hidden />
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
             "linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)",
           backgroundSize: "64px 64px",
           maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
         }}
+        aria-hidden
+      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+        className="pointer-events-none absolute top-24 right-[12%] h-2 w-2 rounded-full bg-primary/50"
+        aria-hidden
+      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 0.3, ease: "easeOut" }}
+        className="pointer-events-none absolute top-48 left-[8%] h-1.5 w-1.5 rounded-full bg-[color:var(--bronze)]/50"
+        aria-hidden
+      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
+        className="pointer-events-none absolute bottom-40 right-[22%] h-1 w-1 rounded-full bg-primary/40"
         aria-hidden
       />
 
@@ -130,32 +151,35 @@ function Hero() {
           transition={{ delay: 0.4, duration: 0.9, ease }}
           className="mt-20 md:mt-24"
         >
-          <div className="glass rounded-2xl overflow-hidden shadow-glow-lg">
-            <div className="flex items-center gap-2 border-b border-border px-4 py-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--primary-deep)]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--bronze)]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-              <span className="ml-3 font-mono text-xs text-muted-foreground">
-                corefusion ~ build
-              </span>
-            </div>
-            <div className="p-6 md:p-8 font-mono text-[13px] md:text-sm leading-relaxed">
-              <ConsoleLine prompt>cf init --project "your-business" --stack modern</ConsoleLine>
-              <ConsoleLine delay={0.6}>
-                <span className="text-[color:var(--bronze)]">›</span> discovery · goals, users, scope
-              </ConsoleLine>
-              <ConsoleLine delay={1.0}>
-                <span className="text-[color:var(--bronze)]">›</span> design · UI/UX · brand system
-              </ConsoleLine>
-              <ConsoleLine delay={1.4}>
-                <span className="text-[color:var(--bronze)]">›</span> build · web · software · AI
-              </ConsoleLine>
-              <ConsoleLine delay={1.8}>
-                <span className="text-primary">✓</span> launched · measured · supported
-              </ConsoleLine>
-              <ConsoleLine delay={2.2} muted>
-                clean code · SEO ready · mobile-first · scalable
-              </ConsoleLine>
+          <div className="relative">
+            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-primary/20 via-[color:var(--bronze)]/20 to-primary/10" aria-hidden />
+            <div className="relative glass rounded-2xl overflow-hidden shadow-lg">
+              <div className="flex items-center gap-2 border-b border-border px-4 py-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--primary-deep)]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--bronze)]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-primary" />
+                <span className="ml-3 font-mono text-xs text-muted-foreground">
+                  corefusion ~ build
+                </span>
+              </div>
+              <div className="p-6 md:p-8 font-mono text-[13px] md:text-sm leading-relaxed">
+                <ConsoleLine prompt>cf init --project "your-business" --stack modern</ConsoleLine>
+                <ConsoleLine delay={0.6}>
+                  <span className="text-[color:var(--bronze)]">›</span> discovery · goals, users, scope
+                </ConsoleLine>
+                <ConsoleLine delay={1.0}>
+                  <span className="text-[color:var(--bronze)]">›</span> design · UI/UX · brand system
+                </ConsoleLine>
+                <ConsoleLine delay={1.4}>
+                  <span className="text-[color:var(--bronze)]">›</span> build · web · software · AI
+                </ConsoleLine>
+                <ConsoleLine delay={1.8}>
+                  <span className="text-primary">✓</span> launched · measured · supported
+                </ConsoleLine>
+                <ConsoleLine delay={2.2} muted>
+                  clean code · SEO ready · mobile-first · scalable
+                </ConsoleLine>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -308,7 +332,7 @@ function FeaturedWork() {
                   loading="eager"
                   decoding="async"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 to-transparent" />
               </div>
               <div className="p-7">
                 <div className="flex items-center justify-between">
@@ -499,10 +523,10 @@ function CTABanner() {
     <Section>
       <Reveal>
         <div className="relative overflow-hidden rounded-3xl border border-border p-10 md:p-16 lg:p-20 text-center">
-          <div className="absolute inset-0 bg-signature-gradient opacity-90" aria-hidden />
-          <div className="absolute inset-0 bg-background/55" aria-hidden />
+          <div className="absolute inset-0 bg-signature-gradient opacity-100" aria-hidden />
+          <div className="absolute inset-0 bg-foreground/5" aria-hidden />
           <div
-            className="absolute inset-0 opacity-[0.12]"
+            className="absolute inset-0 opacity-[0.08]"
             style={{
               backgroundImage:
                 "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
@@ -511,13 +535,13 @@ function CTABanner() {
             aria-hidden
           />
           <div className="relative">
-            <div className="inline-flex gap-2 justify-center items-center text-[color:var(--bronze)] text-xs font-mono uppercase tracking-[0.2em]">
+            <div className="inline-flex gap-2 justify-center items-center text-white/80 text-xs font-mono uppercase tracking-[0.2em]">
               <Layers className="h-3 w-3" /> Ready when you are
             </div>
-            <h2 className="mt-5 text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl mx-auto">
+            <h2 className="mt-5 text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl mx-auto text-white">
               Have a project in mind? Let's build it.
             </h2>
-            <p className="mt-5 text-muted-foreground text-lg max-w-xl mx-auto">
+            <p className="mt-5 text-white/80 text-lg max-w-xl mx-auto">
               Tell us about your goals. We'll come back within one business day
               with a plan, a timeline, and a fair price.
             </p>

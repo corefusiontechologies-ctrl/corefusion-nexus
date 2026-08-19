@@ -3,6 +3,7 @@ import { Compass, Shield, Sparkles, Users, Instagram, Facebook, Linkedin } from 
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
+import { HeroBg } from "@/components/site/HeroBg";
 import { motion } from "framer-motion";
 import { fadeUp, stagger, viewportOnce, slideInLeft, slideInRight } from "@/lib/motion";
 
@@ -36,7 +37,8 @@ const values = [
 function AboutPage() {
   return (
     <>
-      <Section className="pt-36 md:pt-44 pb-10">
+      <Section className="relative pt-36 md:pt-44 pb-10 overflow-hidden">
+        <HeroBg />
         <Reveal>
           <Eyebrow>About us</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
@@ -124,13 +126,13 @@ function AboutPage() {
         >
           {team.map((p) => (
             <motion.li key={p.name} variants={fadeUp} className="group relative overflow-hidden rounded-2xl border border-border bg-surface aspect-[3/4]">
-              <div className="absolute inset-0 flex items-center justify-center bg-signature-gradient opacity-20 transition-opacity duration-500 group-hover:opacity-40" aria-hidden />
+              <div className="absolute inset-0 flex items-center justify-center bg-signature-gradient opacity-15 transition-opacity duration-500 group-hover:opacity-30" aria-hidden />
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-6xl font-display font-semibold text-foreground/40 group-hover:text-foreground/70 transition-colors duration-500">
                   {p.initials}
                 </span>
               </div>
-              <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-background via-background/85 to-transparent">
+              <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-background via-background/80 to-transparent">
                 <div className="text-sm font-semibold">{p.name}</div>
                 <div className="text-xs text-muted-foreground mt-0.5">{p.role}</div>
                 <div className="mt-3 flex gap-2 opacity-0 translate-y-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">

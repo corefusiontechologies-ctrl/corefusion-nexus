@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { ArrowUpRight, Sparkles, Heart, Mountain, Globe, BookOpen, Wallet } from "lucide-react";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
+import { HeroBg } from "@/components/site/HeroBg";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, stagger, viewportOnce, ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -55,7 +56,8 @@ function CareersPage() {
 
   return (
     <>
-      <Section className="pt-36 md:pt-44 pb-10">
+      <Section className="relative pt-36 md:pt-44 pb-10 overflow-hidden">
+        <HeroBg />
         <Reveal>
           <Eyebrow>Careers</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">

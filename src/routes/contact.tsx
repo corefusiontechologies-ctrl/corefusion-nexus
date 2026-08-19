@@ -5,6 +5,7 @@ import { Mail, MapPin, Phone, Send, CheckCircle2 } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
+import { HeroBg } from "@/components/site/HeroBg";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/contact")({
@@ -57,7 +58,8 @@ function ContactPage() {
 
   return (
     <>
-      <Section className="pt-36 md:pt-44 pb-10">
+      <Section className="relative pt-36 md:pt-44 pb-10 overflow-hidden">
+        <HeroBg />
         <Reveal>
           <Eyebrow>Contact</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
@@ -112,9 +114,9 @@ function ContactPage() {
 
             <div className="mt-8 glass rounded-2xl overflow-hidden">
               <div className="relative aspect-[4/3]">
-                <div className="absolute inset-0 bg-signature-gradient opacity-20" />
+                <div className="absolute inset-0 bg-signature-gradient opacity-15" />
                 <div
-                  className="absolute inset-0 opacity-30"
+                  className="absolute inset-0 opacity-15"
                   style={{
                     backgroundImage:
                       "linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)",

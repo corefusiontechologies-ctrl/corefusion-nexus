@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
+import { HeroBg } from "@/components/site/HeroBg";
 import { motion } from "framer-motion";
 import { ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -57,7 +58,8 @@ function WorkPage() {
 
   return (
     <>
-      <Section className="pt-36 md:pt-44 pb-10">
+      <Section className="relative pt-36 md:pt-44 pb-10 overflow-hidden">
+        <HeroBg />
         <Reveal>
           <Eyebrow>Selected work</Eyebrow>
           <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-[-0.03em] max-w-4xl">
@@ -100,9 +102,9 @@ function WorkPage() {
             >
               <Link to="/work/$slug" params={{ slug: c.id }} className="group relative block overflow-hidden rounded-2xl border border-border bg-surface aspect-[5/4]">
                 <img src={c.cover} alt={`${c.client} — case study cover`} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" decoding="async" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/20" />
                 <div
-                  className="absolute inset-0 opacity-[0.18]"
+                  className="absolute inset-0 opacity-[0.10]"
                   style={{
                     backgroundImage: "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
                     backgroundSize: "40px 40px",

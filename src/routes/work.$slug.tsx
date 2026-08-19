@@ -3,6 +3,7 @@ import { ArrowLeft, CheckCircle2, ExternalLink } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/site/Button";
+import { HeroBg } from "@/components/site/HeroBg";
 import { assetUrl } from "@/lib/assets";
 
 import fimaCover from "@/assets/work/fima-cover.jpg.asset.json";
@@ -154,7 +155,8 @@ function CaseStudy() {
   const c = Route.useLoaderData() as (typeof cases)[string];
   return (
     <>
-      <Section className="pt-36 md:pt-44 pb-10">
+      <Section className="relative pt-36 md:pt-44 pb-10 overflow-hidden">
+        <HeroBg />
         <Reveal>
           <Link to="/work" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="h-4 w-4" /> All case studies
