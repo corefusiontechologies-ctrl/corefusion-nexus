@@ -18,8 +18,8 @@ export function HeroBg() {
         style={{ background: "radial-gradient(circle, rgba(8,13,53,0.06) 0%, transparent 60%)" }}
       />
 
-      {/* ── Main geometric composition — right half, centered ──── */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-[30%] -translate-y-1/2 w-[460px] h-[460px] lg:w-[520px] lg:h-[520px]">
+      {/* ── Main geometric composition — desktop only, right half ──── */}
+      <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-[18%] -translate-y-1/2 w-[460px] h-[460px] lg:w-[520px] lg:h-[520px]">
 
         {/* Large navy circle — back layer */}
         <motion.div
