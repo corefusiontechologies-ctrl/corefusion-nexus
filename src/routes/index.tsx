@@ -49,10 +49,10 @@ function HomePage() {
 /* ─── Hero — Premium editorial ─────────────────────────────────── */
 
 const stats = [
-  { Icon: Layers, value: 25, suffix: "+", label: "Projects Delivered" },
-  { Icon: Users, value: 15, suffix: "+", label: "Happy Clients" },
-  { Icon: ThumbsUp, value: 98, suffix: "%", label: "Client Satisfaction" },
-  { Icon: Briefcase, value: 10, suffix: "+", label: "Industries Served" },
+  { Icon: Layers, value: 4, suffix: "+", label: "Projects Delivered" },
+  { Icon: Users, value: 3, suffix: "+", label: "Happy Clients" },
+  { Icon: ThumbsUp, value: 100, suffix: "%", label: "Client Satisfaction" },
+  { Icon: Briefcase, value: 3, suffix: "+", label: "Industries Served" },
 ];
 
 function Hero() {
