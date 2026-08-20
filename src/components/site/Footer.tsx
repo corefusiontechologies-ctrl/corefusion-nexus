@@ -92,7 +92,7 @@ export function Footer() {
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} CoreFusion Technologies. All rights reserved.</p>
           <p className="font-mono tracking-wider">
-            <span className="text-[color:var(--bronze)]">●</span> Available for new projects
+            <span className="text-primary">●</span> Open for new projects
           </p>
         </div>
       </div>

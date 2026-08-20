@@ -14,7 +14,7 @@ const variants: Record<Variant, string> = {
   primary:
     "bg-primary text-primary-foreground hover:bg-primary/95 shadow-[0_0_0_1px_color-mix(in_oklab,var(--primary)_60%,transparent)] hover:shadow-glow",
   secondary:
-    "border border-[color:var(--bronze)]/40 text-foreground hover:border-[color:var(--bronze)] hover:bg-[color-mix(in_oklab,var(--bronze)_10%,transparent)]",
+    "border border-border text-foreground hover:border-primary/40 hover:bg-primary/5",
   outline:
     "border border-border text-foreground hover:bg-surface",
   ghost: "text-foreground hover:bg-surface",

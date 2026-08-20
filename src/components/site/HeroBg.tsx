@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 export function HeroBg() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[600px] w-[600px] rounded-full bg-signature-gradient opacity-15 blur-[120px]" />
-      <div className="absolute inset-0 mesh-radial opacity-40" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[600px] w-[600px] rounded-full bg-signature-gradient opacity-10 blur-[120px]" />
+      <div className="absolute inset-0 mesh-radial opacity-30" />
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{

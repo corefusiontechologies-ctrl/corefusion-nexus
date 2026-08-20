@@ -79,6 +79,11 @@ function ServicesPage() {
             a marketing site, a custom platform, creative content, or intelligent
             automation — we've done it before and we'll do it well.
           </p>
+          <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground">
+            <span className="text-primary font-medium">Starting from $500</span>
+            <span className="text-border">|</span>
+            <span>Flexible engagement — project-based or monthly retainers</span>
+          </div>
         </Reveal>
       </Section>
 
@@ -92,7 +97,7 @@ function ServicesPage() {
             <motion.li key={p.id} variants={fadeUp}>
               <a href={`#${p.id}`} className="group block h-full glass rounded-2xl p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/40">
                 <div className="flex items-center justify-between">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border text-[color:var(--bronze)] group-hover:text-primary group-hover:border-primary/50 transition-colors">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border text-primary/70 group-hover:text-primary group-hover:border-primary/50 transition-colors">
                     <p.Icon className="h-5 w-5" />
                   </div>
                   <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">{p.tag}</span>

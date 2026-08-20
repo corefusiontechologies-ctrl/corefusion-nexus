@@ -42,43 +42,43 @@
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
 
-  --shadow-glow: 0 0 40px -10px color-mix(in oklab, var(--primary) 60%, transparent);
-  --shadow-glow-lg: 0 0 80px -20px color-mix(in oklab, var(--primary) 50%, transparent);
+  --shadow-glow: 0 4px 24px -4px rgba(255, 107, 0, 0.12);
+  --shadow-glow-lg: 0 8px 40px -8px rgba(255, 107, 0, 0.10);
 }
 
 :root {
   --radius: 0.75rem;
 
-  /* Light-mode brand */
-  --background: oklch(0.985 0.002 280);      /* #FAFAFA */
-  --foreground: oklch(0.15 0.008 280);       /* near-black */
-  --surface: oklch(0.97 0.003 280);          /* subtle gray */
-  --surface-elevated: oklch(0.955 0.004 280);
+  /* Light-mode brand — cream palette */
+  --background: #FFF4EC;                      /* Cream */
+  --foreground: #111111;                      /* Primary text */
+  --surface: #FFF8F2;                         /* Slightly warmer than bg */
+  --surface-elevated: #FFFFFF;
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.008 280);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.008 280);
+  --card: #FFFFFF;                            /* White cards */
+  --card-foreground: #111111;
+  --popover: #FFFFFF;
+  --popover-foreground: #111111;
 
-  --primary: oklch(0.65 0.2 42);             /* #EA580C – deeper orange */
-  --primary-foreground: oklch(1 0 0);
-  --primary-deep: oklch(0.50 0.17 35);       /* #C2410C */
-  --primary-glow: oklch(0.72 0.16 48);
+  --primary: #FF6B00;                         /* Orange — CTAs, buttons, icons */
+  --primary-foreground: #FFFFFF;
+  --primary-deep: #D94F0A;                    /* Deep orange — body text on light */
+  --primary-glow: #FF8C42;                    /* Light orange accent */
 
-  --bronze: oklch(0.55 0.09 60);             /* darker bronze for light bg */
-  --secondary: oklch(0.96 0.002 280);
-  --secondary-foreground: oklch(0.15 0.008 280);
-  --muted: oklch(0.945 0.003 280);
-  --muted-foreground: oklch(0.45 0.01 280);
-  --accent: oklch(0.55 0.09 60);
-  --accent-foreground: oklch(1 0 0);
+  --bronze: #D94F0A;                          /* Deep orange for small body text */
+  --secondary: #FFFFFF;
+  --secondary-foreground: #111111;
+  --muted: #F5EDE5;                           /* Warm muted on cream */
+  --muted-foreground: #666666;
+  --accent: #FF8C42;                          /* Light orange accent */
+  --accent-foreground: #FFFFFF;
 
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(1 0 0);
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
 
-  --border: oklch(0 0 0 / 9%);
-  --input: oklch(0 0 0 / 12%);
-  --ring: oklch(0.65 0.2 42 / 50%);
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(0, 0, 0, 0.10);
+  --ring: rgba(255, 107, 0, 0.5);
 }
 
 .dark {
@@ -130,8 +130,8 @@
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--primary) 35%, transparent);
-    color: var(--foreground);
+    background: rgba(255, 107, 0, 0.20);
+    color: #111111;
   }
 
   /* Subtle grain texture overlay */
@@ -161,33 +161,33 @@
 }
 
 @utility glass {
-  background-color: color-mix(in oklab, var(--card) 80%, transparent);
-  backdrop-filter: blur(16px) saturate(150%);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px) saturate(150%);
   border: 1px solid var(--border);
 }
 
 @utility glass-strong {
-  background-color: color-mix(in oklab, var(--card) 92%, transparent);
-  backdrop-filter: blur(20px) saturate(150%);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px) saturate(150%);
   border-bottom: 1px solid var(--border);
 }
 
 @utility text-gradient {
-  background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 100%);
+  background: linear-gradient(135deg, #D94F0A 0%, #FF6B00 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 @utility bg-signature-gradient {
-  background: linear-gradient(135deg, var(--bronze) 0%, var(--primary) 60%, var(--primary-deep) 100%);
+  background: linear-gradient(135deg, #FF8C42 0%, #FF6B00 50%, #D94F0A 100%);
 }
 
 @utility mesh-radial {
   background-image:
-    radial-gradient(circle at 20% 10%, color-mix(in oklab, var(--primary) 25%, transparent) 0%, transparent 40%),
-    radial-gradient(circle at 80% 30%, color-mix(in oklab, var(--bronze) 18%, transparent) 0%, transparent 45%),
-    radial-gradient(circle at 50% 90%, color-mix(in oklab, var(--primary-deep) 22%, transparent) 0%, transparent 50%);
+    radial-gradient(circle at 20% 10%, rgba(255, 107, 0, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255, 140, 66, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(217, 79, 10, 0.07) 0%, transparent 50%);
 }
 
 @utility hairline {

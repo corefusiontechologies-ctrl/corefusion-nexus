@@ -69,10 +69,10 @@ function Hero() {
     <section ref={ref} className="relative overflow-hidden pt-32 md:pt-44 pb-20 md:pb-32">
       <motion.div
         style={{ x, y }}
-        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[720px] w-[720px] rounded-full bg-signature-gradient opacity-20 blur-[140px]"
+        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[720px] w-[720px] rounded-full bg-signature-gradient opacity-10 blur-[140px]"
         aria-hidden
       />
-      <div className="pointer-events-none absolute inset-0 mesh-radial opacity-50" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 mesh-radial opacity-30" aria-hidden />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
@@ -113,6 +113,10 @@ function Hero() {
           className="max-w-4xl"
         >
           <motion.div variants={fadeUp}>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 mb-5">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-medium text-primary">Available for new projects</span>
+            </div>
             <Eyebrow>Software · Design · AI · Cloud</Eyebrow>
           </motion.div>
           <motion.h1
@@ -137,11 +141,11 @@ function Hero() {
                 Start a project <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/work">
+            <a href="https://wa.me/923034866406" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="secondary">
-                See our work
+                Chat on WhatsApp
               </Button>
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
 
@@ -152,29 +156,29 @@ function Hero() {
           className="mt-20 md:mt-24"
         >
           <div className="relative">
-            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-primary/20 via-[color:var(--bronze)]/20 to-primary/10" aria-hidden />
-            <div className="relative glass rounded-2xl overflow-hidden shadow-lg">
-              <div className="flex items-center gap-2 border-b border-border px-4 py-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--primary-deep)]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--bronze)]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                <span className="ml-3 font-mono text-xs text-muted-foreground">
+            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-primary/15 via-[#FF8C42]/15 to-primary/10" aria-hidden />
+            <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ background: "#1a1a2e" }}>
+              <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                <span className="ml-3 font-mono text-xs text-white/40">
                   corefusion ~ build
                 </span>
               </div>
-              <div className="p-6 md:p-8 font-mono text-[13px] md:text-sm leading-relaxed">
+              <div className="p-6 md:p-8 font-mono text-[13px] md:text-sm leading-relaxed text-white/80">
                 <ConsoleLine prompt>cf init --project "your-business" --stack modern</ConsoleLine>
                 <ConsoleLine delay={0.6}>
-                  <span className="text-[color:var(--bronze)]">›</span> discovery · goals, users, scope
+                  <span className="text-[#FF8C42]">›</span> discovery · goals, users, scope
                 </ConsoleLine>
                 <ConsoleLine delay={1.0}>
-                  <span className="text-[color:var(--bronze)]">›</span> design · UI/UX · brand system
+                  <span className="text-[#FF8C42]">›</span> design · UI/UX · brand system
                 </ConsoleLine>
                 <ConsoleLine delay={1.4}>
-                  <span className="text-[color:var(--bronze)]">›</span> build · web · software · AI
+                  <span className="text-[#FF8C42]">›</span> build · web · software · AI
                 </ConsoleLine>
                 <ConsoleLine delay={1.8}>
-                  <span className="text-primary">✓</span> launched · measured · supported
+                  <span className="text-[#28c840]">✓</span> launched · measured · supported
                 </ConsoleLine>
                 <ConsoleLine delay={2.2} muted>
                   clean code · SEO ready · mobile-first · scalable
@@ -196,15 +200,15 @@ function ConsoleLine({
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.6 + delay, duration: 0.4, ease }}
-      className={muted ? "text-muted-foreground" : ""}
+      className={muted ? "text-white/40" : ""}
     >
-      {prompt && <span className="text-primary mr-2">$</span>}
+      {prompt && <span className="text-[#28c840] mr-2">$</span>}
       {children}
     </motion.div>
   );
 }
 
-const clients = ["FIMA SAVE VISION", "AQAI ASSOCIATES", "SATHA TOW SERVICE", "MORE PROJECTS COMING SOON"];
+const clients = ["FIMA SAVE VISION", "AQAI ASSOCIATES", "SATHA TOW SERVICE"];
 function TrustBar() {
   return (
     <section className="py-14 border-y border-border bg-surface/30">
@@ -219,15 +223,21 @@ function TrustBar() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={stagger(0.1, 0.08)}
-          className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-6 items-center"
+          className="mt-8 flex flex-wrap justify-center items-center gap-x-10 gap-y-6"
         >
           {clients.map((l) => (
-            <motion.li key={l} variants={fadeUp} className="text-center">
+            <motion.li key={l} variants={fadeUp}>
               <span className="font-display text-sm md:text-base font-semibold tracking-[0.18em] text-muted-foreground/70 hover:text-foreground transition-colors">
                 {l}
               </span>
             </motion.li>
           ))}
+          <motion.li variants={fadeUp}>
+            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full border border-dashed border-primary/30 px-5 py-2.5 text-sm font-medium text-primary hover:border-primary hover:bg-primary/5 transition-all">
+              Your brand here
+              <ArrowUpRight className="h-3.5 w-3.5 opacity-0 -translate-y-0.5 translate-x-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5" />
+            </Link>
+          </motion.li>
         </motion.ul>
       </div>
     </section>
@@ -382,7 +392,7 @@ function Process() {
         {steps.map((s, i) => (
           <motion.li key={s.title} variants={fadeUp} className="group glass rounded-2xl p-7 relative">
             <div className="absolute top-6 right-6 font-mono text-xs text-muted-foreground">0{i + 1}</div>
-            <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border text-[color:var(--bronze)] group-hover:text-primary group-hover:border-primary/50 transition-colors">
+            <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border text-primary/70 group-hover:text-primary group-hover:border-primary/50 transition-colors">
               <s.Icon className="h-5 w-5" />
             </div>
             <h3 className="mt-5 font-semibold text-lg">{s.title}</h3>
@@ -441,16 +451,15 @@ function WhyUs() {
 
 function Stats() {
   const stats = [
-    { v: 4, suffix: "+", label: "Projects delivered" },
-    { v: 5, suffix: "+", label: "Industries served" },
-    { v: 100, suffix: "%", label: "Client retention" },
+    { v: 3, suffix: "+", label: "Projects delivered" },
+    { v: 3, suffix: "", label: "Industries served" },
     { v: 24, suffix: "h", label: "Avg. response time" },
   ];
   return (
     <Section className="border-y border-border bg-surface/30">
       <SectionHeading
         eyebrow="By the numbers"
-        title="A track record of shipped work."
+        title="Early-stage, delivery-focused."
         align="center"
       />
       <motion.ul
@@ -458,7 +467,7 @@ function Stats() {
         whileInView="visible"
         viewport={viewportOnce}
         variants={stagger(0.1, 0.12)}
-        className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        className="mt-14 grid gap-6 sm:grid-cols-3 max-w-3xl mx-auto"
       >
         {stats.map((s) => (
           <motion.li key={s.label} variants={fadeUp} className="glass rounded-2xl p-7 text-center">
@@ -476,15 +485,15 @@ function Stats() {
 const quotes = [
   {
     quote: "CoreFusion redesigned our website and gave us a modern presence that finally reflects our mission. The team was thoughtful, responsive, and easy to work with.",
-    author: "Program Lead", role: "FIMA Save Vision",
+    author: "Program Lead", role: "FIMA Save Vision", initials: "PL", color: "bg-primary/15 text-primary",
   },
   {
     quote: "Professional, structured, and reliable. Our new corporate site has strengthened our credibility with prospective clients from day one.",
-    author: "Managing Partner", role: "AQAI Associates",
+    author: "Managing Partner", role: "AQAI Associates", initials: "MP", color: "bg-[#D94F0A]/15 text-[#D94F0A]",
   },
   {
     quote: "The landing page they built converts. Fast loading, clean design, and direct WhatsApp integration — exactly what our campaigns needed.",
-    author: "Operations Manager", role: "Satha Tow Service",
+    author: "Operations Manager", role: "Satha Tow Service", initials: "OM", color: "bg-[#FF8C42]/15 text-[#FF8C42]",
   },
 ];
 
@@ -505,11 +514,16 @@ function Testimonials() {
             variants={fadeUp}
             className="group glass rounded-2xl p-7 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5"
           >
-            <Quote className="h-6 w-6 text-[color:var(--bronze)]" />
-            <p className="mt-5 text-foreground/90 leading-relaxed">"{q.quote}"</p>
-            <div className="mt-6 pt-5 border-t border-border">
-              <div className="text-sm font-medium">{q.author}</div>
-              <div className="text-xs text-muted-foreground mt-0.5">{q.role}</div>
+            <Quote className="h-6 w-6 text-primary/40" />
+            <p className="mt-5 text-foreground/85 leading-relaxed">"{q.quote}"</p>
+            <div className="mt-6 pt-5 border-t border-border flex items-center gap-3">
+              <span className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold ${q.color}`}>
+                {q.initials}
+              </span>
+              <div>
+                <div className="text-sm font-medium">{q.author}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{q.role}</div>
+              </div>
             </div>
           </motion.li>
         ))}
@@ -522,11 +536,10 @@ function CTABanner() {
   return (
     <Section>
       <Reveal>
-        <div className="relative overflow-hidden rounded-3xl border border-border p-10 md:p-16 lg:p-20 text-center">
+        <div className="relative overflow-hidden rounded-3xl border border-primary/20 p-10 md:p-16 lg:p-20 text-center">
           <div className="absolute inset-0 bg-signature-gradient opacity-100" aria-hidden />
-          <div className="absolute inset-0 bg-foreground/5" aria-hidden />
           <div
-            className="absolute inset-0 opacity-[0.08]"
+            className="absolute inset-0 opacity-[0.06]"
             style={{
               backgroundImage:
                 "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
@@ -546,8 +559,10 @@ function CTABanner() {
               with a plan, a timeline, and a fair price.
             </p>
             <div className="mt-9 flex flex-wrap gap-3 justify-center">
-              <Link to="/contact"><Button size="lg">Start a project <ArrowRight className="h-4 w-4" /></Button></Link>
-              <Link to="/services"><Button size="lg" variant="secondary">Explore services</Button></Link>
+              <Link to="/contact"><Button size="lg" className="bg-white text-primary hover:bg-white/90 border-0">Start a project <ArrowRight className="h-4 w-4" /></Button></Link>
+              <a href="https://wa.me/923034866406" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="secondary" className="border-white/30 text-white hover:bg-white/10">Chat on WhatsApp</Button>
+              </a>
             </div>
           </div>
         </div>

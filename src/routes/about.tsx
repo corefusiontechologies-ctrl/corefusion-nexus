@@ -107,7 +107,7 @@ function AboutPage() {
           {values.map(({ Icon, title, text }) => (
             <motion.li key={title} variants={fadeUp}
               className="group glass rounded-2xl p-7 transition-transform duration-500 hover:-translate-y-1.5">
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border text-[color:var(--bronze)] group-hover:text-primary group-hover:border-primary/50 transition-colors">
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border text-primary/70 group-hover:text-primary group-hover:border-primary/50 transition-colors">
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 font-semibold text-lg">{title}</h3>

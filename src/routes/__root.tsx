@@ -72,7 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#FAFAFA" },
+      { name: "theme-color", content: "#FFF4EC" },
       { title: "CoreFusion Technologies — Engineered digital solutions for modern business" },
       { name: "description", content: "CoreFusion Technologies designs, develops, and delivers scalable web, software, and AI solutions that help businesses grow." },
       { name: "author", content: "CoreFusion Technologies" },
