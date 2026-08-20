@@ -100,7 +100,7 @@ function WorkPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease, delay: i * 0.05 }}
             >
-              <Link to="/work/$slug" params={{ slug: c.id }} className="group relative block overflow-hidden rounded-2xl border border-border bg-surface aspect-[5/4]">
+              <Link to="/work/$slug" params={{ slug: c.id }} className="group relative block overflow-hidden rounded-2xl border border-border bg-surface aspect-[4/3] sm:aspect-[5/4]">
                 <img src={c.cover} alt={`${c.client} — case study cover`} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/20" />
                 <div
@@ -110,17 +110,17 @@ function WorkPage() {
                     backgroundSize: "40px 40px",
                   }}
                 />
-                <div className="absolute inset-0 p-7 md:p-9 flex flex-col justify-between">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-[0.18em] text-white/90">{c.category}</span>
-                    <ArrowUpRight className="h-5 w-5 text-white/90 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <div className="absolute inset-0 p-5 sm:p-7 md:p-9 flex flex-col justify-between">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] text-white/90">{c.category}</span>
+                    <ArrowUpRight className="h-5 w-5 shrink-0 text-white/90 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono uppercase tracking-[0.18em] text-white/80">{c.client}</div>
-                    <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-white max-w-md leading-tight">{c.title}</h3>
-                    <div className="mt-6 flex items-end gap-3">
-                      <span className="text-4xl md:text-5xl font-display font-semibold text-white">{c.metric}</span>
-                      <span className="text-xs text-white/80 mb-2 uppercase tracking-wider">{c.metricLabel}</span>
+                    <div className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] text-white/80">{c.client}</div>
+                    <h3 className="mt-1.5 sm:mt-2 text-lg sm:text-2xl md:text-3xl font-semibold text-white max-w-md leading-snug sm:leading-tight">{c.title}</h3>
+                    <div className="mt-3 sm:mt-6 flex flex-wrap items-end gap-x-3 gap-y-1">
+                      <span className="text-2xl sm:text-4xl md:text-5xl font-display font-semibold text-white">{c.metric}</span>
+                      <span className="text-[10px] sm:text-xs text-white/80 mb-1 sm:mb-2 uppercase tracking-wider">{c.metricLabel}</span>
                     </div>
                   </div>
                 </div>

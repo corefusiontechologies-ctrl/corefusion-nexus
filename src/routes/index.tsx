@@ -49,19 +49,19 @@ function HomePage() {
 /* ─── Hero — Premium editorial ─────────────────────────────────── */
 
 const stats = [
-  { Icon: Layers, value: 25, suffix: "+", label: "Projects Delivered" },
-  { Icon: Users, value: 15, suffix: "+", label: "Happy Clients" },
-  { Icon: ThumbsUp, value: 98, suffix: "%", label: "Client Satisfaction" },
-  { Icon: Briefcase, value: 10, suffix: "+", label: "Industries Served" },
+  { Icon: Layers, value: 4, suffix: "+", label: "Projects Delivered" },
+  { Icon: Users, value: 3, suffix: "+", label: "Happy Clients" },
+  { Icon: ThumbsUp, value: 100, suffix: "%", label: "Client Satisfaction" },
+  { Icon: Briefcase, value: 3, suffix: "+", label: "Industries Served" },
 ];
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden pt-24 md:pt-28 pb-6" style={{ minHeight: "min(900px, 92vh)" }}>
+    <section className="relative overflow-hidden pt-24 md:pt-28 pb-10 lg:min-h-[min(900px,92vh)]">
       <HeroBg />
 
       <div className="container-x relative">
-        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-6 items-center min-h-[520px] lg:min-h-[580px]">
+        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-6 items-center lg:min-h-[580px]">
           {/* Left — content */}
           <div className="relative z-10 py-4">
             {/* Badge */}
@@ -484,7 +484,7 @@ function WhyUs() {
 
 function Stats() {
   const stats = [
-    { v: 3, suffix: "+", label: "Projects delivered" },
+    { v: 4, suffix: "+", label: "Projects delivered" },
     { v: 3, suffix: "", label: "Industries served" },
     { v: 24, suffix: "h", label: "Avg. response time" },
   ];
