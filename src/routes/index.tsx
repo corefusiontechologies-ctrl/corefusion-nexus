@@ -57,11 +57,11 @@ const stats = [
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden pt-24 md:pt-28 pb-6" style={{ minHeight: "min(900px, 92vh)" }}>
+    <section className="relative overflow-hidden pt-24 md:pt-28 pb-10 lg:min-h-[min(900px,92vh)]">
       <HeroBg />
 
       <div className="container-x relative">
-        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-6 items-center min-h-[520px] lg:min-h-[580px]">
+        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-6 items-center lg:min-h-[580px]">
           {/* Left — content */}
           <div className="relative z-10 py-4">
             {/* Badge */}
