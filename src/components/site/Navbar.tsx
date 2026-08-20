@@ -54,7 +54,7 @@ export function Navbar() {
                 to={l.to}
                 className={cn(
                   "group relative px-4 py-2 text-sm transition-colors duration-300",
-                  active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                  active ? "text-primary" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {l.label}
@@ -71,7 +71,7 @@ export function Navbar() {
 
         <div className="hidden lg:block">
           <Link to="/contact">
-            <Button size="sm" variant="primary">
+            <Button size="sm" className="bg-primary text-white rounded-full hover:bg-primary/90">
               Start a project <ArrowUpRight className="h-4 w-4" />
             </Button>
           </Link>

@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import {
-  ArrowRight, ArrowUpRight, Code2, Cpu, Zap, Palette, Plug, LineChart, Film, PenTool,
+  ArrowRight, ArrowUpRight, Globe, Users, ThumbsUp, Briefcase,
+  Code2, Cpu, Zap, Palette, Plug, LineChart, Film, PenTool,
   Quote, MessageSquare, Rocket, Wrench, CheckCircle2, Layers,
 } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/Section";
@@ -46,213 +46,125 @@ function HomePage() {
   );
 }
 
-/* ─── Hero — Mission Control ───────────────────────────────────── */
+/* ─── Hero — Premium editorial ─────────────────────────────────── */
 
-const headlineWords = ["We", "engineer", "digital", "solutions", "that", "help", "businesses", "grow."];
+const stats = [
+  { Icon: Layers, value: 25, suffix: "+", label: "Projects Delivered" },
+  { Icon: Users, value: 15, suffix: "+", label: "Happy Clients" },
+  { Icon: ThumbsUp, value: 98, suffix: "%", label: "Client Satisfaction" },
+  { Icon: Briefcase, value: 10, suffix: "+", label: "Industries Served" },
+];
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28 lg:min-h-[90vh] lg:flex lg:items-center">
+    <section className="relative overflow-hidden pt-28 md:pt-36 pb-8 md:pb-12 lg:min-h-[92vh] lg:flex lg:items-center">
       <HeroBg />
 
       <div className="container-x relative">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-10 items-center">
-          {/* Left — word-by-word headline */}
-          <div>
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-4 items-center">
+          {/* Left — content */}
+          <div className="relative z-10">
+            {/* Badge */}
             <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={stagger(0.04, 0.08)}
-              className="flex flex-wrap items-center gap-3 mb-8"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease }}
+              className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 mb-7"
             >
-              <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                <span className="text-xs font-medium text-primary">Available for new projects</span>
-              </motion.div>
-              <motion.div variants={fadeUp}>
-                <Eyebrow>Software · Design · AI · Cloud</Eyebrow>
-              </motion.div>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-primary">
+                DIGITAL SOLUTIONS AGENCY
+              </span>
             </motion.div>
 
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-bold leading-[1.0] tracking-[-0.035em]">
-              {headlineWords.map((word, i) => (
+            {/* Headline */}
+            <h1 className="text-[48px] sm:text-[56px] md:text-[68px] lg:text-[80px] font-extrabold leading-[0.92] tracking-[-0.04em] text-navy">
+              {["WE BUILD", "DIGITAL", "EXPERIENCES", "THAT"].map((line, i) => (
                 <motion.span
                   key={i}
-                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{
-                    delay: 0.15 + i * 0.07,
-                    duration: 0.7,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  className={`inline-block mr-[0.3em] ${
-                    word === "grow." ? "highlighter text-primary" : ""
-                  }`}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + i * 0.08, duration: 0.7, ease }}
+                  className="block"
                 >
-                  {word}
+                  {line}
                 </motion.span>
               ))}
+              <motion.span
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.56, duration: 0.7, ease }}
+                className="block text-primary"
+              >
+                GROW.
+              </motion.span>
             </h1>
 
+            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.7, ease }}
-              className="mt-8 max-w-lg text-lg text-muted-foreground leading-relaxed"
+              transition={{ delay: 0.7, duration: 0.7, ease }}
+              className="mt-7 max-w-[560px] text-[15px] md:text-base text-muted-foreground leading-[1.7]"
             >
-              A modern software company. We design, develop, and deliver
-              websites, custom software, and AI-powered automation for teams
-              that need a real technology partner.
+              We design, develop and deliver modern software, websites, and
+              AI-powered solutions that help businesses scale faster and go
+              further.
             </motion.p>
 
+            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.0, duration: 0.6, ease }}
-              className="mt-10 flex flex-wrap gap-3"
+              transition={{ delay: 0.85, duration: 0.6, ease }}
+              className="mt-9 flex flex-wrap items-center gap-3"
             >
               <Link to="/contact">
-                <Button size="lg">
-                  Start a project <ArrowRight className="h-4 w-4" />
+                <Button size="lg" className="bg-primary text-white rounded-full hover:bg-primary/90 shadow-glow">
+                  Start a project <ArrowUpRight className="h-4 w-4" />
                 </Button>
               </Link>
               <a href="https://wa.me/923034866406" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="secondary">
+                <Button size="lg" variant="secondary" className="rounded-full">
                   Chat on WhatsApp
                 </Button>
               </a>
             </motion.div>
           </div>
 
-          {/* Right — live-typing terminal */}
-          <motion.div
-            initial={{ opacity: 0, y: 50, rotate: 1.5 }}
-            animate={{ opacity: 1, y: 0, rotate: 1.5 }}
-            transition={{ delay: 0.4, duration: 1, ease }}
-            className="relative hidden lg:block"
-          >
-            {/* Soft drop shadow */}
-            <div
-              className="absolute -inset-5 rounded-3xl"
-              style={{
-                boxShadow: "0 30px 70px -15px rgba(0,0,0,0.20), 0 12px 35px -10px rgba(0,0,0,0.12)",
-              }}
-              aria-hidden
-            />
-            {/* Orange glow ring */}
-            <div
-              className="absolute -inset-4 rounded-3xl"
-              style={{
-                boxShadow: "0 0 50px -8px rgba(255,107,0,0.10), 0 0 100px -20px rgba(255,140,66,0.06)",
-              }}
-              aria-hidden
-            />
-            <div className="relative rounded-2xl overflow-hidden border border-black/10" style={{ background: "#1a1a2e" }}>
-              {/* Title bar */}
-              <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                <span className="ml-3 font-mono text-xs text-white/40">corefusion ~ build</span>
-              </div>
-              {/* Terminal body */}
-              <div className="p-6 md:p-7 font-mono text-[13px] leading-relaxed text-white/80 min-h-[260px]">
-                <TypingTerminal />
-              </div>
-            </div>
-          </motion.div>
+          {/* Right — spacer for geometric artwork (rendered by HeroBg) */}
+          <div className="hidden lg:block" aria-hidden />
         </div>
       </div>
-    </section>
-  );
-}
 
-/* ─── Typing terminal with phase state machine ──────────────── */
-
-const TYPING_SPEED = 45;
-const PAUSE_BETWEEN_LINES = 400;
-
-const terminalSequence = [
-  { type: "command" as const, text: 'cf launch "your-business" --modern' },
-  { type: "spacer" as const },
-  { type: "output" as const, marker: "›", markerColor: "#FF8C42", text: "discovery  goals, users, scope" },
-  { type: "output" as const, marker: "›", markerColor: "#FF8C42", text: "design     UI/UX, brand system" },
-  { type: "output" as const, marker: "›", markerColor: "#FF8C42", text: "build      web, software, AI" },
-  { type: "success" as const, marker: "✓", text: "launched   measured, supported" },
-  { type: "spacer" as const },
-  { type: "muted" as const, text: "clean code · SEO ready · mobile-first" },
-];
-
-function TypingTerminal() {
-  const [phase, setPhase] = useState<"typing" | "showing" | "done">("typing");
-  const [typedCmd, setTypedCmd] = useState("");
-  const [visibleLines, setVisibleLines] = useState(0);
-  const cmdIndex = useRef(0);
-
-  const commandText = terminalSequence[0].text;
-
-  // Phase 1: type the command
-  useEffect(() => {
-    if (phase !== "typing") return;
-    if (cmdIndex.current >= commandText.length) {
-      setTimeout(() => setPhase("showing"), 500);
-      return;
-    }
-    const t = setTimeout(() => {
-      setTypedCmd(commandText.slice(0, cmdIndex.current + 1));
-      cmdIndex.current += 1;
-    }, TYPING_SPEED);
-    return () => clearTimeout(t);
-  }, [phase, typedCmd, commandText]);
-
-  // Phase 2: reveal output lines one by one
-  useEffect(() => {
-    if (phase !== "showing") return;
-    const outputLines = terminalSequence.filter((l) => l.type !== "command" && l.type !== "spacer");
-    if (visibleLines >= outputLines.length) {
-      setTimeout(() => setPhase("done"), 600);
-      return;
-    }
-    const t = setTimeout(() => setVisibleLines((v) => v + 1), PAUSE_BETWEEN_LINES);
-    return () => clearTimeout(t);
-  }, [phase, visibleLines]);
-
-  const outputLines = terminalSequence.filter((l) => l.type !== "command" && l.type !== "spacer");
-
-  return (
-    <div>
-      {/* Command line */}
-      <div>
-        <span className="text-[#28c840] mr-2">$</span>
-        <span>{typedCmd}</span>
-        {(phase === "typing" || phase === "showing") && (
-          <span className="hero-cursor" />
-        )}
-      </div>
-
-      {/* Output lines */}
-      <div className="mt-3 space-y-2">
-        <AnimatePresence>
-          {outputLines.slice(0, visibleLines).map((line, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.35, ease }}
-              className={line.type === "muted" ? "text-white/35" : ""}
-            >
-              <span
-                className="mr-2"
-                style={{ color: line.type === "success" ? "#28c840" : (line as { markerColor?: string }).markerColor || "inherit" }}
+      {/* ── Floating stats card ─────────────────────────────────── */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.8, ease }}
+        className="container-x relative z-10 mt-12 lg:mt-16"
+      >
+        <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-white/90 backdrop-blur-md shadow-[0_8px_30px_-8px_rgba(0,0,0,0.06)]">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={`flex flex-col items-center text-center px-6 py-6 md:py-7 ${
+                  i < stats.length - 1 ? "md:border-r md:border-border" : ""
+                } ${i === 1 ? "border-t md:border-t-0 border-border" : ""} ${i === 3 ? "border-t md:border-t-0 border-border" : ""}`}
               >
-                {line.marker}
-              </span>
-              {line.text}
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
-    </div>
+                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+                  <s.Icon className="h-4 w-4 text-primary" />
+                </div>
+                <div className="text-2xl md:text-3xl font-extrabold tracking-tight text-navy">
+                  <Counter to={s.value} suffix={s.suffix} />
+                </div>
+                <div className="mt-1 text-[11px] md:text-xs text-muted-foreground">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </section>
   );
 }
 
