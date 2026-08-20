@@ -25,6 +25,11 @@ export function HeroBg() {
   const sx = useSpring(mx, { stiffness: 40, damping: 25 });
   const sy = useSpring(my, { stiffness: 40, damping: 25 });
 
+  const orbX1 = useTransform(sx, (v) => v * 15);
+  const orbY1 = useTransform(sy, (v) => v * 15);
+  const orbX2 = useTransform(sx, (v) => v * -10);
+  const orbY2 = useTransform(sy, (v) => v * -8);
+
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
@@ -40,7 +45,7 @@ export function HeroBg() {
     <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
       {/* ── 1. Layered gradient mesh ─────────────────────────────── */}
       <motion.div
-        style={{ x: useTransform(sx, (v) => v * 15), y: useTransform(sy, (v) => v * 15) }}
+        style={{ x: orbX1, y: orbY1 }}
         className="absolute -top-20 right-0 h-[700px] w-[600px] rounded-full blur-[140px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -50,7 +55,7 @@ export function HeroBg() {
       </motion.div>
 
       <motion.div
-        style={{ x: useTransform(sx, (v) => v * -10), y: useTransform(sy, (v) => v * -8) }}
+        style={{ x: orbX2, y: orbY2 }}
         className="absolute -top-10 -left-20 h-[400px] w-[400px] rounded-full blur-[110px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
