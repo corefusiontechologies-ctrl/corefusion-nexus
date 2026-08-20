@@ -10,23 +10,23 @@ export function HeroBg() {
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
       {/* ── Ambient peach glow behind artwork ─────────────────── */}
       <div
-        className="absolute top-1/2 right-0 -translate-y-1/2 h-[600px] w-[600px] rounded-full blur-[160px] opacity-30"
-        style={{ background: "radial-gradient(circle, rgba(255,90,0,0.12) 0%, transparent 65%)" }}
+        className="absolute top-1/2 left-1/2 -translate-x-[20%] -translate-y-1/2 h-[500px] w-[500px] rounded-full blur-[140px] opacity-25"
+        style={{ background: "radial-gradient(circle, rgba(255,90,0,0.10) 0%, transparent 65%)" }}
       />
       <div
-        className="absolute top-[30%] right-[10%] h-[400px] w-[400px] rounded-full blur-[120px] opacity-20"
-        style={{ background: "radial-gradient(circle, rgba(8,13,53,0.08) 0%, transparent 60%)" }}
+        className="absolute top-[35%] left-[45%] h-[350px] w-[350px] rounded-full blur-[100px] opacity-15"
+        style={{ background: "radial-gradient(circle, rgba(8,13,53,0.06) 0%, transparent 60%)" }}
       />
 
-      {/* ── Main geometric composition — right side ─────────── */}
-      <div className="absolute top-1/2 right-[-4%] -translate-y-1/2 w-[580px] h-[580px] lg:w-[680px] lg:h-[680px]">
+      {/* ── Main geometric composition — right half, centered ──── */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-[30%] -translate-y-1/2 w-[460px] h-[460px] lg:w-[520px] lg:h-[520px]">
 
         {/* Large navy circle — back layer */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-[10%] right-[5%] h-[340px] w-[340px] lg:h-[400px] lg:w-[400px] rounded-full float-slow"
+          className="absolute top-[8%] right-[8%] h-[280px] w-[280px] lg:h-[320px] lg:w-[320px] rounded-full float-slow"
           style={{ background: "#080D35" }}
         />
 
@@ -35,7 +35,7 @@ export function HeroBg() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-[5%] right-[25%] h-[180px] w-[140px] lg:h-[220px] lg:w-[170px] rounded-[2rem] float-medium"
+          className="absolute top-[2%] right-[30%] h-[150px] w-[120px] lg:h-[180px] lg:w-[140px] rounded-[2rem] float-medium"
           style={{ background: "#FF5A00" }}
         />
 
@@ -44,7 +44,7 @@ export function HeroBg() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-[20%] left-[-5%] h-[260px] w-[130px] lg:h-[300px] lg:w-[150px] rounded-l-full float-slow"
+          className="absolute top-[18%] left-[2%] h-[220px] w-[110px] lg:h-[250px] lg:w-[125px] rounded-l-full float-slow"
           style={{ background: "#080D35", animationDelay: "2s" }}
         />
 
@@ -53,7 +53,7 @@ export function HeroBg() {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-[0%] right-[8%] h-[60px] w-[60px] lg:h-[72px] lg:w-[72px] rounded-full pulse-dot"
+          className="absolute top-[0%] right-[12%] h-[48px] w-[48px] lg:h-[56px] lg:w-[56px] rounded-full pulse-dot"
           style={{ background: "#FF5A00", animationDelay: "1s" }}
         />
 
@@ -62,7 +62,7 @@ export function HeroBg() {
           initial={{ opacity: 0, rotate: -10 }}
           animate={{ opacity: 1, rotate: 8 }}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-[35%] right-[30%] h-[120px] w-[120px] lg:h-[150px] lg:w-[150px] rounded-[1.5rem] bg-white shadow-lg float-medium"
+          className="absolute top-[32%] right-[35%] h-[100px] w-[100px] lg:h-[120px] lg:w-[120px] rounded-[1.25rem] bg-white shadow-lg float-medium"
           style={{ animationDelay: "1s" }}
         />
 
@@ -71,7 +71,7 @@ export function HeroBg() {
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 1.4, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-[55%] left-[10%] h-[2px] w-[280px] lg:w-[340px] origin-left drift-x"
+          className="absolute top-[55%] left-[8%] h-[2px] w-[240px] lg:w-[280px] origin-left drift-x"
           style={{ background: "linear-gradient(90deg, transparent, #FF5A00, transparent)", transform: "rotate(-12deg)" }}
         />
 
@@ -80,7 +80,7 @@ export function HeroBg() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute bottom-[8%] right-[15%] h-[100px] w-[200px] lg:h-[120px] lg:w-[240px] rounded-2xl float-slow"
+          className="absolute bottom-[10%] right-[18%] h-[80px] w-[170px] lg:h-[95px] lg:w-[200px] rounded-2xl float-slow"
           style={{ background: "#080D35", animationDelay: "3s" }}
         />
 
@@ -89,7 +89,7 @@ export function HeroBg() {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute bottom-[20%] left-[15%] h-[36px] w-[36px] rounded-full pulse-dot"
+          className="absolute bottom-[22%] left-[18%] h-[30px] w-[30px] rounded-full pulse-dot"
           style={{ background: "#FF5A00", animationDelay: "2s" }}
         />
 
@@ -98,7 +98,7 @@ export function HeroBg() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-[60%] right-[5%] h-[90px] w-[90px] lg:h-[110px] lg:w-[110px] rounded-full border-2 border-[#080D35]/15 float-medium"
+          className="absolute top-[58%] right-[8%] h-[70px] w-[70px] lg:h-[85px] lg:w-[85px] rounded-full border-2 border-[#080D35]/15 float-medium"
           style={{ animationDelay: "2.5s" }}
         />
 
@@ -107,9 +107,9 @@ export function HeroBg() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.1 }}
-          className="absolute top-[15%] left-[20%]"
+          className="absolute top-[14%] left-[22%]"
         >
-          <div className="grid grid-cols-3 gap-[6px]">
+          <div className="grid grid-cols-3 gap-[5px]">
             {Array.from({ length: 9 }).map((_, i) => (
               <div
                 key={i}
@@ -128,7 +128,7 @@ export function HeroBg() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute bottom-[0%] right-[0%] h-[80px] w-[160px] lg:h-[100px] lg:w-[200px] rounded-b-full float-slow"
+          className="absolute bottom-[0%] right-[0%] h-[65px] w-[130px] lg:h-[80px] lg:w-[160px] rounded-b-full float-slow"
           style={{ background: "#FF5A00", opacity: 0.9, animationDelay: "4s" }}
         />
 
@@ -137,7 +137,7 @@ export function HeroBg() {
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 1.2, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-[70%] right-[20%] h-[1px] w-[140px] lg:w-[180px] origin-left drift-x"
+          className="absolute top-[70%] right-[22%] h-[1px] w-[120px] lg:w-[150px] origin-left drift-x"
           style={{ background: "linear-gradient(90deg, transparent, #080D35, transparent)", transform: "rotate(-12deg)", animationDelay: "2s" }}
         />
       </div>

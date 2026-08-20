@@ -40,9 +40,9 @@ export function Navbar() {
         scrolled ? "glass-strong" : "bg-transparent border-b border-transparent",
       )}
     >
-      <div className="container-x flex h-16 items-center justify-between md:h-20">
+      <div className="container-x flex h-14 items-center justify-between md:h-16">
         <div onClick={() => setOpen(false)}>
-          <Logo className="h-11 md:h-14 w-auto" />
+          <Logo className="h-9 md:h-11 w-auto" />
         </div>
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-1">

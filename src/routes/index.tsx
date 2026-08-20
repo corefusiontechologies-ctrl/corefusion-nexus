@@ -57,27 +57,27 @@ const stats = [
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden pt-28 md:pt-36 pb-8 md:pb-12 lg:min-h-[92vh] lg:flex lg:items-center">
+    <section className="relative overflow-hidden pt-24 md:pt-28 pb-6" style={{ minHeight: "min(900px, 92vh)" }}>
       <HeroBg />
 
       <div className="container-x relative">
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-4 items-center">
+        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-6 items-center min-h-[520px] lg:min-h-[580px]">
           {/* Left — content */}
-          <div className="relative z-10">
+          <div className="relative z-10 py-4">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease }}
-              className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 mb-7"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 mb-6"
             >
               <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-primary">
                 DIGITAL SOLUTIONS AGENCY
               </span>
             </motion.div>
 
-            {/* Headline */}
-            <h1 className="text-[48px] sm:text-[56px] md:text-[68px] lg:text-[80px] font-extrabold leading-[0.92] tracking-[-0.04em] text-navy">
+            {/* Headline — slightly reduced, tighter */}
+            <h1 className="text-[44px] sm:text-[52px] md:text-[60px] lg:text-[68px] font-extrabold leading-[0.95] tracking-[-0.035em] text-navy">
               {["WE BUILD", "DIGITAL", "EXPERIENCES", "THAT"].map((line, i) => (
                 <motion.span
                   key={i}
@@ -99,24 +99,24 @@ function Hero() {
               </motion.span>
             </h1>
 
-            {/* Subtitle */}
+            {/* Subtitle — closer to headline */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.7, ease }}
-              className="mt-7 max-w-[560px] text-[15px] md:text-base text-muted-foreground leading-[1.7]"
+              className="mt-5 max-w-[520px] text-[15px] md:text-base text-muted-foreground leading-[1.7]"
             >
               We design, develop and deliver modern software, websites, and
               AI-powered solutions that help businesses scale faster and go
               further.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTAs — closer to subtitle */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.85, duration: 0.6, ease }}
-              className="mt-9 flex flex-wrap items-center gap-3"
+              className="mt-7 flex flex-wrap items-center gap-3"
             >
               <Link to="/contact">
                 <Button size="lg" className="bg-primary text-white rounded-full hover:bg-primary/90 shadow-glow">
@@ -136,29 +136,29 @@ function Hero() {
         </div>
       </div>
 
-      {/* ── Floating stats card ─────────────────────────────────── */}
+      {/* ── Stats card — positioned below hero content, spanning width ── */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.8, ease }}
-        className="container-x relative z-10 mt-12 lg:mt-16"
+        transition={{ delay: 1.1, duration: 0.7, ease }}
+        className="container-x relative z-10 mt-8 md:mt-10"
       >
-        <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-white/90 backdrop-blur-md shadow-[0_8px_30px_-8px_rgba(0,0,0,0.06)]">
+        <div className="mx-auto max-w-[820px] rounded-[20px] border bg-white/95 backdrop-blur-sm shadow-[0_4px_24px_-4px_rgba(0,0,0,0.05)]" style={{ borderColor: "rgba(8,13,53,0.08)" }}>
           <div className="grid grid-cols-2 md:grid-cols-4">
             {stats.map((s, i) => (
               <div
                 key={s.label}
-                className={`flex flex-col items-center text-center px-6 py-6 md:py-7 ${
+                className={`flex flex-col items-center text-center px-4 py-5 md:px-6 md:py-6 ${
                   i < stats.length - 1 ? "md:border-r md:border-border" : ""
                 } ${i === 1 ? "border-t md:border-t-0 border-border" : ""} ${i === 3 ? "border-t md:border-t-0 border-border" : ""}`}
               >
-                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                  <s.Icon className="h-4 w-4 text-primary" />
+                <div className="mb-1.5 flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10">
+                  <s.Icon className="h-3.5 w-3.5 text-primary" />
                 </div>
-                <div className="text-2xl md:text-3xl font-extrabold tracking-tight text-navy">
+                <div className="text-xl md:text-2xl font-extrabold tracking-tight text-navy">
                   <Counter to={s.value} suffix={s.suffix} />
                 </div>
-                <div className="mt-1 text-[11px] md:text-xs text-muted-foreground">{s.label}</div>
+                <div className="mt-0.5 text-[10px] md:text-[11px] text-muted-foreground">{s.label}</div>
               </div>
             ))}
           </div>
