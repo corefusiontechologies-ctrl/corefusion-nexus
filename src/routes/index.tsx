@@ -484,7 +484,7 @@ function WhyUs() {
 
 function Stats() {
   const stats = [
-    { v: 3, suffix: "+", label: "Projects delivered" },
+    { v: 4, suffix: "+", label: "Projects delivered" },
     { v: 3, suffix: "", label: "Industries served" },
     { v: 24, suffix: "h", label: "Avg. response time" },
   ];
