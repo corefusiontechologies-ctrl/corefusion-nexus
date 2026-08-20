@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import {
   ArrowRight, ArrowUpRight, Code2, Cpu, Zap, Palette, Plug, LineChart, Film, PenTool,
   Quote, MessageSquare, Rocket, Wrench, CheckCircle2, Layers,
@@ -49,34 +48,9 @@ function HomePage() {
 /* ─── Hero — asymmetric split ──────────────────────────────────── */
 
 function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const sx = useSpring(mx, { stiffness: 60, damping: 20 });
-  const sy = useSpring(my, { stiffness: 60, damping: 20 });
-  const x = useTransform(sx, (v) => `${v}px`);
-  const y = useTransform(sy, (v) => `${v}px`);
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      if (!ref.current) return;
-      const r = ref.current.getBoundingClientRect();
-      mx.set((e.clientX - r.left - r.width / 2) * 0.05);
-      my.set((e.clientY - r.top - r.height / 2) * 0.05);
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, [mx, my]);
-
   return (
-    <section ref={ref} className="relative overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28">
+    <section className="relative overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28">
       <HeroBg />
-      <motion.div
-        style={{ x, y }}
-        className="pointer-events-none absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-signature-gradient opacity-10 blur-[140px]"
-        aria-hidden
-      />
-      <div className="pointer-events-none absolute inset-0 mesh-radial opacity-25" aria-hidden />
 
       <div className="container-x relative">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-8 items-center">
@@ -134,8 +108,23 @@ function Hero() {
             transition={{ delay: 0.3, duration: 0.9, ease }}
             className="relative hidden lg:block"
           >
-            <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/10 via-[#FF8C42]/10 to-primary/5 blur-xl" aria-hidden />
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-black/10" style={{ background: "#1a1a2e" }}>
+            {/* Soft drop shadow — large, diffused */}
+            <div
+              className="absolute -inset-4 rounded-3xl"
+              style={{
+                boxShadow: "0 25px 60px -12px rgba(0,0,0,0.18), 0 10px 30px -8px rgba(0,0,0,0.10)",
+              }}
+              aria-hidden
+            />
+            {/* Orange glow ring — reinforces visual anchor */}
+            <div
+              className="absolute -inset-3 rounded-3xl"
+              style={{
+                boxShadow: "0 0 40px -8px rgba(255,107,0,0.10), 0 0 80px -16px rgba(255,140,66,0.06)",
+              }}
+              aria-hidden
+            />
+            <div className="relative rounded-2xl overflow-hidden border border-black/10" style={{ background: "#1a1a2e" }}>
               <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
