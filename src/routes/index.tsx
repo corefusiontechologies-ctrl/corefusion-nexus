@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import {
   ArrowRight, ArrowUpRight, Code2, Cpu, Zap, Palette, Plug, LineChart, Film, PenTool,
   Quote, MessageSquare, Rocket, Wrench, CheckCircle2, Layers,
 } from "lucide-react";
-import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
+import { Section, Eyebrow } from "@/components/site/Section";
 import { Button } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
 import { Counter } from "@/components/site/Counter";
@@ -45,49 +46,71 @@ function HomePage() {
   );
 }
 
-/* ─── Hero — asymmetric split ──────────────────────────────────── */
+/* ─── Hero — Mission Control ───────────────────────────────────── */
+
+const headlineWords = ["We", "engineer", "digital", "solutions", "that", "help", "businesses", "grow."];
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28">
+    <section className="relative overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28 lg:min-h-[90vh] lg:flex lg:items-center">
       <HeroBg />
 
       <div className="container-x relative">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-8 items-center">
-          {/* Left — text */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger(0.05, 0.12)}
-          >
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 mb-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-10 items-center">
+          {/* Left — word-by-word headline */}
+          <div>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={stagger(0.04, 0.08)}
+              className="flex flex-wrap items-center gap-3 mb-8"
+            >
+              <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                 <span className="text-xs font-medium text-primary">Available for new projects</span>
-              </div>
-              <Eyebrow>Software · Design · AI · Cloud</Eyebrow>
+              </motion.div>
+              <motion.div variants={fadeUp}>
+                <Eyebrow>Software · Design · AI · Cloud</Eyebrow>
+              </motion.div>
             </motion.div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-bold leading-[1.0] tracking-[-0.035em]"
-            >
-              We engineer digital solutions{" "}
-              <br className="hidden sm:block" />
-              that{" "}
-              <span className="highlighter text-primary">help businesses grow.</span>
-            </motion.h1>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-bold leading-[1.0] tracking-[-0.035em]">
+              {headlineWords.map((word, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{
+                    delay: 0.15 + i * 0.07,
+                    duration: 0.7,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className={`inline-block mr-[0.3em] ${
+                    word === "grow." ? "highlighter text-primary" : ""
+                  }`}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </h1>
 
             <motion.p
-              variants={fadeUp}
-              className="mt-7 max-w-lg text-lg text-muted-foreground leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.7, ease }}
+              className="mt-8 max-w-lg text-lg text-muted-foreground leading-relaxed"
             >
               A modern software company. We design, develop, and deliver
               websites, custom software, and AI-powered automation for teams
               that need a real technology partner.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.6, ease }}
+              className="mt-10 flex flex-wrap gap-3"
+            >
               <Link to="/contact">
                 <Button size="lg">
                   Start a project <ArrowRight className="h-4 w-4" />
@@ -99,55 +122,42 @@ function Hero() {
                 </Button>
               </a>
             </motion.div>
-          </motion.div>
+          </div>
 
-          {/* Right — terminal card (offset, rotated) */}
+          {/* Right — live-typing terminal */}
           <motion.div
-            initial={{ opacity: 0, y: 40, rotate: 1.5 }}
+            initial={{ opacity: 0, y: 50, rotate: 1.5 }}
             animate={{ opacity: 1, y: 0, rotate: 1.5 }}
-            transition={{ delay: 0.3, duration: 0.9, ease }}
+            transition={{ delay: 0.4, duration: 1, ease }}
             className="relative hidden lg:block"
           >
-            {/* Soft drop shadow — large, diffused */}
+            {/* Soft drop shadow */}
             <div
-              className="absolute -inset-4 rounded-3xl"
+              className="absolute -inset-5 rounded-3xl"
               style={{
-                boxShadow: "0 25px 60px -12px rgba(0,0,0,0.18), 0 10px 30px -8px rgba(0,0,0,0.10)",
+                boxShadow: "0 30px 70px -15px rgba(0,0,0,0.20), 0 12px 35px -10px rgba(0,0,0,0.12)",
               }}
               aria-hidden
             />
-            {/* Orange glow ring — reinforces visual anchor */}
+            {/* Orange glow ring */}
             <div
-              className="absolute -inset-3 rounded-3xl"
+              className="absolute -inset-4 rounded-3xl"
               style={{
-                boxShadow: "0 0 40px -8px rgba(255,107,0,0.10), 0 0 80px -16px rgba(255,140,66,0.06)",
+                boxShadow: "0 0 50px -8px rgba(255,107,0,0.10), 0 0 100px -20px rgba(255,140,66,0.06)",
               }}
               aria-hidden
             />
             <div className="relative rounded-2xl overflow-hidden border border-black/10" style={{ background: "#1a1a2e" }}>
+              {/* Title bar */}
               <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
                 <span className="ml-3 font-mono text-xs text-white/40">corefusion ~ build</span>
               </div>
-              <div className="p-6 md:p-7 font-mono text-[13px] leading-relaxed text-white/80">
-                <ConsoleLine prompt>cf init --project "your-business" --stack modern</ConsoleLine>
-                <ConsoleLine delay={0.6}>
-                  <span className="text-[#FF8C42]">›</span> discovery · goals, users, scope
-                </ConsoleLine>
-                <ConsoleLine delay={1.0}>
-                  <span className="text-[#FF8C42]">›</span> design · UI/UX · brand system
-                </ConsoleLine>
-                <ConsoleLine delay={1.4}>
-                  <span className="text-[#FF8C42]">›</span> build · web · software · AI
-                </ConsoleLine>
-                <ConsoleLine delay={1.8}>
-                  <span className="text-[#28c840]">✓</span> launched · measured · supported
-                </ConsoleLine>
-                <ConsoleLine delay={2.2} muted>
-                  clean code · SEO ready · mobile-first · scalable
-                </ConsoleLine>
+              {/* Terminal body */}
+              <div className="p-6 md:p-7 font-mono text-[13px] leading-relaxed text-white/80 min-h-[260px]">
+                <TypingTerminal />
               </div>
             </div>
           </motion.div>
@@ -157,19 +167,92 @@ function Hero() {
   );
 }
 
-function ConsoleLine({
-  children, delay = 0, prompt = false, muted = false,
-}: { children: React.ReactNode; delay?: number; prompt?: boolean; muted?: boolean }) {
+/* ─── Typing terminal with phase state machine ──────────────── */
+
+const TYPING_SPEED = 45;
+const PAUSE_BETWEEN_LINES = 400;
+
+const terminalSequence = [
+  { type: "command" as const, text: 'cf launch "your-business" --modern' },
+  { type: "spacer" as const },
+  { type: "output" as const, marker: "›", markerColor: "#FF8C42", text: "discovery  goals, users, scope" },
+  { type: "output" as const, marker: "›", markerColor: "#FF8C42", text: "design     UI/UX, brand system" },
+  { type: "output" as const, marker: "›", markerColor: "#FF8C42", text: "build      web, software, AI" },
+  { type: "success" as const, marker: "✓", text: "launched   measured, supported" },
+  { type: "spacer" as const },
+  { type: "muted" as const, text: "clean code · SEO ready · mobile-first" },
+];
+
+function TypingTerminal() {
+  const [phase, setPhase] = useState<"typing" | "showing" | "done">("typing");
+  const [typedCmd, setTypedCmd] = useState("");
+  const [visibleLines, setVisibleLines] = useState(0);
+  const cmdIndex = useRef(0);
+
+  const commandText = terminalSequence[0].text;
+
+  // Phase 1: type the command
+  useEffect(() => {
+    if (phase !== "typing") return;
+    if (cmdIndex.current >= commandText.length) {
+      setTimeout(() => setPhase("showing"), 500);
+      return;
+    }
+    const t = setTimeout(() => {
+      setTypedCmd(commandText.slice(0, cmdIndex.current + 1));
+      cmdIndex.current += 1;
+    }, TYPING_SPEED);
+    return () => clearTimeout(t);
+  }, [phase, typedCmd, commandText]);
+
+  // Phase 2: reveal output lines one by one
+  useEffect(() => {
+    if (phase !== "showing") return;
+    const outputLines = terminalSequence.filter((l) => l.type !== "command" && l.type !== "spacer");
+    if (visibleLines >= outputLines.length) {
+      setTimeout(() => setPhase("done"), 600);
+      return;
+    }
+    const t = setTimeout(() => setVisibleLines((v) => v + 1), PAUSE_BETWEEN_LINES);
+    return () => clearTimeout(t);
+  }, [phase, visibleLines]);
+
+  const outputLines = terminalSequence.filter((l) => l.type !== "command" && l.type !== "spacer");
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.6 + delay, duration: 0.4, ease }}
-      className={muted ? "text-white/40" : ""}
-    >
-      {prompt && <span className="text-[#28c840] mr-2">$</span>}
-      {children}
-    </motion.div>
+    <div>
+      {/* Command line */}
+      <div>
+        <span className="text-[#28c840] mr-2">$</span>
+        <span>{typedCmd}</span>
+        {(phase === "typing" || phase === "showing") && (
+          <span className="hero-cursor" />
+        )}
+      </div>
+
+      {/* Output lines */}
+      <div className="mt-3 space-y-2">
+        <AnimatePresence>
+          {outputLines.slice(0, visibleLines).map((line, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.35, ease }}
+              className={line.type === "muted" ? "text-white/35" : ""}
+            >
+              <span
+                className="mr-2"
+                style={{ color: line.type === "success" ? "#28c840" : (line as { markerColor?: string }).markerColor || "inherit" }}
+              >
+                {line.marker}
+              </span>
+              {line.text}
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+    </div>
   );
 }
 
