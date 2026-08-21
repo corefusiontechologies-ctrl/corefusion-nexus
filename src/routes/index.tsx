@@ -15,6 +15,7 @@ import { HeroBg, HeroArt } from "@/components/site/HeroBg";
 import fimaCover from "@/assets/work/fima-cover.jpg.asset.json";
 import aqaiHome from "@/assets/work/aqai-home.jpg.asset.json";
 import sathaHero from "@/assets/work/satha-hero.jpg.asset.json";
+import pobCover from "@/assets/work/pob-foundation-cover.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -173,7 +174,7 @@ function Hero() {
 
 /* ─── Trust bar ───────────────────────────────────────────────── */
 
-const clients = ["FIMA SAVE VISION", "AQAI ASSOCIATES", "SATHA TOW SERVICE"];
+const clients = ["FIMA SAVE VISION", "AQAI ASSOCIATES", "SATHA TOW SERVICE", "POB FOUNDATION"];
 function TrustBar() {
   return (
     <section className="py-12 border-y border-border">
