@@ -133,10 +133,6 @@ function ContactPage() {
                   31.5204° N · 74.3587° E
                 </div>
               </div>
-              <div className="p-4 border-t border-border">
-                <div className="text-xs font-mono uppercase tracking-[0.18em] text-[color:var(--bronze)]">Serving clients in</div>
-                <p className="mt-2 text-sm">Pakistan · GCC · Europe · North America</p>
-              </div>
             </div>
           </Reveal>
         </div>
