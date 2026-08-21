@@ -117,6 +117,36 @@ const cases: Record<string, CaseData> = {
       { heading: "The result", body: "A streamlined landing page designed to maximise enquiries from advertising campaigns through fast loading times, clear calls to action, and native Arabic UX." },
     ],
   },
+  "pob-foundation": {
+    client: "POB Foundation", category: "Website Build · Non-Profit",
+    title: "A WordPress website for a foundation eliminating preventable blindness",
+    summary: "A complete WordPress website build for POB Foundation — an organisation dedicated to eliminating preventable blindness by making quality eye care accessible to everyone. Through a network of eye hospitals, outreach programmes, medical camps, school screening initiatives, prison eye-care services, and international humanitarian missions, POB provides free consultations, treatments, surgeries, and rehabilitation to those who need them most.",
+    url: "https://pobfoundation.org.pk/",
+    tech: "WordPress · HTML · CSS · JavaScript",
+    services: ["Website Development", "UI/UX Design", "Graphic Design", "Digital Growth"],
+    cover: assetUrl(pobCover.url),
+    gallery: [
+      { src: assetUrl(pobCover.url), caption: "Homepage hero — 'Quality Eye Care for Everyone'" },
+    ],
+    features: [
+      "Modern, accessible interface",
+      "Fully responsive across all devices",
+      "Optimised page performance",
+      "Clear presentation of programmes and impact",
+      "Donation-focused conversion flow",
+      "SEO-ready architecture",
+    ],
+    results: [
+      { metric: "100%", label: "Responsive & accessible" },
+      { metric: "↑", label: "Donor engagement" },
+      { metric: "SEO", label: "Ready & indexed" },
+    ],
+    sections: [
+      { heading: "The challenge", body: "POB Foundation needed a digital presence that could communicate the scale of their mission — eliminating preventable blindness — while making it easy for supporters to understand the work, the impact, and how to donate." },
+      { heading: "The work", body: "We built a structured WordPress site that presents POB's network of eye hospitals, outreach programmes, medical camps, school screenings, prison eye-care services, and international humanitarian missions with clarity. The architecture was tuned for performance, accessibility, and a donation-focused conversion flow." },
+      { heading: "The result", body: "A modern, accessible website that tells the Foundation's story clearly, works on every device, and gives visitors a direct path to support the mission through donations or enquiry." },
+    ],
+  },
 };
 
 export const Route = createFileRoute("/work/$slug")({
