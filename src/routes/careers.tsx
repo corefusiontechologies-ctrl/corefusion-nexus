@@ -4,7 +4,7 @@ import { ArrowUpRight, Sparkles, Heart, Mountain, Globe, BookOpen, Wallet } from
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { HeroBg } from "@/components/site/HeroBg";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeUp, stagger, viewportOnce, ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
