@@ -13,6 +13,7 @@ import fimaImpact from "@/assets/work/fima-impact.jpg.asset.json";
 import aqaiHome from "@/assets/work/aqai-home.jpg.asset.json";
 import aqaiServices from "@/assets/work/aqai-services.jpg.asset.json";
 import sathaHero from "@/assets/work/satha-hero.jpg.asset.json";
+import pobCover from "@/assets/work/pob-foundation-cover.png.asset.json";
 
 type CaseData = {
   client: string; category: string; title: string; summary: string;
