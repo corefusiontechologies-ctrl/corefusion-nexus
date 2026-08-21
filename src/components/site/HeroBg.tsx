@@ -18,8 +18,71 @@ export function HeroBg() {
         style={{ background: "radial-gradient(circle, rgba(8,13,53,0.06) 0%, transparent 60%)" }}
       />
 
-      {/* ── Main geometric composition — desktop only, right half ──── */}
-      <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-[18%] -translate-y-1/2 w-[460px] h-[460px] lg:w-[520px] lg:h-[520px]">
+      {/* ── Decorative elements — scattered around hero ──────── */}
+
+      {/* Thin orange diagonal line — left side */}
+      <motion.div
+        initial={{ opacity: 0, scaleX: 0 }}
+        animate={{ opacity: 1, scaleX: 1 }}
+        transition={{ duration: 1.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute top-[35%] left-[2%] h-[1px] w-[80px] origin-left"
+        style={{ background: "linear-gradient(90deg, transparent, rgba(255,90,0,0.3), transparent)", transform: "rotate(-30deg)" }}
+      />
+
+      {/* Small orange dot — top left */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute top-[20%] left-[5%] h-2 w-2 rounded-full pulse-dot"
+        style={{ background: "#FF5A00", opacity: 0.4 }}
+      />
+
+      {/* Outlined circle — left */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute bottom-[30%] left-[3%] h-[50px] w-[50px] rounded-full border border-[#080D35]/10"
+      />
+
+      {/* Tiny dot grid — bottom left */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 1.5 }}
+        className="absolute bottom-[15%] left-[8%]"
+      >
+        <div className="grid grid-cols-4 gap-[5px]">
+          {Array.from({ length: 16 }).map((_, i) => (
+            <div
+              key={i}
+              className="h-[2px] w-[2px] rounded-full"
+              style={{ background: "#080D35", opacity: 0.1 }}
+            />
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Small orange dot — right side near composition */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute top-[15%] right-[3%] h-1.5 w-1.5 rounded-full"
+        style={{ background: "#FF5A00", opacity: 0.5 }}
+      />
+    </div>
+  );
+}
+
+/**
+ * Geometric artwork — lives inside the hero grid's right column so it
+ * always aligns with the text column instead of floating over it.
+ */
+export function HeroArt() {
+  return (
+    <div className="relative mx-auto w-full max-w-[520px] aspect-square" aria-hidden>
 
         {/* Large navy circle — back layer */}
         <motion.div
@@ -140,62 +203,6 @@ export function HeroBg() {
           className="absolute top-[70%] right-[22%] h-[1px] w-[120px] lg:w-[150px] origin-left drift-x"
           style={{ background: "linear-gradient(90deg, transparent, #080D35, transparent)", transform: "rotate(-12deg)", animationDelay: "2s" }}
         />
-      </div>
-
-      {/* ── Decorative elements — scattered around hero ──────── */}
-
-      {/* Thin orange diagonal line — left side */}
-      <motion.div
-        initial={{ opacity: 0, scaleX: 0 }}
-        animate={{ opacity: 1, scaleX: 1 }}
-        transition={{ duration: 1.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute top-[35%] left-[2%] h-[1px] w-[80px] origin-left"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(255,90,0,0.3), transparent)", transform: "rotate(-30deg)" }}
-      />
-
-      {/* Small orange dot — top left */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute top-[20%] left-[5%] h-2 w-2 rounded-full pulse-dot"
-        style={{ background: "#FF5A00", opacity: 0.4 }}
-      />
-
-      {/* Outlined circle — left */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute bottom-[30%] left-[3%] h-[50px] w-[50px] rounded-full border border-[#080D35]/10"
-      />
-
-      {/* Tiny dot grid — bottom left */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, delay: 1.5 }}
-        className="absolute bottom-[15%] left-[8%]"
-      >
-        <div className="grid grid-cols-4 gap-[5px]">
-          {Array.from({ length: 16 }).map((_, i) => (
-            <div
-              key={i}
-              className="h-[2px] w-[2px] rounded-full"
-              style={{ background: "#080D35", opacity: 0.1 }}
-            />
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Small orange dot — right side near composition */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute top-[15%] right-[3%] h-1.5 w-1.5 rounded-full"
-        style={{ background: "#FF5A00", opacity: 0.5 }}
-      />
     </div>
   );
 }
