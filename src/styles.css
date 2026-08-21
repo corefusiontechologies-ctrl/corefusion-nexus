@@ -165,10 +165,10 @@
 }
 
 @utility glass {
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px) saturate(150%);
+  background-color: var(--surface-elevated);
   border: 1px solid var(--border);
 }
+
 
 @utility glass-strong {
   background-color: rgba(255, 255, 255, 0.95);
