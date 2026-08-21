@@ -131,8 +131,11 @@ function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — spacer for geometric artwork (rendered by HeroBg) */}
-          <div className="hidden lg:block" aria-hidden />
+          {/* Right — geometric artwork, aligned to the grid column */}
+          <div className="hidden lg:flex items-center justify-center relative z-0">
+            <HeroArt />
+          </div>
+
         </div>
       </div>
 
