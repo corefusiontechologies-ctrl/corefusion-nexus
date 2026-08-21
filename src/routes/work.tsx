@@ -13,6 +13,7 @@ import { assetUrl } from "@/lib/assets";
 import fimaCover from "@/assets/work/fima-cover.jpg.asset.json";
 import aqaiHome from "@/assets/work/aqai-home.jpg.asset.json";
 import sathaHero from "@/assets/work/satha-hero.jpg.asset.json";
+import pobCover from "@/assets/work/pob-foundation-cover.png.asset.json";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -49,6 +50,12 @@ const cases = [
     title: "A high-converting Arabic RTL landing page for paid campaigns",
     metric: "RTL", metricLabel: "native Arabic experience",
     cover: assetUrl(sathaHero.url),
+  },
+  {
+    id: "pob-foundation", client: "POB Foundation", category: "Non-Profit",
+    title: "A WordPress build for a foundation fighting preventable blindness",
+    metric: "100%", metricLabel: "responsive & accessible",
+    cover: assetUrl(pobCover.url),
   },
 ];
 
