@@ -4,7 +4,7 @@ import { ArrowUpRight, Sparkles, Heart, Mountain, Globe, BookOpen, Wallet } from
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { HeroBg } from "@/components/site/HeroBg";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeUp, stagger, viewportOnce, ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -100,29 +100,31 @@ function CareersPage() {
           </div>
         </Reveal>
 
-        <motion.ul layout className="mt-10 divide-y divide-border border-y border-border">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((r, i) => (
-              <motion.li key={r.title} layout
-                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, ease, delay: i * 0.04 }}>
-                <a href="#" className="group flex items-center justify-between gap-6 py-6 px-2">
-                  <div className="min-w-0">
-                    <div className="text-xs font-mono uppercase tracking-[0.18em] text-[color:var(--bronze)]">{r.department}</div>
-                    <h3 className="mt-2 text-lg md:text-xl font-semibold group-hover:text-primary transition-colors">{r.title}</h3>
-                  </div>
-                  <div className="shrink-0 flex items-center gap-6">
-                    <span className="hidden sm:inline text-sm text-muted-foreground">{r.location}</span>
-                    <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                  </div>
-                </a>
-              </motion.li>
-            ))}
-          </AnimatePresence>
+        <ul className="mt-10 divide-y divide-border border-y border-border">
+          {filtered.map((r, i) => (
+            <motion.li
+              key={r.title}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease, delay: i * 0.04 }}
+            >
+              <a href="#" className="group flex items-center justify-between gap-6 py-6 px-2">
+                <div className="min-w-0">
+                  <div className="text-xs font-mono uppercase tracking-[0.18em] text-[color:var(--bronze)]">{r.department}</div>
+                  <h3 className="mt-2 text-lg md:text-xl font-semibold group-hover:text-primary transition-colors">{r.title}</h3>
+                </div>
+                <div className="shrink-0 flex items-center gap-6">
+                  <span className="hidden sm:inline text-sm text-muted-foreground">{r.location}</span>
+                  <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </div>
+              </a>
+            </motion.li>
+          ))}
           {filtered.length === 0 && (
             <li className="py-12 text-center text-muted-foreground">No roles match these filters.</li>
           )}
-        </motion.ul>
+        </ul>
+
 
         <Reveal>
           <p className="mt-10 text-muted-foreground">
