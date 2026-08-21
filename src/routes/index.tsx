@@ -11,7 +11,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { Counter } from "@/components/site/Counter";
 import { fadeUp, stagger, viewportOnce, ease } from "@/lib/motion";
 import { assetUrl } from "@/lib/assets";
-import { HeroBg } from "@/components/site/HeroBg";
+import { HeroBg, HeroArt } from "@/components/site/HeroBg";
 import fimaCover from "@/assets/work/fima-cover.jpg.asset.json";
 import aqaiHome from "@/assets/work/aqai-home.jpg.asset.json";
 import sathaHero from "@/assets/work/satha-hero.jpg.asset.json";
