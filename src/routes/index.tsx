@@ -293,6 +293,12 @@ const featured = [
     desc: "High-converting Arabic RTL landing page for a 24/7 towing service in Saudi Arabia.",
     cover: assetUrl(sathaHero.url),
   },
+  {
+    slug: "pob-foundation", title: "POB Foundation",
+    tag: "Website Build · Non-Profit",
+    desc: "WordPress website for a foundation dedicated to eliminating preventable blindness.",
+    cover: assetUrl(pobCover.url),
+  },
 ];
 
 function FeaturedWork() {
