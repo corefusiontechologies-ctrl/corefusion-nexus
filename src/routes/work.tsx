@@ -51,6 +51,12 @@ const cases = [
     metric: "RTL", metricLabel: "native Arabic experience",
     cover: assetUrl(sathaHero.url),
   },
+  {
+    id: "pob-foundation", client: "POB Foundation", category: "Non-Profit",
+    title: "A WordPress build for a foundation fighting preventable blindness",
+    metric: "100%", metricLabel: "responsive & accessible",
+    cover: assetUrl(pobCover.url),
+  },
 ];
 
 function WorkPage() {
